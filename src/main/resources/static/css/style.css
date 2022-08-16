@@ -8,9 +8,7 @@
 
 header {
 	width : 300px;
-	height : 100px;
-	font-size : 45px;
-	font-weight : bold;
+	height : 70px;
 	color : #273c75;
 }
 
@@ -19,68 +17,59 @@ nav {
 	height : 100px;
 }
 
-section {
-	width : 1200px;
-	height : 650px;
+.signupBox {
+	height : 35px;
 }
 
-.photo {
-	width : 600px;
-	height : 650px;
+.signupBox2 {
+	height : 20px;
 }
 
-.signup {
-	width : 600px;
-	height : 650px;
+.signupBox3 {
+	height : 5px;
 }
 
-.welcomeComment {
-	width : 600px;
-	height : 80px;
-	font-size : 22px;
+#overLapBtn {
+	color : white;
+	background-color : #273c75;
+}
+
+#sendBtn {
+	color : white;
+	background-color : #273c75;
+}
+
+#certBtn {
+	color : white;
+	background-color : #273c75;
+}
+
+#addBtn {
+	color : white;
+	background-color : #273c75;
+}
+
+.login {
 	color : #273c75;
 }
 
-.signuplabel {
-	width : 120px;
-}
-
-.labelword {
-	width : 140px;
-	height : 70px;
+.signinlabel {
 	font-size : 20px;
+	color : #273c75;
 }
 
-.labelword2 {
-	width : 140px;
-	height : 50px;
-	font-size : 20px;
+.signinInput {
+	height : 45px;
 }
 
-.labelword {
-	width : 140px;
-	height : 70px;
-	font-size : 20px;
-}
-
-.signupinput {
-	width : 480px;
-}
-
-.inputword {
-	width : 480px;
-	height : 70px;
-}
-
-.inputword2 {
-	width : 480px;
-	height : 50px;
-}
-
-.signupbtn {
+.signinbtn {
+	height : 45px;
 	color : white;
 	background-color : #273c75;
-	
+}
+
+.orword {
+	font-size : 20px;
 }
 
 footer {

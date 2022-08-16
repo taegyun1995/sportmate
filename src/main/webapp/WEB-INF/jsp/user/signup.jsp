@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,101 +16,94 @@
 <body>
 	<div id="wrap">
 		
-		<header>
-			<div class="h-100 d-flex justify-content-center align-items-center"> SportMate </div>
-		</header>
+		<c:import url="/WEB-INF/jsp/include/header.jsp" />
+		<hr>
 		
-		<section>
-			<div class="d-flex py-1">
-				<div class="photo d-flex align-items-center">
-					<img width="550" height="400" src="/static/img/teamwork.png" />
+		<section class="py-5">
+		
+			<div class="d-flex p-2">
+			
+				<div class="d-flex justify-content-center align-items-center col-6">
+					<img width="550" height="350" src="/static/img/teamwork.png" />
 				</div>
-				<div class="signup">
-					<div class="welcomeComment d-flex justify-content-center align-items-center"> 같이 운동할 사람 찾고 싶을 땐 SportMate </div>
+				
+				<div class="col-6">
+					<h5 class="welcome text-center text-secondary mb-4"> 같이 운동할 사람 찾고 싶을 땐 SportMate </h5>
 					
 					<div class="d-flex">
-						<div class="signuplabel">
-							<div class="labelword"> 아이디 </div>
-							<div class="labelword"> 비밀번호 </div>
-							<div class="labelword"> 이름 </div>
-							<div class="labelword"> 주민등록번호 </div>
-							<div class="labelword"> 연락처 </div>
-							<div class="labelword2"> 이메일 </div>
-							<div class="labelword2"> </div>
+						<div class="col-2.5">
+							<div class="signupBox d-flex align-items-center"> 아이디 </div>
+							<div class="signupBox2 d-flex align-items-center">  </div>
+							<div class="signupBox d-flex align-items-center"> 비밀번호 </div>
+							<div class="signupBox2 d-flex align-items-center">  </div>
+							<div class="signupBox d-flex align-items-center"> 이름 </div>
+							<div class="signupBox2 d-flex align-items-center">  </div>
+							<div class="signupBox d-flex align-items-center"> 주민등록번호 </div>
+							<div class="signupBox2 d-flex align-items-center">  </div>
+							<div class="signupBox d-flex align-items-center"> 연락처 </div>
+							<div class="signupBox2 d-flex align-items-center">  </div>
+							<div class="signupBox d-flex align-items-center"> 이메일 </div>
+							<div class="signupBox3 d-flex align-items-center">  </div>
+							<div class="signupBox d-flex align-items-center">  </div>
 						</div>
 						
-						<div class="signupinput">
-						
-							<div class="inputword">
-								<div class="d-flex">
-									<input type="text" class="form-control col-4 mr-1" placeholder="아이디" id="idInput" />
-									<button type="button" class="signupbtn btn col-2"> 중복확인 </button>
-								</div>
-								<div class="text-danger"> <small> 중복된 아이디입니다. </small> </div>
-								<div class="text-success d-none"> <small> 사용가능한 아이디입니다. </small> </div>
+						<div class="col-9">
+							<div class="signupBox d-flex">
+								<input type="text" placeholder="아이디" class="form-control col-5" />
+								<button type="button" class="btn col-3 ml-1" id="overLapBtn"> 중복확인 </button>
 							</div>
+							<div class="signupBox2 d-none"> <small class="d-flex align-items-start text-danger"> 중복된 아이디입니다. </small> </div>
+							<div class="signupBox2"> <small class="d-flex align-items-start text-success"> 사용가능한 아이디입니다. </small> </div>
 							
-							<div class="inputword">
-								<div class="d-flex">
-									<input type="password" class="form-control col-4 mr-1" placeholder="비밀번호" />
-									<input type="password" class="form-control col-4 mr-1" placeholder="비밀번호 확인" />
-									<button type="button" class="signupbtn btn col-2"> 중복확인 </button>
-								</div>
-								<div class="text-success"> <small> 비밀번호가 일치합니다. </small> </div>
+							<div class="signupBox d-flex">
+								<input type="password" placeholder="패스워드" class="form-control col-4" />
+								<input type="password" placeholder="패스워드" class="form-control col-4 ml-1" />
 							</div>
+							<div class="signupBox2"> <small class="d-flex align-items-start text-success"> 비밀번호가 일치합니다. </small> </div>
 							
-							<div class="inputword">
-								<input type="text" class="form-control col-4" placeholder="이름" />
+							<div class="signupBox">
+								<input type="text" placeholder="이름" class="form-control col-5" />
 							</div>
+							<div class="signupBox2 d-flex align-items-center">  </div>
 							
-							<div class="inputword">
-								<div class="d-flex">
-									<input type="text" class="form-control col-4 mr-1" placeholder="주민등록번호 앞자리" />
-									<div class="d-flex justify-content-center align-items-center"> - </div>
-									<input type="text" class="form-control col-4 ml-1" placeholder="주민등록번호 뒷자리" />
-								</div>
+							<div class="signupBox d-flex">
+								<input type="password" placeholder="생년월일" class="form-control col-5" />
+								<div class="d-flex justify-content-center align-items-center mx-1"> - </div>
+								<input type="password" placeholder="주민등록번호" class="form-control col-5" />
 							</div>
+							<div class="signupBox2 d-flex align-items-center">  </div>
 							
-							<div class="inputword">
-								<input type="text" class="form-control col-5" placeholder="연락처" />
+							<div class="signupBox">
+								<input type="text" placeholder="연락처" class="form-control col-5" />
 							</div>
+							<div class="signupBox2 d-flex align-items-center">  </div>
 							
-							<div class="inputword2">
-								<div class="d-flex">
-									<input type="text" class="form-control col-4 mr-1" placeholder="sport" />
-									<div class="d-flex justify-content-center align-items-center"> @ </div>
-									<input type="text" class="form-control col-4 ml-1" placeholder="mate.com" />
-									<button type="button" class="signupbtn btn col-2 ml-1"> 전송 </button>
-								</div>
+							<div class="signupBox d-flex">
+								<input type="password" placeholder="패스워드" class="form-control col-4" />
+								<div class="d-flex justify-content-center align-items-center mx-1"> @ </div>
+								<input type="password" placeholder="패스워드" class="form-control col-4" />
+								<button type="button" class="btn col-3 ml-1" id="sendBtn"> 전송 </button>
 							</div>
+							<div class="signupBox3 d-flex align-items-center">  </div>
 							
-							<div class="inputword2">
-								<div class="d-flex">
-									<input type="text" class="form-control col-4 mr-1" placeholder="인증번호" />
-									<button type="button" class="signupbtn btn col-2"> 인증 </button>
-								</div>
+							<div class="signupBox d-flex">
+								<input type="text" placeholder="인증번호" class="form-control col-4" />
+								<button type="button" class="btn col-3 ml-1" id="certBtn"> 인증 </button>
 							</div>
-							
 						</div>
 					</div>
 					
-					<div class="d-flex justify-content-center"> 
-						<button type="button" class="signupbtn btn col-10 mt-3" id="addBtn"> 가입하기 </button>
-					</div>
-					
-					<div class="d-flex justify-content-center">
-						<div class="mt-3"> 계정이 있으신가요? </div>
-						<a href="#" class="d-flex align-items-end ml-2"> 로그인 </a>
-					</div>
-					
+				<div class="d-flex justify-content-center pt-4">
+					<button type="button" class="btn col-8" id="addBtn"> 가입하기 </button>
 				</div>
+				
+				</div>
+				
 			</div>
+			
 		</section>
 		
-		<footer class="text-secondary d-flex align-items-end">
-			CopyRights SportMate 
-		</footer>
-	
+		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 	</div>
 	
 	<script>
@@ -117,11 +111,49 @@
 			
 			$("#addBtn").on("click", function(){
 				let id = $("#idInput").val();
+				let pw = $("#pwInput").val();
+				let repw = $("#pwReInput").val();
+				let name = $("#name").val();
+				let firstsecNum = $("#FirstsecNum").val();
+				let lastsecNum = $("#LastsecNum").val();
+				let phoneNum = $("#phoneNum").val();
+				let email = $("#email").val();
 				
 				if(id == "") {
 					alert("아이디를 입력해주세요.");
 					return;
 				}
+				
+				if(pw == "") {
+					alert("비밀번호를 입력해주세요.");
+					return;
+				}
+				
+				if(name == "") {
+					alert("이름을 입력해주세요.");
+					return;
+				}
+				
+				if(firstsecNum == "") {
+					alert("주민등록번호를 입력해주세요.");
+					return;
+				}
+				
+				if(lastsecNum == "") {
+					alert("주민등록번호를 입력해주세요.");
+					return;
+				}
+				
+				if(phoneNum == "") {
+					alert("연락처를 입력해주세요.");
+					return;
+				}
+				
+				if(email == "") {
+					alert("이메일을 입력해주세요.");
+					return;
+				}
+				
 			});
 			
 		});
