@@ -2,6 +2,6 @@
     pageEncoding="UTF-8"%>
 
    		<header>
-			<h3 class="h-100 d-flex justify-content-center align-items-center"> SportMate </h3>
+			<h2 class="h-100 d-flex justify-content-center align-items-center"> SportMate </h2>
 		</header>
 		

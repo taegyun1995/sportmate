@@ -7,8 +7,8 @@
 }
 
 header {
-	width : 300px;
-	height : 70px;
+	width : 200px;
+	height : 100px;
 	color : #273c75;
 }
 
@@ -17,59 +17,86 @@ nav {
 	height : 100px;
 }
 
-.signupBox {
-	height : 35px;
+.signupLabel {
+	font-size : 13px;
 }
 
-.signupBox2 {
-	height : 20px;
+.signupInput {
+	height : 30px;
+	font-size : 13px;
 }
 
-.signupBox3 {
-	height : 5px;
+input[type=text], input[type=password], input[type=email] {
+  border: none;
+  border-bottom: 1px solid;
 }
 
 #overLapBtn {
+	height : 30px;
+	font-size: 13px;
+	color : #273c75;
+	background-color : white;
+	border: 1px solid #273c75;
+	border-radius : 12px;
+}
+
+#overLapBtn:hover {
+	height : 30px;
+	font-size: 13px;
 	color : white;
 	background-color : #273c75;
+	border: 1px solid #273c75;
+	border-radius : 12px;
 }
 
 #sendBtn {
-	color : white;
-	background-color : #273c75;
+	height : 30px;
+	font-size: 13px;
+	color : #273c75;
+	background-color : white;
+	border: 1px solid #273c75;
+	border-radius : 12px;
 }
 
-#certBtn {
+#sendBtn:hover {
+	height : 30px;
+	font-size: 13px;
 	color : white;
 	background-color : #273c75;
+	border: 1px solid #273c75;
 }
 
 #addBtn {
+	height : 30px;
+	color : #273c75;
+	background-color : white;
+	border: 1px solid #273c75;
+	border-radius : 12px;
+}
+
+#addBtn:hover {
+	height : 30px;
 	color : white;
 	background-color : #273c75;
+	border: 1px solid #273c75;
+	border-radius : 12px;
 }
 
-.login {
-	color : #273c75;
+.signinSec {
+	background-color : #d5d5d5;
 }
 
-.signinlabel {
-	font-size : 20px;
-	color : #273c75;
+.signinBox {
+	height : 35px;
 }
 
-.signinInput {
-	height : 45px;
+.signinBox2 {
+	height : 20px;
 }
 
-.signinbtn {
-	height : 45px;
+#loginBtn {
 	color : white;
 	background-color : #273c75;
-}
-
-.orword {
-	font-size : 20px;
 }
 
 footer {
