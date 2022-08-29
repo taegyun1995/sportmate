@@ -13,7 +13,7 @@ header {
 }
 
 nav {
-	width : 900px;
+	width : 1000px;
 	height : 100px;
 }
 
@@ -31,7 +31,7 @@ input[type=text], input[type=password], input[type=email] {
   border-bottom: 1px solid;
 }
 
-#overLapBtn {
+#idoverLapBtn {
 	height : 30px;
 	font-size: 13px;
 	color : #273c75;
@@ -40,7 +40,25 @@ input[type=text], input[type=password], input[type=email] {
 	border-radius : 12px;
 }
 
-#overLapBtn:hover {
+#idoverLapBtn:hover {
+	height : 30px;
+	font-size: 13px;
+	color : white;
+	background-color : #273c75;
+	border: 1px solid #273c75;
+	border-radius : 12px;
+}
+
+#pwoverLapBtn {
+	height : 30px;
+	font-size: 13px;
+	color : #273c75;
+	background-color : white;
+	border: 1px solid #273c75;
+	border-radius : 12px;
+}
+
+#pwoverLapBtn:hover {
 	height : 30px;
 	font-size: 13px;
 	color : white;
@@ -66,7 +84,7 @@ input[type=text], input[type=password], input[type=email] {
 	border: 1px solid #273c75;
 }
 
-#addBtn {
+#signupBtn {
 	height : 30px;
 	color : #273c75;
 	background-color : white;
@@ -74,7 +92,7 @@ input[type=text], input[type=password], input[type=email] {
 	border-radius : 12px;
 }
 
-#addBtn:hover {
+#signupBtn:hover {
 	height : 30px;
 	color : white;
 	background-color : #273c75;
@@ -97,6 +115,21 @@ input[type=text], input[type=password], input[type=email] {
 #loginBtn {
 	color : white;
 	background-color : #273c75;
+}
+
+.main {
+	width : 1200px;
+	height : 600px;
+}
+
+.photo1 {
+	width : 400px;
+	height : 300px;
+}
+
+.photo2 {
+	width : 400px;
+	height : 300px;
 }
 
 footer {

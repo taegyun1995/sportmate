@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.project.sportmate.user.dao.UserDAO">
+ 
+ 	<insert id="insertUser" parameterType="map">
+ 		INSERT INTO
+ 			`user`
+ 		(
+ 			`loginId`
+ 			, `password`
+ 			, `name`
+ 			, `phoneNum`
+ 			, `birth`
+ 			, `email`
+ 			, `createdAt`
+ 			, `updatedAt`
+ 		)
+ 		VALUES
+ 		(
+ 			#{loginId}
+ 			, #{password}
+ 			, #{name}
+ 			, #{phoneNum}
+ 			, #{birth}
+ 			, #{email}
+ 			, now()
+ 			, now()
+ 		)
+ 	</insert>
+ 
+ 	<select id="overlapLoginId" resultType="int" parameterType="string">
+ 		SELECT
+ 			count(1)
+		FROM 
+			`user`
+		WHERE
+			`loginId` = #{loginId}
+ 	</select>
+ 	
+ 	<select id="getUser" parameterType="map" resultType="com.project.sportmate.user.model.User">
+		SELECT 
+			`id`
+			, `loginId`
+			, `password`
+			, `name`
+			, `phoneNum`
+			, `birth`
+			, `email`
+			, `createdAt`
+			, `updatedAt`
+		FROM 
+			`user`
+		WHERE
+			`loginId` = #{loginId}
+			AND `password` = #{password}
+ 	</select>
+
+	 <select id="getUserbyId" parameterType="int" resultType="com.project.sportmate.user.model.User">
+		SELECT 
+			`id`
+			, `loginId`
+			, `password`
+			, `name`
+			, `phoneNum`
+			, `birth`
+			, `email`
+			, `createdAt`
+			, `updatedAt`
+		FROM 
+			`user`
+		WHERE
+			`id` = #{id}
+ 	</select>
+ 	
+ </mapper>

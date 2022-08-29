@@ -1,5 +1,8 @@
 package com.project.sportmate.user;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -18,6 +21,19 @@ public class UserController {
 	public String signin() {
 		
 		return "/user/signin";
+	}
+	
+	// 로그아웃
+	@GetMapping("/user/sign/out")
+	public String signOut(HttpServletRequest request) {
+		
+		HttpSession session = request.getSession();
+		session.removeAttribute("userId");
+		session.removeAttribute("userName");
+		session.removeAttribute("userLoginId");
+		session.removeAttribute("userBirth");
+		
+		return "redirect:/sportmate/user/signin/view";
 	}
 
 }
