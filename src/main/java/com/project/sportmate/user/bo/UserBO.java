@@ -59,5 +59,13 @@ public class UserBO {
 			return true;
 		}
 	}
+	
+	public int updatePw(String password, String loginId, String email) {
+		
+		String encryptPassword = EncryptUtils.md5(password);
+		
+		return userDAO.updatePassword(encryptPassword, loginId, email);
+		
+	}
 
 }

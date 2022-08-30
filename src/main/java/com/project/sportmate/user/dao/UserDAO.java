@@ -32,5 +32,10 @@ public interface UserDAO {
 			@Param("loginId") String loginId
 			, @Param("email") String email);
 	
+	public int updatePassword(
+			@Param("password") String password
+			, @Param("loginId") String loginId
+			, @Param("email") String email);
+	
 	
 }

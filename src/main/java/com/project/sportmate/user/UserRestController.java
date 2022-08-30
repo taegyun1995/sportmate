@@ -106,7 +106,9 @@ public class UserRestController {
 	
 	// 비밀번호 변경
 	@GetMapping("/user/overlap/password")
-	public Map<String, Boolean> userchangePw(String loginId, String email) {
+	public Map<String, Boolean> userchangePw(
+			@RequestParam("loginId") String loginId
+			, @RequestParam("email") String email) {
 		
 		Map<String, Boolean> result = new HashMap<>();
 		if(userBO.changePw(loginId, email)) {
@@ -116,6 +118,25 @@ public class UserRestController {
 		}
 		
 		return result;
+	}
+	
+	@PostMapping("/user/change/password")
+	public Map<String, String> changeUserPw(
+			@RequestParam("password") String password
+			, @RequestParam("loginId") String loginId
+			, @RequestParam("email") String email) {
+		
+		Map<String, String> map = new HashMap<>();
+		
+		int count = userBO.updatePw(password, loginId, email);
+		
+		if(count == 1) {
+			map.put("result", "success");
+		} else {
+			map.put("result", "fail");
+		}
+		
+		return map;
 	}
 	
 	

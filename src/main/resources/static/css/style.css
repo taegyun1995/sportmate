@@ -190,6 +190,20 @@ input[type=text], input[type=password], input[type=email] {
 	border: 1px solid #273c75;
 }
 
+#passwordchangeBtn {
+	height : 30px;
+	color : #273c75;
+	background-color : white;
+	border: 1px solid #273c75;
+}
+
+#passwordchangeBtn:hover {
+	height : 30px;
+	color : white;
+	background-color : #273c75;
+	border: 1px solid #273c75;
+}
+
 #cancelBtn {
 	height : 30px;
 	color : #273c75;
