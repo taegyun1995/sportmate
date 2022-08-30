@@ -42,5 +42,22 @@ public class UserBO {
 		
 		return userDAO.getUserbyId(id);
 	}
+	
+	public String getLoginId(String name, String phoneNum) {
+		
+		return userDAO.getLoginId(name, phoneNum);
+		
+	}
+	
+	public boolean changePw(String loginId, String email) {
+		
+		int count = userDAO.overlapPassword(loginId, email);
+		
+		if(count == 0) {
+			return false;
+		} else {
+			return true;
+		}
+	}
 
 }

@@ -75,4 +75,26 @@
 			`id` = #{id}
  	</select>
  	
+ 	<select id="getLoginId" resultType="String" parameterType="string">
+		 SELECT
+			`loginId`
+		FROM 
+			`user`
+		WHERE
+			`name` = #{name}
+			AND `phoneNum` = #{phoneNum}
+ 	</select>
+ 	
+ 	<select id="overlapPassword" resultType="int" parameterType="String">
+ 	 	SELECT
+ 			count(1)
+		FROM 
+			`user`
+		WHERE
+			`loginId` = #{loginId}
+			AND `email` = #{email}
+ 	</select>
+ 	
+ 	
+ 	
  </mapper>

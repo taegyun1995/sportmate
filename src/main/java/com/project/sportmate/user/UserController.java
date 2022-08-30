@@ -35,5 +35,20 @@ public class UserController {
 		
 		return "redirect:/sportmate/user/signin/view";
 	}
-
+	
+	// 아이디 찾기
+	@GetMapping("/sportmate/user/find/id/view")
+	public String loginIdFindView() {
+		
+		return "/user/findId";
+	}
+	
+	// 비밀번호 변경
+	@GetMapping("/sportmate/user/change/pw/view")
+	public String passwordFindView() {
+		
+		return "/user/findPw";
+	}
+	
+	
 }

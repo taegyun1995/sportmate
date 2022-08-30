@@ -132,6 +132,119 @@ input[type=text], input[type=password], input[type=email] {
 	height : 300px;
 }
 
+#idfindBtn {
+	width : 150px;
+	height : 30px;
+	color : #273c75;
+	background-color : white;
+	border: 1px solid #273c75;
+}
+
+#idfindBtn:hover {
+	height : 30px;
+	color : white;
+	background-color : #273c75;
+	border: 1px solid #273c75;
+}
+
+#pwfindBtn {
+	width : 150px;
+	height : 30px;
+	color : #273c75;
+	background-color : white;
+	border: 1px solid #273c75;
+}
+
+#pwfindBtn:hover {
+	height : 30px;
+	color : white;
+	background-color : #273c75;
+	border: 1px solid #273c75;
+}
+
+#loginIdfindBtn {
+	height : 30px;
+	color : #273c75;
+	background-color : white;
+	border: 1px solid #273c75;
+}
+
+#loginIdfindBtn:hover {
+	height : 30px;
+	color : white;
+	background-color : #273c75;
+	border: 1px solid #273c75;
+}
+
+#passwordfindBtn {
+	height : 30px;
+	color : #273c75;
+	background-color : white;
+	border: 1px solid #273c75;
+}
+
+#passwordfindBtn:hover {
+	height : 30px;
+	color : white;
+	background-color : #273c75;
+	border: 1px solid #273c75;
+}
+
+#cancelBtn {
+	height : 30px;
+	color : #273c75;
+	background-color : white;
+	border: 1px solid #273c75;
+}
+
+#cancelBtn:hover {
+	height : 30px;
+	color : white;
+	background-color : #273c75;
+	border: 1px solid #273c75;
+}
+
+.profileImg {
+	width : 200px;
+	height : 200px;
+	border-radius: 50%;
+	background-color: tomato;
+}
+
+.profilecontent {
+	height : 100px;
+}
+
+#editBtn {
+	width : 270px;
+	height : 30px;
+	color : #273c75;
+	background-color : white;
+	border: 1px solid #273c75;
+}
+
+#editBtn:hover {
+	color : white;
+	background-color : #273c75;
+	border: 1px solid #273c75;
+}
+
+.teammember {
+	font-size : 15px;
+	font-weight : bold;
+}
+
+.profileImg2 {
+	width : 50px;
+	height : 50px;
+	border-radius: 50%;
+	background-color: tomato;
+}
+
+.story {
+	font-size : 15px;
+	font-weight : bold;
+}
 footer {
 	height : 50px;
 }

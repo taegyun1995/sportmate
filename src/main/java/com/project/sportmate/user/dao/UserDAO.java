@@ -24,5 +24,13 @@ public interface UserDAO {
 	
 	public User getUserbyId(@Param("id") int id);
 	
+	public String getLoginId(
+			@Param("name") String name
+			, @Param("phoneNum") String phoneNum);
+	
+	public int overlapPassword(
+			@Param("loginId") String loginId
+			, @Param("email") String email);
+	
 	
 }

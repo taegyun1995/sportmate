@@ -86,6 +86,37 @@ public class UserRestController {
 		return map;
 	}
 	
+	// 아이디 찾기
+	@GetMapping("/user/find/id")
+	public Map<String, String> userfindId(String name, String phoneNum) {
+		
+		String loginId = userBO.getLoginId(name, phoneNum);
+		
+		Map<String, String> map = new HashMap<>();
+		
+		if(loginId != null) {
+			map.put("result", "success");
+			map.put("loginId", loginId);
+		} else {
+			map.put("result", "fail");
+		}
+		
+		return map;
+	}
 	
-
+	// 비밀번호 변경
+	@GetMapping("/user/overlap/password")
+	public Map<String, Boolean> userchangePw(String loginId, String email) {
+		
+		Map<String, Boolean> result = new HashMap<>();
+		if(userBO.changePw(loginId, email)) {
+			result.put("overlap", true);
+		} else { // 중복되지 않은 경우 
+			result.put("overlap", false);			
+		}
+		
+		return result;
+	}
+	
+	
 }

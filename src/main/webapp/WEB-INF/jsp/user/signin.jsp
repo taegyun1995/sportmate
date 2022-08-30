@@ -46,8 +46,8 @@
 						
 						<div class="d-flex justify-content-around py-1">
 							<div> <small> <a href="/sportmate/user/signup/view" class="text-dark"> 회원가입 </a> </small> </div>
-							<div> <small> <a href="#" class="text-dark"> 아이디 찾기 </a> </small> </div>
-							<div> <small> <a href="#" class="text-dark"> 비밀번호 찾기 </a> </small> </div>
+							<div> <small> <a href="/sportmate/user/find/id/view" class="text-dark"> 아이디 찾기 </a> </small> </div>
+							<div> <small> <a href="/sportmate/user/change/pw/view" class="text-dark"> 비밀번호 찾기 </a> </small> </div>
 						</div>
 						
 					</div>

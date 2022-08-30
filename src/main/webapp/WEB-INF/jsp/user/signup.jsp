@@ -83,6 +83,8 @@
 			
 			var idOverlapCheck = false;
 			var idOverlapId = true;
+			var pwOverlapCheck = false;
+			var pwOverlapId = true;
 			
 			$("#idoverLapBtn").on("click", function(){
 				let loginId = $("#loginIdInput").val();
@@ -128,18 +130,22 @@
 				let password = $("#passwordInput").val();
 				let confrimPassword = $("#confrimPasswordInput").val();
 				
+				pwOverlapCheck = true;
+				
 				if(password == confrimPassword) {
 			 		Swal.fire({
 				    	icon: 'success',
 				    	title: '사용가능한 비밀번호 입니다.',
 				    	text: '회원가입을 진행해주세요.',
 			   		});
+			 		pwOverlapId = false;
 				} else {
 			 		Swal.fire({
 				    	icon: 'error',
 				    	title: '비밀번호가 일치하지 않습니다.',
 				    	text: '다시 입력해주세요.',
 			   		});
+			 		pwOverlapId = true;
 				}
 				
 			});
@@ -158,13 +164,11 @@
 					return;
 				}
 				// 중복체크 여부 유효성 검사 
-				// if(isDuplicateCheck == false) {
 				if(!idOverlapCheck) {
 					alert("중복여부 체크를 진행해주세요");
 					return ;
 				}
 				// 아이디 중복여부 유효성 검사 
-				// if(isDuplicateId == true) {
 				if(idOverlapId) {
 					alert("중복된 아이디입니다");
 					return ;
@@ -177,9 +181,15 @@
 					alert("비밀번호를 입력해주세요.");
 					return;
 				}
-				if(password != confrimPassword) {
+				// 중복체크 여부 유효성 검사 
+				if(!pwOverlapCheck) {
+					alert("중복여부 체크를 진행해주세요");
+					return ;
+				}
+				// 아이디 중복여부 유효성 검사 
+				if(pwOverlapId) {
 					alert("비밀번호가 일치하지 않습니다.");
-					return;
+					return ;
 				}
 				if(name == "") {
 					alert("이름을 입력해주세요.");
