@@ -2,8 +2,10 @@ package com.project.sportmate.user.bo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.project.sportmate.common.EncryptUtils;
+import com.project.sportmate.common.FileManagerService;
 import com.project.sportmate.user.dao.UserDAO;
 import com.project.sportmate.user.model.User;
 
@@ -13,11 +15,13 @@ public class UserBO {
 	@Autowired
 	private UserDAO userDAO;
 	
-	public int signupUser(String loginId, String password, String name, String phoneNum, int birth, String email) {
+	public int signupUser(MultipartFile profileImage, String loginId, String password, String name, String nickName, String phoneNum,
+			int birth, String gender, String exercise, String region, String content, String email) {
 		
+		String imagePath = FileManagerService.saveFile(loginId, profileImage);
 		String encryptPassword = EncryptUtils.md5(password);
 		
-		return userDAO.insertUser(loginId, encryptPassword, name, phoneNum, birth, email);
+		return userDAO.insertUser(imagePath, loginId, encryptPassword, name, nickName, phoneNum, birth, gender, exercise, region, content, email);
 	}
 	
 	public boolean overlapUser(String loginId) {
@@ -67,5 +71,11 @@ public class UserBO {
 		return userDAO.updatePassword(encryptPassword, loginId, email);
 		
 	}
-
+	
+	public int editProfile(MultipartFile profileImage, String loginId, String nickName, String exercise, String region, String content) {
+		
+		String imagePath = FileManagerService.saveFile(loginId, profileImage);
+		
+		return userDAO.updateProfile(imagePath, loginId, nickName, exercise, region, content);
+	}
 }

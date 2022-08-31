@@ -5,20 +5,49 @@ import java.util.Date;
 public class User {
 	
 	private int id;
+	private String profileImage;
 	private String loginId;
 	private String password;
 	private String name;
+	private String nickName;
 	private String phoneNum;
 	private int birth;
+	private String exercise;
+	private String region;
+	private String content;
 	private String email;
 	private Date createdAt;
 	private Date updatedAt;
 	
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	public String getRegion() {
+		return region;
+	}
+	public void setRegion(String region) {
+		this.region = region;
+	}
+	public String getExercise() {
+		return exercise;
+	}
+	public void setExercise(String exercise) {
+		this.exercise = exercise;
+	}
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public String getProfileImage() {
+		return profileImage;
+	}
+	public void setProfileImage(String profileImage) {
+		this.profileImage = profileImage;
 	}
 	public String getLoginId() {
 		return loginId;
@@ -37,6 +66,12 @@ public class User {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getNickName() {
+		return nickName;
+	}
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
 	}
 	public String getPhoneNum() {
 		return phoneNum;

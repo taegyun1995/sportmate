@@ -9,22 +9,34 @@
  		INSERT INTO
  			`user`
  		(
- 			`loginId`
+ 			`profileImage`
+ 			, `loginId`
  			, `password`
  			, `name`
+ 			, `nickName`
  			, `phoneNum`
  			, `birth`
+ 			, `gender`
+ 			, `exercise`
+ 			, `region`
+ 			, `content`
  			, `email`
  			, `createdAt`
  			, `updatedAt`
  		)
  		VALUES
  		(
- 			#{loginId}
+ 			#{profileImage}
+ 			, #{loginId}
  			, #{password}
  			, #{name}
+ 			, #{nickName}
  			, #{phoneNum}
  			, #{birth}
+ 			, #{gender}
+ 			, #{exercise}
+ 			, #{region}
+ 			, #{content}
  			, #{email}
  			, now()
  			, now()
@@ -43,11 +55,17 @@
  	<select id="getUser" parameterType="map" resultType="com.project.sportmate.user.model.User">
 		SELECT 
 			`id`
+			, `profileImage`
 			, `loginId`
 			, `password`
 			, `name`
+			, `nickName`
 			, `phoneNum`
 			, `birth`
+			, `gender`
+			, `exercise`
+			, `region`
+			, `content`
 			, `email`
 			, `createdAt`
 			, `updatedAt`
@@ -61,11 +79,17 @@
 	 <select id="getUserbyId" parameterType="int" resultType="com.project.sportmate.user.model.User">
 		SELECT 
 			`id`
+			, `profileImage`
 			, `loginId`
 			, `password`
 			, `name`
+			, `nickName`
 			, `phoneNum`
 			, `birth`
+			, `gender`
+			, `exercise`
+			, `region`
+			, `content`
 			, `email`
 			, `createdAt`
 			, `updatedAt`
@@ -104,6 +128,18 @@
  		WHERE
  			`loginId` = #{loginId}
  			AND `email` = #{email}
+ 	</update>
+ 	
+ 	<update id="updateProfile" parameterType="map">
+ 		UPDATE
+ 			`user`
+ 		SET
+ 			`profileImage` = #{profileImage}
+ 			, `loginId` = #{loginId}
+ 			, `nickName` = #{nickName}
+ 			, `exercise` = #{exercise}
+ 			, `region` = #{region}
+ 			, `content` = #{content}
  	</update>
  	
  	

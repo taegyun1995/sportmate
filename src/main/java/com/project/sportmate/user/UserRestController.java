@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.project.sportmate.user.bo.UserBO;
 import com.project.sportmate.user.model.User;
@@ -24,16 +25,22 @@ public class UserRestController {
 	// 회원가입
 	@PostMapping("/user/signup")
 	public Map<String, String> userSignup(
-			@RequestParam("loginId") String loginId
+			@RequestParam(value="profileImage", required=false) MultipartFile profileImage
+			, @RequestParam("loginId") String loginId
 			, @RequestParam("password") String password
 			, @RequestParam("name") String name
+			, @RequestParam("nickName") String nickName
 			, @RequestParam("phoneNum") String phoneNum
 			, @RequestParam("birth") int birth
+			, @RequestParam("gender") String gender
+			, @RequestParam("exercise") String exercise
+			, @RequestParam("region") String region
+			, @RequestParam("content") String content
 			, @RequestParam("email") String email) {
 		
 		Map<String, String> map = new HashMap<>();
 		
-		int count = userBO.signupUser(loginId, password, name, phoneNum, birth, email);
+		int count = userBO.signupUser(profileImage, loginId, password, name, nickName, phoneNum, birth, gender, exercise, region, content, email);
 		
 		if(count == 1) {
 			map.put("result", "success");
@@ -75,9 +82,12 @@ public class UserRestController {
 			HttpSession session = request.getSession();
 			// user id, user loginId
 			session.setAttribute("userId", user.getId());
-			session.setAttribute("userName", user.getName());
+			session.setAttribute("userProfileImage", user.getProfileImage());
 			session.setAttribute("userLoginId", user.getLoginId());
-			session.setAttribute("userBirth", user.getBirth());
+			session.setAttribute("userName", user.getName());
+			session.setAttribute("userNickName", user.getNickName());
+			session.setAttribute("userExercise", user.getExercise());
+			session.setAttribute("userRegion", user.getRegion());
 			
 		} else { // 로그인 실패
 			map.put("result", "fail");
@@ -104,7 +114,7 @@ public class UserRestController {
 		return map;
 	}
 	
-	// 비밀번호 변경
+	// 비밀번호 조회
 	@GetMapping("/user/overlap/password")
 	public Map<String, Boolean> userchangePw(
 			@RequestParam("loginId") String loginId
@@ -120,6 +130,7 @@ public class UserRestController {
 		return result;
 	}
 	
+	// 비밀번호 변경
 	@PostMapping("/user/change/password")
 	public Map<String, String> changeUserPw(
 			@RequestParam("password") String password
@@ -129,6 +140,29 @@ public class UserRestController {
 		Map<String, String> map = new HashMap<>();
 		
 		int count = userBO.updatePw(password, loginId, email);
+		
+		if(count == 1) {
+			map.put("result", "success");
+		} else {
+			map.put("result", "fail");
+		}
+		
+		return map;
+	}
+	
+	// 프로필 정보 변경
+	@PostMapping("/profile/edit")
+	public Map<String, String> editProfile(
+			@RequestParam(value="profileImage", required=false) MultipartFile profileImage
+			, @RequestParam("loginId") String loginId
+			, @RequestParam("nickName") String nickName
+			, @RequestParam("exercise") String exercise
+			, @RequestParam("region") String region
+			, @RequestParam("content") String content) {
+		
+		Map<String, String> map = new HashMap<>();
+		
+		int count = userBO.editProfile(profileImage, loginId, nickName, exercise, region, content);
 		
 		if(count == 1) {
 			map.put("result", "success");

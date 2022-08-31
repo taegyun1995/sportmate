@@ -100,6 +100,10 @@ input[type=text], input[type=password], input[type=email] {
 	border-radius : 12px;
 }
 
+.genderBox {
+	height : 25px;
+}
+
 .signinSec {
 	background-color : #d5d5d5;
 }
@@ -218,11 +222,56 @@ input[type=text], input[type=password], input[type=email] {
 	border: 1px solid #273c75;
 }
 
-.profileImg {
-	width : 200px;
-	height : 200px;
-	border-radius: 50%;
-	background-color: tomato;
+#homeBtn {
+	height : 30px;
+	color : #273c75;
+	background-color : white;
+}
+
+#homeBtn:hover {
+	height : 30px;
+	color : white;
+	background-color : #273c75;
+	border: 1px solid #273c75;
+}
+
+#profileBtn {
+	height : 30px;
+	color : #273c75;
+	background-color : white;
+}
+
+#profileBtn:hover {
+	height : 30px;
+	color : white;
+	background-color : #273c75;
+	border: 1px solid #273c75;
+}
+
+#teamBtn {
+	height : 30px;
+	color : #273c75;
+	background-color : white;
+}
+
+#teamBtn:hover {
+	height : 30px;
+	color : white;
+	background-color : #273c75;
+	border: 1px solid #273c75;
+}
+
+#huntBtn {
+	height : 30px;
+	color : #273c75;
+	background-color : white;
+}
+
+#huntBtn:hover {
+	height : 30px;
+	color : white;
+	background-color : #273c75;
+	border: 1px solid #273c75;
 }
 
 .profilecontent {
@@ -241,6 +290,26 @@ input[type=text], input[type=password], input[type=email] {
 	color : white;
 	background-color : #273c75;
 	border: 1px solid #273c75;
+}
+
+#preview-image{
+	border-radius: 70%;
+}
+
+#editSaveBtn {
+	width : 370px;
+	height : 30px;
+	color : #273c75;
+	background-color : white;
+	border: 1px solid #273c75;
+	border-radius : 12px;
+}
+
+#editSaveBtn:hover {
+	color : white;
+	background-color : #273c75;
+	border: 1px solid #273c75;
+	border-radius : 12px;
 }
 
 .teammember {
