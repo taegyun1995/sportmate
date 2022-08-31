@@ -12,10 +12,6 @@ public class MainController {
 		return "/main/home";
 	}
 	
-	@GetMapping("/sportmate/main/profile/view")
-	public String profileView() {
-		
-		return "/main/profile";
-	}
+
 
 }
