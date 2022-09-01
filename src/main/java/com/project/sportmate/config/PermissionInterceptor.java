@@ -37,7 +37,7 @@ public class PermissionInterceptor implements HandlerInterceptor {
 			}
 		} else { // 로그인이 안되어있을 경우, 메인화면으로 이동하지 못하도록
 			// post로 시작하는 페이지로의 접근을 막고, 로그인페이지로 이동
-			if(uri.startsWith("/sportmate/main")) {
+			if(uri.startsWith("/sportmate/main") || uri.startsWith("/sportmate/profile")) {
 				response.sendRedirect("/sportmate/user/signin/view");
 				return false;
 			}

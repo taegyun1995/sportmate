@@ -18,7 +18,7 @@ public class UserBO {
 	public int signupUser(MultipartFile profileImage, String loginId, String password, String name, String nickName, String phoneNum,
 			int birth, String gender, String exercise, String region, String content, String email) {
 		
-		String imagePath = FileManagerService.saveFile(loginId, profileImage);
+		String imagePath = FileManagerService.saveProfileImgFile(loginId, profileImage);
 		String encryptPassword = EncryptUtils.md5(password);
 		
 		return userDAO.insertUser(imagePath, loginId, encryptPassword, name, nickName, phoneNum, birth, gender, exercise, region, content, email);
@@ -40,11 +40,6 @@ public class UserBO {
 		String encryptPassword = EncryptUtils.md5(password);
 		
 		return userDAO.getUser(loginId, encryptPassword);
-	}
-	
-	public User getUserById(int id) {
-		
-		return userDAO.getUserbyId(id);
 	}
 	
 	public String getLoginId(String name, String phoneNum) {
@@ -74,8 +69,9 @@ public class UserBO {
 	
 	public int editProfile(MultipartFile profileImage, String loginId, String nickName, String exercise, String region, String content) {
 		
-		String imagePath = FileManagerService.saveFile(loginId, profileImage);
+		String imagePath = FileManagerService.saveProfileImgFile(loginId, profileImage);
 		
 		return userDAO.updateProfile(imagePath, loginId, nickName, exercise, region, content);
 	}
+	
 }

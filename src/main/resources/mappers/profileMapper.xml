@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.project.sportmate.main.profile.dao.ProfileDAO">
+ 	
+ 	<insert id="storyInsert" parameterType="map">
+ 		INSERT INTO
+ 			`story`
+ 		(
+ 			`userId`
+ 			,`storyImage`
+ 			, `content`
+ 			, `createdAt`
+ 			, `updatedAt`
+ 		)
+ 		VALUES
+ 		(
+ 			#{userId}
+ 			, #{storyImage}
+ 			, #{content}
+ 			, now()
+ 			, now()
+ 		)
+ 	</insert>
+ 	
+ 	<select id="selectUserStoryList" resultType="com.project.sportmate.main.profile.model.Story">
+ 		SELECT
+ 			`id`
+ 			, `userId`
+ 			, `storyImage`
+ 			, `content`
+ 			, `createdAt`
+ 			, `updatedAt`
+ 		FROM
+ 			`story`
+ 		WHERE
+ 			`userId` = #{userId}
+ 		ORDER BY
+ 			`id` DESC
+ 	</select>
+ 
+ 
+ 
+ </mapper>

@@ -6,6 +6,12 @@
 	margin : auto;
 }
 
+#wrap2 {
+	width : 1200px;
+	height : 700px;
+	margin : auto;
+}
+
 header {
 	width : 200px;
 	height : 100px;
@@ -41,12 +47,8 @@ input[type=text], input[type=password], input[type=email] {
 }
 
 #idoverLapBtn:hover {
-	height : 30px;
-	font-size: 13px;
 	color : white;
 	background-color : #273c75;
-	border: 1px solid #273c75;
-	border-radius : 12px;
 }
 
 #pwoverLapBtn {
@@ -59,12 +61,8 @@ input[type=text], input[type=password], input[type=email] {
 }
 
 #pwoverLapBtn:hover {
-	height : 30px;
-	font-size: 13px;
 	color : white;
 	background-color : #273c75;
-	border: 1px solid #273c75;
-	border-radius : 12px;
 }
 
 #sendBtn {
@@ -77,11 +75,8 @@ input[type=text], input[type=password], input[type=email] {
 }
 
 #sendBtn:hover {
-	height : 30px;
-	font-size: 13px;
 	color : white;
 	background-color : #273c75;
-	border: 1px solid #273c75;
 }
 
 #signupBtn {
@@ -93,11 +88,8 @@ input[type=text], input[type=password], input[type=email] {
 }
 
 #signupBtn:hover {
-	height : 30px;
 	color : white;
 	background-color : #273c75;
-	border: 1px solid #273c75;
-	border-radius : 12px;
 }
 
 .genderBox {
@@ -145,10 +137,8 @@ input[type=text], input[type=password], input[type=email] {
 }
 
 #idfindBtn:hover {
-	height : 30px;
 	color : white;
 	background-color : #273c75;
-	border: 1px solid #273c75;
 }
 
 #pwfindBtn {
@@ -160,10 +150,8 @@ input[type=text], input[type=password], input[type=email] {
 }
 
 #pwfindBtn:hover {
-	height : 30px;
 	color : white;
 	background-color : #273c75;
-	border: 1px solid #273c75;
 }
 
 #loginIdfindBtn {
@@ -174,10 +162,8 @@ input[type=text], input[type=password], input[type=email] {
 }
 
 #loginIdfindBtn:hover {
-	height : 30px;
 	color : white;
 	background-color : #273c75;
-	border: 1px solid #273c75;
 }
 
 #passwordfindBtn {
@@ -188,10 +174,8 @@ input[type=text], input[type=password], input[type=email] {
 }
 
 #passwordfindBtn:hover {
-	height : 30px;
 	color : white;
 	background-color : #273c75;
-	border: 1px solid #273c75;
 }
 
 #passwordchangeBtn {
@@ -202,10 +186,8 @@ input[type=text], input[type=password], input[type=email] {
 }
 
 #passwordchangeBtn:hover {
-	height : 30px;
 	color : white;
 	background-color : #273c75;
-	border: 1px solid #273c75;
 }
 
 #cancelBtn {
@@ -216,10 +198,8 @@ input[type=text], input[type=password], input[type=email] {
 }
 
 #cancelBtn:hover {
-	height : 30px;
 	color : white;
 	background-color : #273c75;
-	border: 1px solid #273c75;
 }
 
 #homeBtn {
@@ -229,10 +209,8 @@ input[type=text], input[type=password], input[type=email] {
 }
 
 #homeBtn:hover {
-	height : 30px;
 	color : white;
 	background-color : #273c75;
-	border: 1px solid #273c75;
 }
 
 #profileBtn {
@@ -245,7 +223,6 @@ input[type=text], input[type=password], input[type=email] {
 	height : 30px;
 	color : white;
 	background-color : #273c75;
-	border: 1px solid #273c75;
 }
 
 #teamBtn {
@@ -255,10 +232,8 @@ input[type=text], input[type=password], input[type=email] {
 }
 
 #teamBtn:hover {
-	height : 30px;
 	color : white;
 	background-color : #273c75;
-	border: 1px solid #273c75;
 }
 
 #huntBtn {
@@ -268,10 +243,8 @@ input[type=text], input[type=password], input[type=email] {
 }
 
 #huntBtn:hover {
-	height : 30px;
 	color : white;
 	background-color : #273c75;
-	border: 1px solid #273c75;
 }
 
 .profilecontent {
@@ -289,7 +262,6 @@ input[type=text], input[type=password], input[type=email] {
 #editBtn:hover {
 	color : white;
 	background-color : #273c75;
-	border: 1px solid #273c75;
 }
 
 #preview-image{
@@ -308,11 +280,15 @@ input[type=text], input[type=password], input[type=email] {
 #editSaveBtn:hover {
 	color : white;
 	background-color : #273c75;
-	border: 1px solid #273c75;
-	border-radius : 12px;
 }
 
 .teammember {
+	font-size : 15px;
+	font-weight : bold;
+}
+
+.teammemberBox {
+	height : 115px;
 	font-size : 15px;
 	font-weight : bold;
 }
@@ -328,6 +304,21 @@ input[type=text], input[type=password], input[type=email] {
 	font-size : 15px;
 	font-weight : bold;
 }
+
+#uploadBtn {
+	width : 100px;
+	height : 30px;
+	color : #273c75;
+	background-color : white;
+	border: 1px solid #273c75;
+}
+
+#uploadBtn:hover {
+	color : white;
+	background-color : #273c75;
+}
+
+
 footer {
 	height : 50px;
 }

@@ -28,8 +28,6 @@ public interface UserDAO {
 			@Param("loginId") String loginId
 			, @Param("password") String password);
 	
-	public User getUserbyId(@Param("id") int id);
-	
 	public String getLoginId(
 			@Param("name") String name
 			, @Param("phoneNum") String phoneNum);
@@ -51,6 +49,4 @@ public interface UserDAO {
 			, @Param("exercise") String exercise
 			, @Param("region") String region
 			, @Param("content") String content);
-	
-	
 }

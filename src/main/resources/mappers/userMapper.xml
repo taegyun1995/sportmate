@@ -76,29 +76,6 @@
 			AND `password` = #{password}
  	</select>
 
-	 <select id="getUserbyId" parameterType="int" resultType="com.project.sportmate.user.model.User">
-		SELECT 
-			`id`
-			, `profileImage`
-			, `loginId`
-			, `password`
-			, `name`
-			, `nickName`
-			, `phoneNum`
-			, `birth`
-			, `gender`
-			, `exercise`
-			, `region`
-			, `content`
-			, `email`
-			, `createdAt`
-			, `updatedAt`
-		FROM 
-			`user`
-		WHERE
-			`id` = #{id}
- 	</select>
- 	
  	<select id="getLoginId" resultType="String" parameterType="string">
 		 SELECT
 			`loginId`
@@ -140,6 +117,7 @@
  			, `exercise` = #{exercise}
  			, `region` = #{region}
  			, `content` = #{content}
+ 			, `updatedAt` = now()
  	</update>
  	
  	

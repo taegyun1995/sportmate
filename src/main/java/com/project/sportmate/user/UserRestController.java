@@ -88,6 +88,7 @@ public class UserRestController {
 			session.setAttribute("userNickName", user.getNickName());
 			session.setAttribute("userExercise", user.getExercise());
 			session.setAttribute("userRegion", user.getRegion());
+			session.setAttribute("userContent", user.getContent());
 			
 		} else { // 로그인 실패
 			map.put("result", "fail");
