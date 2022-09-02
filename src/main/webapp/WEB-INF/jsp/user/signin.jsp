@@ -65,42 +65,45 @@
 	</div>
 	
 	<script>
+	$(document).ready(function(){
 		
-	$("#loginForm").on("submit", function(e){
-		e.preventDefault();
-		
-		let loginId = $("#loginIdInput").val();
-		let password = $("#passwordInput").val();
-		
-		if(loginId == "") {
-			alert("아이디를 입력하세요.")
-			return;
-		}
-		
-		if(password == "") {
-			alert("비밀번호를 입력하세요.")
-			return;
-		}
-		
-		$.ajax({
-			type:"post",
-			url:"/user/signin",
-			data:{"loginId":loginId, "password":password},
+	
+		$("#loginForm").on("submit", function(e){
+			e.preventDefault();
 			
-			success:function(data){
-				if(data.result == "success") {
-					location.href="/sportmate/main/home/view";
-				} else {
-					alert("아이디 / 비밀번호를 확인해주세요.");
-				}
-			},
-			error:function(){
-				alert("로그인 에러 발생!!");
+			let loginId = $("#loginIdInput").val();
+			let password = $("#passwordInput").val();
+			
+			if(loginId == "") {
+				alert("아이디를 입력하세요.")
+				return;
 			}
+			
+			if(password == "") {
+				alert("비밀번호를 입력하세요.")
+				return;
+			}
+			
+			$.ajax({
+				type:"post",
+				url:"/user/signin",
+				data:{"loginId":loginId, "password":password},
+				
+				success:function(data){
+					if(data.result == "success") {
+						location.href="/sportmate/main/home/view";
+					} else {
+						alert("아이디 / 비밀번호를 확인해주세요.");
+					}
+				},
+				error:function(){
+					alert("로그인 에러 발생!!");
+				}
+			});
+			
 		});
 		
 	});
-	
 	
 	
 	</script>

@@ -67,44 +67,11 @@
 	</div>
 	
 	<script>
-		$("#passwordfindBtn").on("click", function() {
-			let loginId = $("#loginIdInput").val();
-			let email = $("#emailInput").val();
-			
-			if(loginId == "") {
-				alert("아이디를 입력해주세요.");
-				return;
-			}
-			if(email == "") {
-				alert("이메일을 입력해주세요.");
-				return;
-			}
-			
-			$.ajax({
-				type:"get",
-				url:"/user/overlap/password",
-				data:{"loginId":loginId, "email":email},
-				
-				success:function(data){
-					if(data.overlap){
-						$(".pwBox").removeClass("d-none");
-						$(".idemailBox").addClass("d-none");
-					} else {
-						$(".pwBox").addClass("d-none");
-						$(".idemailBox").removeClass("d-none");
-					}
-				},
-				error:function(){
-					alert("에러발생");
-				}
-				
-			});
-			
-			$("#passwordchangeBtn").on("click", function(){
+		$(document).ready(function(){
+	
+			$("#passwordfindBtn").on("click", function() {
 				let loginId = $("#loginIdInput").val();
 				let email = $("#emailInput").val();
-				let password = $("#passwordInput").val();
-				let confirmpassword = $("#confirmpasswordInput").val();
 				
 				if(loginId == "") {
 					alert("아이디를 입력해주세요.");
@@ -114,34 +81,67 @@
 					alert("이메일을 입력해주세요.");
 					return;
 				}
-				if(password != confirmpassword) {
-					alert("비밀번호가 일치하지 않습니다.");
-					return;
-				}
 				
 				$.ajax({
-					type:"post",
-					url:"/user/change/password",
-					data:{"password":password, "loginId":loginId, "email":email},
+					type:"get",
+					url:"/user/overlap/password",
+					data:{"loginId":loginId, "email":email},
 					
-					success:function(data) {
-						if(data.result == "success") {
-							location.href="/sportmate/user/signin/view";
+					success:function(data){
+						if(data.overlap){
+							$(".pwBox").removeClass("d-none");
+							$(".idemailBox").addClass("d-none");
 						} else {
-							alert("비밀번호 변경 실패");
+							$(".pwBox").addClass("d-none");
+							$(".idemailBox").removeClass("d-none");
 						}
 					},
-					error:function() {
-						alert("에러발생!");
+					error:function(){
+						alert("에러발생");
 					}
+					
+				});
+				
+				$("#passwordchangeBtn").on("click", function(){
+					let loginId = $("#loginIdInput").val();
+					let email = $("#emailInput").val();
+					let password = $("#passwordInput").val();
+					let confirmpassword = $("#confirmpasswordInput").val();
+					
+					if(loginId == "") {
+						alert("아이디를 입력해주세요.");
+						return;
+					}
+					if(email == "") {
+						alert("이메일을 입력해주세요.");
+						return;
+					}
+					if(password != confirmpassword) {
+						alert("비밀번호가 일치하지 않습니다.");
+						return;
+					}
+					
+					$.ajax({
+						type:"post",
+						url:"/user/change/password",
+						data:{"password":password, "loginId":loginId, "email":email},
+						
+						success:function(data) {
+							if(data.result == "success") {
+								location.href="/sportmate/user/signin/view";
+							} else {
+								alert("비밀번호 변경 실패");
+							}
+						},
+						error:function() {
+							alert("에러발생!");
+						}
+					});
+					
 				});
 				
 			});
-			
-			
-			
 		});
-	
 	</script>
 </body>
 </html>

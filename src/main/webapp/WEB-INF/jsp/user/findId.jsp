@@ -54,34 +54,38 @@
 	</div>
 	
 	<script>
-		$("#loginIdfindBtn").on("click", function(){
-			let name = $("#nameInput").val();
-			let phoneNum = $("#phoneNumberInput").val();
-			
-			if(name == "") {
-				alert("이름을 입력해주세요.");
-				return;
-			}
-			if(phoneNum == "") {
-				alert("연락처를 입력해주세요.");
-				return;
-			}
-			
-			$.ajax({
-				type:"get",
-				url:"/user/find/id",
-				data:{"name":name, "phoneNum":phoneNum},
+		$(document).ready(function(){
+	
+			$("#loginIdfindBtn").on("click", function(){
+				let name = $("#nameInput").val();
+				let phoneNum = $("#phoneNumberInput").val();
 				
-				success:function(data){
-					if(data.result == "success"){
-						alert("아이디 조회한 결과 " + data.loginId + "입니다.");
-					} else {
-						alert("회원정보를 다시 입력해주세요.");
-					}
-				},
-				error:function() {
-					alert("에러 발생!");
+				if(name == "") {
+					alert("이름을 입력해주세요.");
+					return;
 				}
+				if(phoneNum == "") {
+					alert("연락처를 입력해주세요.");
+					return;
+				}
+				
+				$.ajax({
+					type:"get",
+					url:"/user/find/id",
+					data:{"name":name, "phoneNum":phoneNum},
+					
+					success:function(data){
+						if(data.result == "success"){
+							alert("아이디 조회한 결과 " + data.loginId + "입니다.");
+						} else {
+							alert("회원정보를 다시 입력해주세요.");
+						}
+					},
+					error:function() {
+						alert("에러 발생!");
+					}
+				});
+				
 			});
 			
 		});
