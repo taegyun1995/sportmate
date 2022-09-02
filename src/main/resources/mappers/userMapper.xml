@@ -120,5 +120,26 @@
  			, `updatedAt` = now()
  	</update>
  	
- 	
+ 	 <select id="selectUserById" parameterType="int" resultType="com.project.sportmate.user.model.User">
+ 		SELECT 
+ 			`id`
+			, `profileImage`
+			, `loginId`
+			, `password`
+			, `name`
+			, `nickName`
+			, `phoneNum`
+			, `birth`
+			, `gender`
+			, `exercise`
+			, `region`
+			, `content`
+			, `email`
+			, `createdAt`
+			, `updatedAt`
+ 		FROM 
+ 			`user`
+		WHERE
+			`id` = #{id}
+ 	</select>
  </mapper>

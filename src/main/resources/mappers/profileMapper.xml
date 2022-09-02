@@ -38,9 +38,16 @@
  		WHERE
  			`userId` = #{userId}
  		ORDER BY
- 			`id` DESC
+ 			`createdAt` DESC
  	</select>
  
- 
- 
+ 	<delete id="deleteStory" parameterType="int">
+ 		DELETE FROM
+ 			`story`
+ 		WHERE
+ 			`id` = #{id}
+ 			AND `userId` = {userId}
+ 	</delete>
+ 	
+ 	
  </mapper>

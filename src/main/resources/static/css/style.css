@@ -318,6 +318,30 @@ input[type=text], input[type=password], input[type=email] {
 	background-color : #273c75;
 }
 
+#deleteBtn {
+	width : 100px;
+	height : 30px;
+	color : #273c75;
+	background-color : white;
+	border: 1px solid #273c75;
+}
+
+#deleteBtn:hover {
+	color : white;
+	background-color : #273c75;
+}
+
+#modalcancelBtn {
+	height : 30px;
+	color : #273c75;
+	background-color : white;
+	border: 1px solid #273c75;
+}
+
+#modalcancelBtn:hover {
+	color : white;
+	background-color : #273c75;
+}
 
 footer {
 	height : 50px;

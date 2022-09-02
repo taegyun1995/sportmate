@@ -74,4 +74,8 @@ public class UserBO {
 		return userDAO.updateProfile(imagePath, loginId, nickName, exercise, region, content);
 	}
 	
+	public User getUserById(int id) {
+		return userDAO.selectUserById(id);
+	}
+	
 }

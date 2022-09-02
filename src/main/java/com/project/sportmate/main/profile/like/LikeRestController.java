@@ -1,4 +1,4 @@
-package com.project.sportmate.main.profile;
+package com.project.sportmate.main.profile.like;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,32 +8,29 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
 
-import com.project.sportmate.main.profile.bo.ProfileBO;
+import com.project.sportmate.main.profile.like.bo.LikeBO;
 
 @RestController
-public class ProfileRestController {
+public class LikeRestController {
 	
 	@Autowired
-	private ProfileBO profileBO;
+	private LikeBO likeBO;
 	
-	// 스토리 작성
-	@PostMapping("/story/create")
-	public Map<String, String> insertStory(
+	// 좋아요
+	@GetMapping("/story/like/insert")
+	public Map<String, String> like(
 			HttpServletRequest request
-			, @RequestParam(value="storyImage", required=false) MultipartFile storyImage
-			, @RequestParam("content") String content) {
-		
+			, @RequestParam("storyId") int storyId) {
+
 		HttpSession session = request.getSession();
 		int userId = (Integer)session.getAttribute("userId");
 		
 		Map<String, String> map = new HashMap<>();
 		
-		int count = profileBO.addStory(userId, storyImage, content);
+		int count = likeBO.addLike(userId, storyId);
 		
 		if(count == 1) {
 			map.put("result", "success");
@@ -44,17 +41,18 @@ public class ProfileRestController {
 		return map;
 	}
 	
-	@GetMapping("/story/delete")
-	public Map<String, String> deleteStory(
-			@RequestParam("storyId") int storyId
-			, HttpServletRequest request) {
+	// 좋아요 취소
+	@GetMapping("/story/like/delete")
+	public Map<String, String> unlike(
+			HttpServletRequest request
+			, @RequestParam("storyId") int storyId) {
 		
 		HttpSession session = request.getSession();
 		int userId = (Integer)session.getAttribute("userId");
 		
 		Map<String, String> map = new HashMap<>();
 		
-		int count = profileBO.deleteStory(storyId, userId);
+		int count = likeBO.deleteLike(storyId, userId);
 		
 		if(count == 1) {
 			map.put("result", "success");
@@ -64,5 +62,6 @@ public class ProfileRestController {
 		
 		return map;
 	}
+	
 	
 }

@@ -15,4 +15,12 @@ public interface ProfileDAO {
 
 	public List<Story> selectUserStoryList(@Param("userId") int userId);
 	
+	public int deleteStory(
+			@Param("storyId") int storyId
+			, @Param("usrId") int userId);
+	
+	public Story selectStory(@Param("storyId") int storyId);
+	
+	
+	
 }

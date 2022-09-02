@@ -49,4 +49,6 @@ public interface UserDAO {
 			, @Param("exercise") String exercise
 			, @Param("region") String region
 			, @Param("content") String content);
+	
+	public User selectUserById(@Param("id") int id);
 }
