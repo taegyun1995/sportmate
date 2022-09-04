@@ -87,15 +87,31 @@
 									</div>
 									<div class="d-flex align-items-center">
 										<a href="#"  data-toggle="modal" data-target="#moreModal" class="more-btn" data-story-id="${DetailStory.story.id}">
-											<i class="bi bi-trash"></i>
+											<i class="bi bi-three-dots-vertical text-dark"></i>
 										</a>
 									</div>
 								</div>
-								<div class="d-flex border-bottom p-1">
+								<div class="d-flex border-bottom pl-2 pb-1">
 									<div> ${DetailStory.story.content }</div>
 								</div>
 								<div>
 									<div> <small> 댓글 </small> </div>
+									
+									<div class="ml-1">
+										<c:forEach var="CommentDetail" items="${DetailStory.comment }" varStatus="status">
+											<div> <b> ${CommentDetail.user.name} </b> ${CommentDetail.comment.comment } </div>
+										</c:forEach>
+									</div>
+									
+									<div class="pt-3">
+										<div class="input-group input-group-sm border-top">
+											<input type="text" class="form-control" id="commentInput${DetailStory.story.id }">	
+											<div class="input-group-prepend">
+												<button type="button" class="btn comment-btn" data-story-id="${DetailStory.story.id }" > 작성 </button>
+											</div>
+										</div>
+									</div>
+									
 								</div>
 							</div>
 						</c:forEach>
@@ -172,6 +188,29 @@
 				
 			});
 			
+			$(".comment-btn").on("click", function(){
+				
+				let storyId = $(this).data("story-id");
+				let comment = $("#commentInput" + storyId).val();
+				
+				$.ajax({
+					type:"post",
+					url:"/story/comment/create",
+					data:{"storyId":storyId, "comment":comment},
+					success:function(data) {
+						if(data.result == "success"){
+							location.reload();
+						} else {
+							alert("댓글 작성 실패");
+						}
+					},
+					error:function() {
+						alert("댓글 작성 에러");
+					}
+				});		
+				
+			});
+			
 			$(".more-btn").on("click", function(){
 				let storyId = $(this).data("story-id");
 				
@@ -200,6 +239,7 @@
 				});
 				
 			});
+			
 			
 			
 			

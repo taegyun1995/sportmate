@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.project.sportmate.main.profile.comment.dao.CommentDAO">
+ 
+ 	<insert id="insertComment" parameterType="map">
+ 		INSERT INTO
+ 			`comment`
+ 		(
+ 			`userId`
+ 			, `storyId`
+ 			, `comment`
+ 			, `createdAt`
+ 			, `updatedAt`
+ 		)
+ 		VALUES
+ 		(
+ 			#{userId}
+ 			, #{storyId}
+ 			, #{comment}
+ 			, now()
+ 			, now()
+ 		)
+ 	</insert>
+ 	
+ 	 <select id="selectComment" resultType="com.project.sportmate.main.profile.comment.model.Comment" parameterType="map">
+ 		SELECT
+ 			`id`
+ 			, `userId`
+ 			, `storyId`
+ 			, `comment`
+ 			, `createdAt`
+ 			, `updatedAt`
+ 		FROM
+ 			`comment`
+ 		WHERE
+ 			`storyId` = #{storyId}
+ 	</select>
+ 	
+ </mapper>

@@ -343,6 +343,12 @@ input[type=text], input[type=password], input[type=email] {
 	background-color : #273c75;
 }
 
+.comment-btn {
+	background-color : #273c75;
+	color : white;
+	border: 1px solid #273c75;
+}
+
 footer {
 	height : 50px;
 }
