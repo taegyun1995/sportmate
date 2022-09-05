@@ -17,14 +17,18 @@
 <body>
 	
 	<div id="wrap">
+		
+		
 		<div class="d-flex">
 			<c:import url="/WEB-INF/jsp/include/header.jsp" />
 			<c:import url="/WEB-INF/jsp/include/nav.jsp" />
 		</div>
 		
+		<h3 class="py-2"> Profile </h3>	
+		
 		<section class="py-3">
 			<div class="d-flex">
-				<c:if test="${not empty userId}" >
+				<c:if test="${not empty userId}">
 					<div class="col-3 mx-2">
 					
 						<div class="d-flex justify-content-center pt-3">
@@ -99,11 +103,16 @@
 									
 									<div class="ml-1">
 										<c:forEach var="CommentDetail" items="${DetailStory.comment }" varStatus="status">
-											<div> <b> ${CommentDetail.user.name} </b> ${CommentDetail.comment.comment } </div>
+											<div class="d-flex justify-content-between">
+												<div> <small> <b> ${CommentDetail.user.name} </b> ${CommentDetail.comment.comment } </small> </div>
+												<a href="#"  data-toggle="modal" data-target="#moreModal2" class="more-btn2" data-comment-id="${CommentDetail.comment.id}">
+													<i class="bi bi-three-dots-vertical text-dark"></i>
+												</a>
+											</div>
 										</c:forEach>
 									</div>
 									
-									<div class="pt-3">
+									<div class="pt-1">
 										<div class="input-group input-group-sm border-top">
 											<input type="text" class="form-control" id="commentInput${DetailStory.story.id }">	
 											<div class="input-group-prepend">
@@ -134,6 +143,24 @@
 			     	 <div class="modal-footer">
 			        	<button id="modalcancelBtn" class="btn btn-primary btn-sm" type="button" data-dismiss="modal">취소</button>
 			      	</div>
+			      	
+		      	</div>
+			</div>
+		</div>
+		
+		<!-- Comment Modal -->
+		<div class="modal fade" id="moreModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		 	<div class="modal-dialog modal-dialog-centered" role="document">
+		    	<div class="modal-content">
+		      
+				     <div class="modal-body text-center">
+				    	 <button id="deleteBtn" class="btn btn-primary btn-sm" type="button">삭제하기</button>
+				     </div>
+			      
+			     	 <div class="modal-footer">
+			        	<button id="modalcancelBtn" class="btn btn-primary btn-sm" type="button" data-dismiss="modal">취소</button>
+			      	</div>
+			      	
 		      	</div>
 			</div>
 		</div>
@@ -217,6 +244,12 @@
 				$("#deleteBtn").data("story-id", storyId);
 			});
 			
+			$(".more-btn2").on("click", function(){
+				let storyId = $(this).data("comment-id");
+				
+				$("#commentdeleteBtn").data("comment-id", commentId);
+			});
+			
 			$("#deleteBtn").on("click", function(e) {
 				e.preventDefault();
 				
@@ -236,6 +269,31 @@
 					error:function() {
 						alert("삭제 에러");
 					}
+				});
+				
+			});
+			
+			$("#commentdeleteBtn").on("click", function(e) {
+				e.preventDefault();
+				
+				let commentId = $(this).data("comment-id");
+				
+				$.ajax({
+					type:"get",
+					url:"comment/delete",
+					data:{"commentId":commentId},
+					
+					success:function(data) {
+						if(data.result == "success") {
+							location.reload();
+						} else {
+							alert("삭제 실패");
+						}
+					},
+					error:function() {
+						alert("삭제 에러");
+					}
+				
 				});
 				
 			});
