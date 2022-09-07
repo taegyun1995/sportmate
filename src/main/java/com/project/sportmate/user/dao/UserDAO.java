@@ -4,23 +4,12 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import com.project.sportmate.user.model.User;
+import com.project.sportmate.user.model.UserM;
 
 @Repository
 public interface UserDAO {
 	
-	public int insertUser(
-			@Param("profileImage") String profileImage
-			, @Param("loginId") String loginId
-			, @Param("password") String password
-			, @Param("name") String name
-			, @Param("nickName") String nickName
-			, @Param("phoneNum") String phoneNum
-			, @Param("birth") int birth
-			, @Param("gender") String gender
-			, @Param("exercise") String exercise
-			, @Param("region") String region
-			, @Param("content") String content
-			, @Param("email") String email);
+	public int insertUser(UserM userM);
 	
 	public int overlapLoginId(@Param("loginId") String loginId);
 	
@@ -41,14 +30,24 @@ public interface UserDAO {
 			, @Param("loginId") String loginId
 			, @Param("email") String email);
 	
+	public User selectUserById(@Param("id") int id);
+	
+	public User selectUserByuserId(@Param("userId") int userId);
 	
 	public int updateProfile(
-			@Param("profileImage") String profileImage
-			, @Param("loginId") String loginId
+			@Param("userId") int userId
+			, @Param("profileImage") String profileImage
 			, @Param("nickName") String nickName
 			, @Param("exercise") String exercise
 			, @Param("region") String region
 			, @Param("content") String content);
 	
-	public User selectUserById(@Param("id") int id);
+	public int updateProfile2(
+			@Param("userId") int userId
+			, @Param("nickName") String nickName
+			, @Param("exercise") String exercise
+			, @Param("region") String region
+			, @Param("content") String content);
+	
+	
 }

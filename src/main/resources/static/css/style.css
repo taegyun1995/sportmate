@@ -32,6 +32,10 @@ nav {
 	font-size : 13px;
 }
 
+.teamBox {
+	width : 300px;
+}
+
 input[type=text], input[type=password], input[type=email] {
   border: none;
   border-bottom: 1px solid;
@@ -347,6 +351,25 @@ input[type=text], input[type=password], input[type=email] {
 	background-color : #273c75;
 	color : white;
 	border: 1px solid #273c75;
+}
+
+.teambox {
+	width : 150px;
+	height : 150px;
+}
+
+
+#makeBtn {
+	width : 100px;
+	height : 30px;
+	color : #273c75;
+	background-color : white;
+	border: 1px solid #273c75;
+}
+
+#makeBtn:hover {
+	color : white;
+	background-color : #273c75;
 }
 
 footer {

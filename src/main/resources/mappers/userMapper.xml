@@ -5,7 +5,7 @@
  
  <mapper namespace="com.project.sportmate.user.dao.UserDAO">
  
- 	<insert id="insertUser" parameterType="map">
+ 	<insert id="insertUser" parameterType="com.project.sportmate.user.model.UserM">
  		INSERT INTO
  			`user`
  		(
@@ -26,7 +26,7 @@
  		)
  		VALUES
  		(
- 			#{profileImage}
+ 			#{imagePath}
  			, #{loginId}
  			, #{password}
  			, #{name}
@@ -107,17 +107,31 @@
  			AND `email` = #{email}
  	</update>
  	
- 	<update id="updateProfile" parameterType="map">
+  	<update id="updateProfile" parameterType="map">
  		UPDATE
- 			`user`
- 		SET
- 			`profileImage` = #{profileImage}
- 			, `loginId` = #{loginId}
- 			, `nickName` = #{nickName}
- 			, `exercise` = #{exercise}
- 			, `region` = #{region}
- 			, `content` = #{content}
+			`user`
+		SET
+			`profileImage` = #{profileImage}
+			, `nickName` = #{nickName}
+			, `exercise` = #{exercise}
+			, `region` = #{region}
+			, `content` = #{content}
  			, `updatedAt` = now()
+ 		WHERE
+ 			`id` = #{userId}
+ 	</update>
+ 	
+  	<update id="updateProfile2" parameterType="map">
+ 		UPDATE
+			`user`
+		SET
+			`nickName` = #{nickName}
+			, `exercise` = #{exercise}
+			, `region` = #{region}
+			, `content` = #{content}
+ 			, `updatedAt` = now()
+ 		WHERE
+ 			`id` = #{userId}
  	</update>
  	
  	 <select id="selectUserById" parameterType="int" resultType="com.project.sportmate.user.model.User">
@@ -142,4 +156,29 @@
 		WHERE
 			`id` = #{id}
  	</select>
+ 	
+ 	 <select id="selectUserByuserId" parameterType="int" resultType="com.project.sportmate.user.model.User">
+ 		SELECT 
+ 			`id`
+			, `profileImage`
+			, `loginId`
+			, `password`
+			, `name`
+			, `nickName`
+			, `phoneNum`
+			, `birth`
+			, `gender`
+			, `exercise`
+			, `region`
+			, `content`
+			, `email`
+			, `createdAt`
+			, `updatedAt`
+ 		FROM 
+ 			`user`
+		WHERE
+			`id` = #{userId}
+ 	</select>
+ 	
+ 	
  </mapper>

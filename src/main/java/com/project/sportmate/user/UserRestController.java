@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.project.sportmate.user.bo.UserBO;
 import com.project.sportmate.user.model.User;
+import com.project.sportmate.user.model.UserM;
 
 @RestController
 public class UserRestController {
@@ -24,23 +26,11 @@ public class UserRestController {
 	
 	// 회원가입
 	@PostMapping("/user/signup")
-	public Map<String, String> userSignup(
-			@RequestParam(value="profileImage", required=false) MultipartFile profileImage
-			, @RequestParam("loginId") String loginId
-			, @RequestParam("password") String password
-			, @RequestParam("name") String name
-			, @RequestParam("nickName") String nickName
-			, @RequestParam("phoneNum") String phoneNum
-			, @RequestParam("birth") int birth
-			, @RequestParam("gender") String gender
-			, @RequestParam("exercise") String exercise
-			, @RequestParam("region") String region
-			, @RequestParam("content") String content
-			, @RequestParam("email") String email) {
+	public Map<String, String> userSignup(@ModelAttribute UserM userM) {
 		
 		Map<String, String> map = new HashMap<>();
 		
-		int count = userBO.signupUser(profileImage, loginId, password, name, nickName, phoneNum, birth, gender, exercise, region, content, email);
+		int count = userBO.signupUser(userM);
 		
 		if(count == 1) {
 			map.put("result", "success");
@@ -115,7 +105,7 @@ public class UserRestController {
 		return map;
 	}
 	
-	// 비밀번호 조회
+	// 비밀번호 관련 조회
 	@GetMapping("/user/overlap/password")
 	public Map<String, Boolean> userchangePw(
 			@RequestParam("loginId") String loginId
@@ -154,16 +144,19 @@ public class UserRestController {
 	// 프로필 정보 변경
 	@PostMapping("/profile/edit")
 	public Map<String, String> editProfile(
-			@RequestParam(value="profileImage", required=false) MultipartFile profileImage
-			, @RequestParam("loginId") String loginId
+			HttpServletRequest request
+			, @RequestParam(value="profileImage", required=false) MultipartFile profileImage
 			, @RequestParam("nickName") String nickName
 			, @RequestParam("exercise") String exercise
 			, @RequestParam("region") String region
 			, @RequestParam("content") String content) {
 		
+		HttpSession session = request.getSession();
+		int userId = (Integer)session.getAttribute("userId");
+		
 		Map<String, String> map = new HashMap<>();
 		
-		int count = userBO.editProfile(profileImage, loginId, nickName, exercise, region, content);
+		int count = userBO.editProfile(userId, profileImage, nickName, exercise, region, content);
 		
 		if(count == 1) {
 			map.put("result", "success");
@@ -173,6 +166,5 @@ public class UserRestController {
 		
 		return map;
 	}
-	
 	
 }

@@ -32,17 +32,17 @@
 					<div class="col-3 mx-2">
 					
 						<div class="d-flex justify-content-center pt-3">
-							<img id="preview-image" src="${userProfileImage}" width="200" height="200"/>
+							<img id="preview-image" src="${userlist.profileImage}" width="200" height="200"/>
 						</div>
 						
 						<div class="d-flex justify-content-end mx-2 pt-3">
-							<div>${userName}(<b>${userNickName }</b>) </div>
+							<div>${userlist.name}(<b>${userlist.nickName }</b>) </div>
 						</div>
 						
 						<hr>
 						
 						<div class="profilecontent border rounded">
-							<div class="p-2"> ${userContent} </div>
+							<div class="p-2"> ${userlist.content} </div>
  						</div>
 						
 						<div class="d-flex">
