@@ -39,4 +39,12 @@
  			`storyId` = #{storyId}
  	</select>
  	
+ 	<delete id="deleteComment" parameterType="map">
+ 		DELETE FROM
+ 			`comment`
+ 		WHERE
+ 			`userId` = #{userId}
+ 			, `commentId` = #{commentId}
+ 	</delete>
+ 	
  </mapper>

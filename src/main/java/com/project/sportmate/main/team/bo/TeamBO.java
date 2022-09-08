@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.project.sportmate.main.team.dao.TeamDAO;
+import com.project.sportmate.main.team.member.bo.MemberBO;
 import com.project.sportmate.main.team.model.Team;
 import com.project.sportmate.main.team.model.TeamDetail;
 
@@ -15,10 +16,19 @@ public class TeamBO {
 	
 	@Autowired
 	private TeamDAO teamDAO;
+	
+	@Autowired
+	private MemberBO memberBO;
 
 	public int createTeam(int userId, String teamname, String exercise, String region, String content) {
 		
-		return teamDAO.addTeam(userId, teamname, exercise, region, content);
+		int count = teamDAO.addTeam(userId, teamname, exercise, region, content);
+		
+		if(count == 1) {
+			memberBO.createMember(userId, count, content);
+		}
+		
+		return count;
 	}
 	
 	public List<TeamDetail> getTeamList(int userId) {
@@ -36,6 +46,8 @@ public class TeamBO {
 		
 		return teamDetailList;
 	}
+	
+	
 	
 	
 }

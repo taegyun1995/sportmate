@@ -18,7 +18,8 @@ public class WebMVCConfig implements WebMvcConfigurer{
 		
 		registry.addResourceHandler("/images/**")
 		.addResourceLocations("file:///" + FileManagerService.ProfileIMAGE_UPLOAD_PATH)
-		.addResourceLocations("file:///" + FileManagerService.StoryIMAGE_UPLOAD_PATH);
+		.addResourceLocations("file:///" + FileManagerService.StoryIMAGE_UPLOAD_PATH)
+		.addResourceLocations("file:///" + FileManagerService.ProfileIMAGE_EDIT_PATH);
 	}
 	
 	@Autowired

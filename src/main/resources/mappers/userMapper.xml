@@ -43,7 +43,7 @@
  		)
  	</insert>
  
- 	<select id="overlapLoginId" resultType="int" parameterType="string">
+ 	<select id="overlapLoginId" resultType="int" parameterType="com.project.sportmate.user.model.User">
  		SELECT
  			count(1)
 		FROM 

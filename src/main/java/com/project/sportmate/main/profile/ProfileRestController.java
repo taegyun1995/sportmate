@@ -44,6 +44,7 @@ public class ProfileRestController {
 		return map;
 	}
 	
+	// 스토리 삭제
 	@GetMapping("/story/delete")
 	public Map<String, String> deleteStory(
 			@RequestParam("storyId") int storyId

@@ -33,9 +33,9 @@ public class UserBO {
 	}
 	
 	// 아이디 중복확인
-	public boolean overlapUser(String loginId) {
+	public boolean overlapUser(User user) {
 		
-		int count = userDAO.overlapLoginId(loginId);
+		int count = userDAO.overlapLoginId(user);
 		
 		if(count == 0) {
 			return false;
@@ -85,15 +85,12 @@ public class UserBO {
 		return userDAO.selectUserById(userId);
 	}
 	
+	// 프로필 수정
 	public int editProfile(int userId, MultipartFile profileImage, String nickName, String exercise, String region, String content) {
 		
-		String imagePath = null;
+		User user = userDAO.selectUserByuserId(userId);
 		
-		if(profileImage == null) {
-			imagePath = FileManagerService.saveProfileImgFile(userId, profileImage);
-		} else {
-			imagePath = FileManagerService.editProfileImgFile(userId, profileImage);
-		}
+		String imagePath = user.getProfileImage();
 		
 		return userDAO.updateProfile(userId, imagePath, nickName, exercise, region, content);
 	}

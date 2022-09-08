@@ -19,8 +19,5 @@ public interface ProfileDAO {
 			@Param("storyId") int storyId
 			, @Param("usrId") int userId);
 	
-	public Story selectStory(@Param("storyId") int storyId);
-	
-	
 	
 }

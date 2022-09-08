@@ -54,7 +54,7 @@
 						</select>
 														 
 						<label class="signupLabel pt-3"> 자기소개 </label>
-						<textarea class="form-control" rows="3" id="contentInput" name="content">${userlist.content }</textarea>
+						<textarea class="form-control" rows="3" id="contentInput" name="content"> ${userlist.content} </textarea>
 						
 						<div class="d-flex justify-content-center py-3">
 							<button id="editBtn" type="button" onclick="javascript:editSubmit();"> 저장 </button>

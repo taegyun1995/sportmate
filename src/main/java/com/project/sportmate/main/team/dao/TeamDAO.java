@@ -18,5 +18,6 @@ public interface TeamDAO {
 			, @Param("content") String content);
 	
 	public List<Team> selectTeamList(@Param("userId") int userId);
+	
 
 }

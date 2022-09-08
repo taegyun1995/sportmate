@@ -11,7 +11,7 @@ public interface UserDAO {
 	
 	public int insertUser(UserM userM);
 	
-	public int overlapLoginId(@Param("loginId") String loginId);
+	public int overlapLoginId(User user);
 	
 	public User getUser(
 			@Param("loginId") String loginId

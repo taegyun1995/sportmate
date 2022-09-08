@@ -53,7 +53,7 @@
 								<div class="d-flex">
 									<input id="passwordInput" class="signupInput form-control col-4.5" type="password" placeholder="비밀번호" name="password" />
 									<input id="confrimPasswordInput" class="signupInput form-control col-4.5" type="password" placeholder="비밀번호 확인"/>
-									<button id="pwoverLapBtn" class="col-3 ml-1" type="button"> 중복확인 </button>
+									<button id="pwoverLapBtn" class="col-3 ml-1" type="button" > 중복확인 </button>
 								</div>
 								
 								<label class="signupLabel pt-2"> 이름 </label>
@@ -148,7 +148,6 @@
 			        reader.readAsDataURL(input.files[0])
 			    }
 			}
-			// input file에 change 이벤트 부여
 			const inputImage = document.getElementById("fileInput")
 			inputImage.addEventListener("change", e => {
 			    readImage(e.target)
@@ -159,9 +158,8 @@
 				e.preventDefault(); // 이벤트 안 고유의 기능을 제거 
 				$("#fileInput").click();
 			});
-
 			
-			$("#idoverLapBtn").on("click", function(){
+			$("#idoverLapBtn").on("click", function() {
 				let loginId = $("#loginIdInput").val();
 				
 				if(loginId == "") {
@@ -200,7 +198,7 @@
 				});
 				
 			});
-			
+
 			$("#pwoverLapBtn").on("click", function(){
 				let password = $("#passwordInput").val();
 				let confrimPassword = $("#confrimPasswordInput").val();

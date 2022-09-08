@@ -43,10 +43,10 @@ public class UserRestController {
 	
 	// 아이디 중복 확인
 	@GetMapping("/user/overlap_id")
-	public Map<String, Boolean> idOverlap(String loginId) {
+	public Map<String, Boolean> idOverlap(@ModelAttribute User user) {
 		Map<String, Boolean> result = new HashMap<>();
 		
-		if(userBO.overlapUser(loginId)) { // 중복된경우
+		if(userBO.overlapUser(user)) { // 중복된경우
 			result.put("overlap", true);
 		} else { // 중복되지 않은 경우 
 			result.put("overlap", false);			

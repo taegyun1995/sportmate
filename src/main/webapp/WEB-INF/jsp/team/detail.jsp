@@ -26,17 +26,21 @@
 		<section>
 			<div class="px-5">
 			
-				<div class="d-flex justify-content-between border-bottom">
+				<div class="border-bottom">
 					<h5> My Team </h5>
-					<a href="/sportmate/team/create/view" class="text-info">
-						<span class="d-flex align-items-center pl-1"> <i class="bi bi-plus-circle"> </i> </span>
-					</a>
 				</div>
 				
-				<div class="d-flex">
+				<div class="d-flex">						
+					<div class="teambox border rounded m-2">
+						<div class="pl-2 pt-1">
+							<a href="/sportmate/team/create/view" class="text-info">
+								<span class="d-flex align-items-center pl-1"> <i class="bi bi-plus-circle"> </i> </span>
+							</a>
+						</div>
+					</div>
 					<c:forEach var="DetailTeam" items="${teamlist}" varStatus="status">
 						<div class="teambox border rounded m-2">
-							<div class="p-2"> <b> ${DetailTeam.team.teamname } </b> </div>
+							<div class="p-2"> 팀명 <b> ${DetailTeam.team.teamname } </b> </div>
 							<div class="pl-2 pt-1"> 대표  </div>
 							<div class="pl-2 pt-1"> 인원  </div>
 							<div class="pl-2 pt-1"> ${DetailTeam.team.region }  </div>
@@ -47,11 +51,17 @@
 				<div class="border-bottom">
 					<h5 class="pt-3"> My Team Plan </h5>
 				</div>
-					
-				<ul class="pl-4 pt-2">
-					<li> <b> 축구 team1 </b> 이번 주 주말 오전 7시 경기 잡혔습니다. createdAt </li>						
-					<li> <b> 축구 team2 </b> 이번 주 주말 오전 5시 경기 잡혔습니다. createdAt </li>						
-				</ul>
+				
+				<div class="pt-2">
+					<div class="d-flex">
+						<input id="nameInput"  class="signupInput form-control" type="text" placeholder="계획을 입력하세요."/>
+						<button id="pwoverLapBtn" class="col-2 ml-1" type="button"> 작성 </button>
+					</div>
+					<ul class="pl-4 pt-2">
+						<li> <b> 축구 team1 </b> 이번 주 주말 오전 7시 경기 잡혔습니다. createdAt </li>						
+						<li> <b> 축구 team2 </b> 이번 주 주말 오전 5시 경기 잡혔습니다. createdAt </li>						
+					</ul>
+				</div>
 				
 								
 				<div class="border-bottom">

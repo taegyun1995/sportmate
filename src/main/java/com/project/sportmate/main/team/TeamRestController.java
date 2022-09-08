@@ -19,6 +19,7 @@ public class TeamRestController {
 	@Autowired
 	private TeamBO teamBO;
 	
+	// 팀 생성
 	@GetMapping("/team/make")
 	public Map<String, String> createTeam(
 			HttpServletRequest request
@@ -42,5 +43,7 @@ public class TeamRestController {
 		
 		return map;
 	}
+	
+	
 
 }

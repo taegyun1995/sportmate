@@ -32,6 +32,7 @@ public class ProfileBO {
 	@Autowired
 	private CommentBO commentBO;
 	
+	
 	public int addStory(int userId, MultipartFile storyImage, String content) {
 		String imagePath = FileManagerService.saveStoryImgFile(userId, storyImage);
 		
