@@ -58,9 +58,10 @@
 						<button id="pwoverLapBtn" class="col-2 ml-1" type="button"> 작성 </button>
 					</div>
 					<ul class="pl-4 pt-2">
-						<li> <b> 축구 team1 </b> 이번 주 주말 오전 7시 경기 잡혔습니다. createdAt </li>						
-						<li> <b> 축구 team2 </b> 이번 주 주말 오전 5시 경기 잡혔습니다. createdAt </li>						
-					</ul>
+                        <c:forEach var="DetailPlan" items="${planList}">
+                            <li> <b> ${DetailPlan.teamId } </b> ${DetailPlan.plan }. ${DetailPlan.createdAt } </li>
+                        </c:forEach>
+                    </ul>
 				</div>
 				
 								

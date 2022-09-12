@@ -23,4 +23,18 @@
         )
     </insert>
 
+
+    <select id="selectPlanList" resultType="com.project.sportmate.main.team.plan.model.Plan" parameterType="map">
+        SELECT
+            `userId`
+            , `teamId`
+            , `plan`
+            , `createdAt`
+            , `updatedAt`
+        FROM
+            `plan`
+        WHERE
+            `userId` = #{userId}
+    </select>
+
 </mapper>

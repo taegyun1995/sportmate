@@ -28,6 +28,7 @@ public class PlanRestController {
 
         // teamId = get
         int count = planBO.createPlan(userId, teamId, plan);
+
         Map<String, String> map = new HashMap<>();
         if(count == 1) {
             map.put("result", "success");
@@ -37,4 +38,5 @@ public class PlanRestController {
 
         return map;
     }
+
 }
