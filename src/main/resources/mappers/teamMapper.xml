@@ -1,47 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
- "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
- 
- <mapper namespace="com.project.sportmate.main.team.dao.TeamDAO">
- 
- 	<insert id="addTeam" parameterType="map">
- 		INSERT INTO
- 			`team`
- 		(
- 			`userId`
- 			, `teamname`
- 			, `exercise`
- 			, `region`
- 			, `content`
- 			, `createdAt`
- 			, `updatedAt`
- 		)
- 		VALUES
- 		(
- 			#{userId}
- 			, #{teamname}
- 			, #{exercise}
- 			, #{region}
- 			, #{content}
- 			, now()
- 			, now()
- 		)
- 	</insert>
- 	
- 	<select id="selectTeamList" resultType="com.project.sportmate.main.team.model.Team" parameterType="map">
-	 	SELECT
-			`id`
-	 		, `userId`
-	 		, `teamId`
-	 		, `plan`
-	 		, `createdAt`
-	 		, `updatedAt`
-	 	FROM
-	 		`plan`
-	 	WHERE
-	 		`userId` = #{userId}
- 	</select>
- 		
- 		
- </mapper>
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.sportmate.main.team.dao.TeamDAO">
+
+    <insert id="addTeam" parameterType="map">
+        INSERT INTO
+        `team`
+        (
+        `userId`
+        , `teamname`
+        , `exercise`
+        , `region`
+        , `content`
+        , `createdAt`
+        , `updatedAt`
+        )
+        VALUES
+        (
+        #{userId}
+        , #{teamname}
+        , #{exercise}
+        , #{region}
+        , #{content}
+        , now()
+        , now()
+        )
+    </insert>
+
+    <select id="selectTeamList" resultType="com.project.sportmate.main.team.model.Team" parameterType="map">
+        SELECT
+        `id`
+        , `userId`
+        , `teamname`
+        , `exercise`
+        , `region`
+        , `content`
+        , `createdAt`
+        , `updatedAt`
+        FROM
+        `team`
+        WHERE
+        `userId` = #{userId}
+    </select>
+
+
+    <select id="selectTeamListById" resultType="com.project.sportmate.main.team.model.Team" parameterType="map">
+        SELECT
+        `id`
+        , `userId`
+        , `teamname`
+        , `exercise`
+        , `region`
+        , `content`
+        , `createdAt`
+        , `updatedAt`
+        FROM
+        `team`
+        WHERE
+        `id` in
+        <foreach collection="teamIdList" item="teamId" index="index" separator="," open="(" close=")">#{teamId}
+        </foreach>
+    </select>
+</mapper>

@@ -58,8 +58,8 @@
 						<button id="pwoverLapBtn" class="col-2 ml-1" type="button"> 작성 </button>
 					</div>
 					<ul class="pl-4 pt-2">
-                        <c:forEach var="DetailPlan" items="${planList}">
-                            <li> <b> ${DetailPlan.teamId } </b> ${DetailPlan.plan }. ${DetailPlan.createdAt } </li>
+                        <c:forEach var="DetailPlan" items="${planDetailList}">
+                            <li> <b> ${DetailPlan.team.teamname } </b> ${DetailPlan.plan.plan }. ${DetailPlan.plan.createdAt } </li>
                         </c:forEach>
                     </ul>
 				</div>
