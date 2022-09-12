@@ -99,7 +99,7 @@
 		});
 		
 		function editSubmit() {
-			
+
 			var form = $("form[name='editForm']")[0];
 			
 			var formData = new FormData(form);
@@ -107,7 +107,7 @@
 			$.ajax({
 				type:"post",
 				url:"/profile/edit",
-				data:formData,
+				data: formData,
 				enctype:"multipart/form-data",
 				processData:false,
 				contentType:false,

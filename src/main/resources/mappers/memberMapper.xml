@@ -10,7 +10,6 @@
  			`member`
  		(
  			`userId`
- 			, `teamId`
  			, `rank`
  			, `createdAt`
  			, `updatedAt`
@@ -18,7 +17,6 @@
  		VALUES
  		(
  			#{userId}
- 			, #{teamId}
  			, '대표'
  			, now()
  			, now()

@@ -25,7 +25,7 @@ public class TeamBO {
 		int count = teamDAO.addTeam(userId, teamname, exercise, region, content);
 		
 		if(count == 1) {
-			memberBO.createMember(userId, count, content);
+			memberBO.createMember(userId, content);
 		}
 		
 		return count;

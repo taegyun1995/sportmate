@@ -87,10 +87,17 @@ public class UserBO {
 	
 	// 프로필 수정
 	public int editProfile(int userId, MultipartFile profileImage, String nickName, String exercise, String region, String content) {
-		
-		User user = userDAO.selectUserByuserId(userId);
-		
-		String imagePath = user.getProfileImage();
+		String imagePath = null;
+
+		// 긍정맨
+		if(!profileImage.isEmpty()) {
+			// upload
+			imagePath = FileManagerService.editProfileImgFile(userId, profileImage);
+		} else {
+			// ???
+			User user = userDAO.selectUserById(userId);
+			imagePath = user.getProfileImage();
+		}
 		
 		return userDAO.updateProfile(userId, imagePath, nickName, exercise, region, content);
 	}

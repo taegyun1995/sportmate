@@ -11,9 +11,9 @@ public class MemberBO {
 	@Autowired
 	private MemberDAO memberDAO;
 	
-	public int createMember(int userId, int teamId, String rank) {
+	public int createMember(int userId, String rank) {
 		
-		return memberDAO.insertMember(userId, teamId, rank);
+		return memberDAO.insertMember(userId, rank);
 	}
 	
 }

@@ -20,7 +20,7 @@ import com.project.sportmate.user.model.UserM;
 
 @RestController
 public class UserRestController {
-	
+
 	@Autowired
 	private UserBO userBO;
 	

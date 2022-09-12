@@ -8,7 +8,6 @@ public interface MemberDAO {
 	
 	public int insertMember(
 			@Param("userId") int userId
-			, @Param("teamId") int teamId
 			, @Param("rank") String rank);
 
 }

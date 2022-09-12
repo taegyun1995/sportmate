@@ -41,13 +41,7 @@ public interface UserDAO {
 			, @Param("exercise") String exercise
 			, @Param("region") String region
 			, @Param("content") String content);
-	
-	public int updateProfile2(
-			@Param("userId") int userId
-			, @Param("nickName") String nickName
-			, @Param("exercise") String exercise
-			, @Param("region") String region
-			, @Param("content") String content);
+
 	
 	
 }
