@@ -1,6 +1,7 @@
 package com.project.sportmate.main.team.bo;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,16 +23,15 @@ public class TeamBO {
 
     public int createTeam(int userId, String teamname, String exercise, String region, String content) {
 
-        int count = teamDAO.addTeam(userId, teamname, exercise, region, content);
+        return teamDAO.addTeam(userId, teamname, exercise, region, content);
 
-        if (count == 1) {
-            memberBO.createMember(userId, content);
-        }
-
-        return count;
     }
 
     public List<Team> getTeamListById(List<Integer> teamIdList) {
+
+        if(teamIdList.isEmpty())
+            return Collections.emptyList();
+
         return teamDAO.selectTeamListById(teamIdList);
     }
 

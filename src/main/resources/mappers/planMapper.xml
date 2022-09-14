@@ -7,22 +7,21 @@
 
     <insert id="insertPlan" parameterType="map">
         INSERT INTO
-        `plan`
+            `plan`
         (
-        `userId`
-        , `teamId`
-        , `plan`
-        , `createdAt`
+            `userId`
+            , `teamId`
+            , `plan`
+            , `createdAt`
         )
         VALUES
         (
-        #{userId}
-        , #{teamId}
-        , #{plan}
-        , now()
+            #{userId}
+            , #{teamId}
+            , #{plan}
+            , now()
         )
     </insert>
-
 
     <select id="selectPlanList" resultType="com.project.sportmate.main.team.plan.model.Plan" parameterType="map">
         SELECT

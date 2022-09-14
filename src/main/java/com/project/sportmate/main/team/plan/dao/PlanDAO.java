@@ -14,6 +14,5 @@ public interface PlanDAO {
             @Param("teamId") int teamId,
             @Param("plan") String plan);
 
-
     public List<Plan> selectPlanList(@Param("userId") int userId);
 }

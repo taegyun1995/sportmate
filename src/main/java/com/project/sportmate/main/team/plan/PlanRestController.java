@@ -17,12 +17,12 @@ public class PlanRestController {
     @Autowired
     private PlanBO planBO;
 
-
-    @PostMapping("/sportmate/team/plans/create")
+    @PostMapping("/team/plans/create")
     public Map<String, String> plans(Model model,
                                      @RequestParam("teamId") int teamId,
                                      @RequestParam("plan") String plan,
                                      HttpServletRequest request) {
+
         HttpSession session = request.getSession();
         int userId = (Integer) session.getAttribute("userId");
 

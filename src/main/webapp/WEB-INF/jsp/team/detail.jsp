@@ -24,56 +24,99 @@
 		<h3 class="py-2"> Team </h3>	
 		
 		<section>
-			<div class="px-5">
-			
-				<div class="border-bottom">
-					<h5> My Team </h5>
-				</div>
+		    <form>
+                <div class="px-5">
+
+                    <div class="border-bottom">
+                        <h5> My Team </h5>
+				    </div>
 				
-				<div class="d-flex">						
-					<div class="teambox border rounded m-2">
-						<div class="pl-2 pt-1">
-							<a href="/sportmate/team/create/view" class="text-info">
-								<span class="d-flex align-items-center pl-1"> <i class="bi bi-plus-circle"> </i> </span>
-							</a>
-						</div>
-					</div>
-					<c:forEach var="DetailTeam" items="${teamlist}" varStatus="status">
-						<div class="teambox border rounded m-2">
-							<div class="p-2"> 팀명 <b> ${DetailTeam.team.teamname } </b> </div>
-							<div class="pl-2 pt-1"> 대표  </div>
-							<div class="pl-2 pt-1"> 인원  </div>
-							<div class="pl-2 pt-1"> ${DetailTeam.team.region }  </div>
-						</div>
-					</c:forEach>
-				</div>
-				
-				<div class="border-bottom">
-					<h5 class="pt-3"> My Team Plan </h5>
-				</div>
-				
-				<div class="pt-2">
-					<div class="d-flex">
-						<input id="nameInput"  class="signupInput form-control" type="text" placeholder="계획을 입력하세요."/>
-						<button id="pwoverLapBtn" class="col-2 ml-1" type="button"> 작성 </button>
-					</div>
-					<ul class="pl-4 pt-2">
-                        <c:forEach var="DetailPlan" items="${planDetailList}">
-                            <li> <b> ${DetailPlan.team.teamname } </b> ${DetailPlan.plan.plan }. ${DetailPlan.plan.createdAt } </li>
+                    <div class="d-flex">
+                        <div class="teambox border rounded m-2">
+                            <div class="pl-2 pt-1">
+                                <a href="/sportmate/team/create/view" class="text-info">
+                                    <span class="d-flex align-items-center pl-1"> <i class="bi bi-plus-circle"> </i> </span>
+                                </a>
+                            </div>
+                        </div>
+                        <c:forEach var="DetailTeam" items="${teamlist}" varStatus="status">
+                            <div class="teambox border rounded m-2">
+                                <div class="p-2"> 팀명 <b> ${DetailTeam.team.teamname } </b> </div>
+                                <div class="pl-2 pt-1"> 대표  </div>
+                                <div class="pl-2 pt-1"> 인원  </div>
+                                <div class="pl-2 pt-1"> ${DetailTeam.team.region }  </div>
+                            </div>
                         </c:forEach>
-                    </ul>
-				</div>
+                    </div>
+				
+                    <div class="border-bottom">
+                        <h5 class="pt-3"> My Team Plan </h5>
+                    </div>
+				
+                    <div class="pt-2">
+                        <div class="d-flex">
+                            <select id="teamnameSelect" class="signInput3 form-control col-1">
+                                <c:forEach var="DetailTeam" items="${teamlist}" varStatus="status">
+                                    <option value=${DetailTeam.team.id} id="teamIdInput"> ${DetailTeam.team.teamname } </option>
+                                </c:forEach>
+                            </select>
+                            <input id="planInput"  class="signupInput form-control" type="text" placeholder="계획을 입력하세요."/>
+                            <button id="planCreateBtn" class="col-2 ml-1" type="button"> 작성 </button>
+                        </div>
+                        <ul class="pl-4 pt-2">
+                            <c:forEach var="DetailPlan" items="${planDetailList}">
+                                <li> <b> ${DetailPlan.team.teamname } </b> ${DetailPlan.plan.plan } ${DetailPlan.plan.createdAt } </li>
+                            </c:forEach>
+                        </ul>
+                    </div>
 				
 								
-				<div class="border-bottom">
-					<h5 class="pt-3"> My Team Story </h5>
-				</div>
-				
-				gg
-			</div>
+                    <div class="border-bottom">
+                        <h5 class="pt-3"> My Team Story </h5>
+                    </div>
+
+                </div>
+            <form>
 		</section>
-		
+
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 	</div>
+
+	<script>
+
+	    $(document).ready(function() {
+
+            $("#planCreateBtn").on("click", function() {
+
+                let plan = $("#planInput").val();
+                let teamname = $("#teamnameSelect").val();
+
+                if(plan == "") {
+                    alert("계획을 입력해주세요.");
+                    return;
+                }
+
+                $.ajax({
+                    type:"post",
+                    url:"/team/plans/create",
+                    data:{"teamId":teamname, "plan":plan},
+
+                    success:function(data) {
+                        if(data.result == "success") {
+                            location.reload();
+                        } else {
+                            alert("계획 작성 실패");
+                        }
+                    },
+                    error:function() {
+                        alert("에러 발생");
+                    }
+
+                });
+
+            });
+	    });
+
+	</script
 </body>
 </html>
