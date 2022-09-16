@@ -79,7 +79,6 @@ public class UserBO {
 		return userDAO.updatePassword(encryptPassword, loginId, email);
 		
 	}
-	
 	public User getUserById(int userId) {
 		
 		return userDAO.selectUserById(userId);
@@ -89,12 +88,9 @@ public class UserBO {
 	public int editProfile(int userId, MultipartFile profileImage, String nickName, String exercise, String region, String content) {
 		String imagePath = null;
 
-		// 긍정맨
 		if(!profileImage.isEmpty()) {
-			// upload
 			imagePath = FileManagerService.editProfileImgFile(userId, profileImage);
 		} else {
-			// ???
 			User user = userDAO.selectUserById(userId);
 			imagePath = user.getProfileImage();
 		}

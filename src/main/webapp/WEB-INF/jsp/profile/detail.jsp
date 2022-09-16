@@ -120,7 +120,7 @@
 											</div>
 										</div>
 									</div>
-									
+
 								</div>
 							</div>
 						</c:forEach>
@@ -130,31 +130,31 @@
 		</section>
 		
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
-		
+
 		<!-- Modal -->
 		<div class="modal fade" id="moreModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 		 	<div class="modal-dialog modal-dialog-centered" role="document">
 		    	<div class="modal-content">
-		      
+
 				     <div class="modal-body text-center">
 				    	 <button id="deleteBtn" class="btn btn-primary btn-sm" type="button">삭제하기</button>
 				     </div>
-			      
+
 			     	 <div class="modal-footer">
 			        	<button id="modalcancelBtn" class="btn btn-primary btn-sm" type="button" data-dismiss="modal">취소</button>
 			      	</div>
-			      	
+
 		      	</div>
 			</div>
 		</div>
-		
+
 		<!-- Comment Modal -->
 		<div class="modal fade" id="moreModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 		 	<div class="modal-dialog modal-dialog-centered" role="document">
 		    	<div class="modal-content">
 		      
 				     <div class="modal-body text-center">
-				    	 <button id="deleteBtn" class="btn btn-primary btn-sm" type="button">삭제하기</button>
+				    	 <button id="commentdeleteBtn" class="btn btn-primary btn-sm" type="button">삭제하기</button>
 				     </div>
 			      
 			     	 <div class="modal-footer">
@@ -237,42 +237,42 @@
 				});		
 				
 			});
-			
+
 			$(".more-btn").on("click", function(){
 				let storyId = $(this).data("story-id");
-				
+
 				$("#deleteBtn").data("story-id", storyId);
 			});
-			
+
+			$("#deleteBtn").on("click", function(e) {
+                e.preventDefault();
+
+                let storyId = $(this).data("story-id");
+
+                $.ajax({
+                    type:"get",
+                    url:"/story/delete",
+                    data:{"storyId":storyId},
+                    success:function(data) {
+                        if(data.result == "success") {
+                            location.reload();
+                        } else {
+                            alert("삭제 실패");
+                        }
+                    },
+                    error:function() {
+                        alert("삭제 에러");
+                    }
+                });
+
+            });
+
 			$(".more-btn2").on("click", function(){
-				let storyId = $(this).data("comment-id");
+				let commentId = $(this).data("comment-id");
 				
 				$("#commentdeleteBtn").data("comment-id", commentId);
 			});
-			
-			$("#deleteBtn").on("click", function(e) {
-				e.preventDefault();
-				
-				let storyId = $(this).data("story-id");
-				
-				$.ajax({
-					type:"get",
-					url:"/story/delete",
-					data:{"storyId":storyId},
-					success:function(data) {
-						if(data.result == "success") {
-							location.reload();
-						} else {
-							alert("삭제 실패");
-						}
-					},
-					error:function() {
-						alert("삭제 에러");
-					}
-				});
-				
-			});
-			
+
 			$("#commentdeleteBtn").on("click", function(e) {
 				e.preventDefault();
 				
@@ -280,7 +280,7 @@
 				
 				$.ajax({
 					type:"get",
-					url:"comment/delete",
+					url:"/story/comment/delete",
 					data:{"commentId":commentId},
 					
 					success:function(data) {
@@ -298,11 +298,11 @@
 				
 			});
 			
-			
-			
-			
+
+
+
 		});
-	
+
 	</script>
 	
 </body>

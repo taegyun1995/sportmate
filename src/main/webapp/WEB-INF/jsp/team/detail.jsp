@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,25 +55,36 @@
                     </div>
 				
                     <div class="pt-2">
-                        <div class="d-flex">
-                            <select id="teamnameSelect" class="signInput3 form-control col-1">
+                        <div id="signupInput" class="d-flex">
+                            <select id="teamnameSelect" class="form-control col-1">
                                 <c:forEach var="DetailTeam" items="${teamlist}" varStatus="status">
                                     <option value=${DetailTeam.team.id} id="teamIdInput"> ${DetailTeam.team.teamname } </option>
                                 </c:forEach>
                             </select>
-                            <input id="planInput"  class="signupInput form-control" type="text" placeholder="계획을 입력하세요."/>
-                            <button id="planCreateBtn" class="col-2 ml-1" type="button"> 작성 </button>
+                            <input id="planInput"  class="signupInput form-control ml-1 mt-2" type="text" placeholder="계획을 입력하세요."/>
+                            <button id="planCreateBtn" class="col-2 ml-1 mt-2" type="button"> 작성 </button>
                         </div>
                         <ul class="pl-4 pt-2">
                             <c:forEach var="DetailPlan" items="${planDetailList}">
-                                <li> <b> ${DetailPlan.team.teamname } </b> ${DetailPlan.plan.plan } ${DetailPlan.plan.createdAt } </li>
+                                <li>
+                                    <b> ${DetailPlan.team.teamname } </b> ${DetailPlan.plan.plan }
+                                    <fmt:formatDate value="${DetailPlan.plan.createdAt }" pattern="YYYY년 MM월 dd일 hh:mm" />
+                                </li>
                             </c:forEach>
                         </ul>
                     </div>
-				
-								
-                    <div class="border-bottom">
-                        <h5 class="pt-3"> My Team Story </h5>
+
+                    <div class="d-flex justify-content-start">
+                        <div class="teamStory">
+                            <div class="border-bottom">
+                                <h5 class="pt-3"> My Team Story </h5>
+                            </div>
+
+                            <div class="my-2 border">
+                                <img class="p-2" src="${DetailStory.story.storyImage}" width="100%" height="400") />
+
+                            </div>
+                        </div>
                     </div>
 
                 </div>

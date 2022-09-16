@@ -14,10 +14,11 @@ public interface ProfileDAO {
 			, @Param("content") String content);
 
 	public List<Story> selectUserStoryList(@Param("userId") int userId);
-	
+
+	public List<Story> selectStoryList();
+
 	public int deleteStory(
 			@Param("storyId") int storyId
 			, @Param("usrId") int userId);
-	
 	
 }

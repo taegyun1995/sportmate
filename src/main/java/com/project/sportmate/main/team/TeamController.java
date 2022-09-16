@@ -40,6 +40,8 @@ public class TeamController {
 
 		List<PlanDetail> planDetailList = planBO.getPlanDetailList(userId);
 		model.addAttribute("planDetailList", planDetailList);
+
+
 		
 		return "/team/detail";
 	}

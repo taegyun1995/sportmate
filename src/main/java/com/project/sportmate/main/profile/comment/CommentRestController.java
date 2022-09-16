@@ -49,9 +49,10 @@ public class CommentRestController {
 			, @RequestParam("commentId") int commentId) {
 		
 		Map<String, String> map = new HashMap<>();
+
 		HttpSession session = request.getSession();
 		int userId = (Integer)session.getAttribute("userId");
-		
+
 		int count = commentBO.deleteComment(userId, commentId);
 		
 		if(count == 1) {

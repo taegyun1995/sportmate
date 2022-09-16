@@ -38,8 +38,22 @@
  		WHERE
  			`userId` = #{userId}
  		ORDER BY
- 			`createdAt` DESC
+ 			`id` DESC
  	</select>
+
+	<select id="selectStoryList" resultType="com.project.sportmate.main.profile.model.Story">
+		SELECT
+			`id`
+			, `userId`
+			, `storyImage`
+			, `content`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`story`
+		ORDER BY
+			`createdAt` DESC
+	</select>
  
  	<delete id="deleteStory" parameterType="int">
  		DELETE FROM

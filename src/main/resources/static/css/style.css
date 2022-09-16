@@ -335,6 +335,19 @@ input[type=text], input[type=password], input[type=email] {
 	background-color : #273c75;
 }
 
+#commentdeleteBtn {
+	width : 100px;
+	height : 30px;
+	color : #273c75;
+	background-color : white;
+	border: 1px solid #273c75;
+}
+
+#commentdeleteBtn:hover {
+	color : white;
+	background-color : #273c75;
+}
+
 #modalcancelBtn {
 	height : 30px;
 	color : #273c75;
@@ -384,8 +397,8 @@ input[type=text], input[type=password], input[type=email] {
 	background-color : #273c75;
 }
 
-.signInput3 {
-    height : 25px;
+.teamStory {
+    width : 700px;
 }
 
 footer {

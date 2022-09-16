@@ -3,6 +3,7 @@ package com.project.sportmate.main.profile.bo;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.project.sportmate.main.team.model.TeamDetail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -22,16 +23,12 @@ public class ProfileBO {
 	
 	@Autowired
 	private ProfileDAO profileDAO;
-	
 	@Autowired
 	private UserBO userBO;
-	
 	@Autowired
 	private LikeBO likeBO;
-	
 	@Autowired
 	private CommentBO commentBO;
-	
 	
 	public int addStory(int userId, MultipartFile storyImage, String content) {
 		String imagePath = FileManagerService.saveStoryImgFile(userId, storyImage);
@@ -43,12 +40,12 @@ public class ProfileBO {
 		
 		List<StoryDetail> storyDetailList = new ArrayList<>();
 		List<Story> storyList = profileDAO.selectUserStoryList(userId);
-		
+
 		for(Story story : storyList) {
 			
 			int user_id = story.getUserId();
 			int storyId = story.getId();
-			
+
 			User user = userBO.getUserById(user_id);
 			int likecount = likeBO.countLike(storyId);
 			boolean islike = likeBO.isLike(storyId, userId);
@@ -66,7 +63,13 @@ public class ProfileBO {
 		
 		return storyDetailList;
 	}
-	
+
+//	public List<TeamDetail> getStoryList() {
+//		List<TeamDetail> storyTeamlList = new ArrayList<>();
+//		List<Story> storyList = profileDAO.selectStoryList();
+//
+//	}
+
 	public int deleteStory(int storyId, int userId) {
 		
 		return profileDAO.deleteStory(storyId, userId);

@@ -59,7 +59,8 @@ public class ProfileController {
 	// 스토리 작성화면
 	@GetMapping("/sportmate/profile/story/create/view")
 	public String storycreateView() {
-		
+
+
 		return "/profile/storycreate";
 	}
 	

@@ -17,7 +17,6 @@ public class CommentBO {
 	
 	@Autowired
 	private CommentDAO commentDAO;
-	
 	@Autowired
 	private UserBO userBO;
 	
