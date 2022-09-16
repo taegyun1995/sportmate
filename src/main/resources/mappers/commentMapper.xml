@@ -44,7 +44,7 @@
  			`comment`
  		WHERE
  			`userId` = #{userId}
- 			, `id` = #{commentId}
+ 			AND `id` = #{commentId}
  	</delete>
  	
  </mapper>
