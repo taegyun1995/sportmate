@@ -27,15 +27,18 @@ public class LikeBO {
 	}
 	
 	public boolean isLike(int storyId, int userId) {
-		
+
 		int count = likeDAO.CountLikeById(storyId, userId);
-		
+
 		if(count == 0) {
 			return false;
 		} else {
 			return true;
 		}
-		
 	}
-	
+
+	public int deleteStoryLike(int storyId) {
+
+		return likeDAO.deleteStoryLike(storyId);
+	}
 }

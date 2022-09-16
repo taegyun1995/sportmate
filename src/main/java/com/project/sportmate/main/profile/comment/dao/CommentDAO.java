@@ -20,4 +20,6 @@ public interface CommentDAO {
 	public int deleteComment(
 			@Param("userId") int userId
 			, @Param("commentId") int commentId);
+
+	public int deleteStoryComment(@Param("storyId") int storyId);
 }

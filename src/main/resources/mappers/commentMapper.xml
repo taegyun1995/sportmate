@@ -46,5 +46,12 @@
  			`userId` = #{userId}
  			AND `id` = #{commentId}
  	</delete>
+
+	<delete id="deleteStoryComment" parameterType="int">
+		DELETE FROM
+			`comment`
+		WHERE
+			`storyId` = #{storyId}
+	</delete>
  	
  </mapper>

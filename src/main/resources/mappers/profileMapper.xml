@@ -54,13 +54,27 @@
 		ORDER BY
 			`createdAt` DESC
 	</select>
+
+	<select id="selectStory" resultType="com.project.sportmate.main.profile.model.Story" parameterType="int">
+		SELECT
+			`id`
+			, `userId`
+			, `storyImage`
+			, `content`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`story`
+		WHERE
+			`id` = #{storyId}
+	</select>
  
  	<delete id="deleteStory" parameterType="int">
  		DELETE FROM
  			`story`
  		WHERE
- 			`id` = #{id}
- 			AND `userId` = {userId}
+ 			`id` = #{storyId}
+ 			AND `userId` = #{userId}
  	</delete>
  	
  	

@@ -46,6 +46,13 @@
 		WHERE
 			`storyId` = #{storyId}
 			AND `userId` = #{userId}
- 	</select>	
+ 	</select>
+
+	<delete id="deleteStoryLike" parameterType="int">
+		DELETE FROM
+			`like`
+		WHERE
+			`storyId` = #{storyId}
+	</delete>
  
  </mapper>

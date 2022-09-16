@@ -49,6 +49,11 @@ public class CommentBO {
 		
 		return commentDAO.deleteComment(userId, commentId);
 	}
+
+	public int deleteStoryComment(int storyId) {
+
+		return commentDAO.deleteStoryComment(storyId);
+	}
 	
 	
 }

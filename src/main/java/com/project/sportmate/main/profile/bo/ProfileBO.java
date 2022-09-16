@@ -64,15 +64,18 @@ public class ProfileBO {
 		return storyDetailList;
 	}
 
-//	public List<TeamDetail> getStoryList() {
-//		List<TeamDetail> storyTeamlList = new ArrayList<>();
-//		List<Story> storyList = profileDAO.selectStoryList();
-//
-//	}
-
 	public int deleteStory(int storyId, int userId) {
-		
-		return profileDAO.deleteStory(storyId, userId);
+
+		Story story = profileDAO.selectStory(storyId);
+		int count =  profileDAO.deleteStory(storyId, userId);
+
+		if(count == 1) {
+			FileManagerService.removeFile(story.getStoryImage());
+			commentBO.deleteStoryComment(storyId);
+			likeBO.deleteStoryLike(storyId);
+		}
+
+		return count;
 	}
 	
 }

@@ -20,4 +20,6 @@ public interface LikeDAO {
 	public int CountLikeById(
 			@Param("storyId") int storyId
 			, @Param("userId") int userId);
+
+	public int deleteStoryLike(@Param("storyId") int storyId);
 }
