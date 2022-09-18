@@ -3,7 +3,6 @@ package com.project.sportmate.main.team.model;
 import java.util.Date;
 
 public class Team {
-	
 	private int id;
 	private int userId;
 	private String teamname;

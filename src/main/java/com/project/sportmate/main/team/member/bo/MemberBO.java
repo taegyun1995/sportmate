@@ -1,5 +1,6 @@
 package com.project.sportmate.main.team.member.bo;
 
+import com.project.sportmate.main.team.member.model.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,9 +12,9 @@ public class MemberBO {
 	@Autowired
 	private MemberDAO memberDAO;
 	
-	public int createMember(int userId, int teamId, String rank) {
+	public int createMember(Member member) {
 		
-		return memberDAO.insertMember(userId, teamId, rank);
+		return memberDAO.insertMember(member);
 	}
 	
 }

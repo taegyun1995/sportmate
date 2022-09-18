@@ -3,6 +3,7 @@ package com.project.sportmate.main.team.bo;
 import com.project.sportmate.main.profile.dao.ProfileDAO;
 import com.project.sportmate.main.team.dao.TeamDAO;
 import com.project.sportmate.main.team.member.bo.MemberBO;
+import com.project.sportmate.main.team.member.model.Member;
 import com.project.sportmate.main.team.model.Team;
 import com.project.sportmate.main.team.model.TeamDetail;
 import com.project.sportmate.user.bo.UserBO;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -25,11 +27,17 @@ public class TeamBO {
     private UserBO userBO;
 
     public int createTeam(Team team) {
+        int count = teamDAO.addTeam(team);
 
-        int teamId = teamDAO.addTeam(team);
-        System.out.println(">>>>>>>>>>>  , ${teamId}" + teamId + " " + team.getId());
+        if(count == 1) {
+            Member member = new Member();
+            member.setUserId(team.getUserId());
+            member.setTeamId(team.getId());
 
-        return 1;
+            memberBO.createMember(member);
+        }
+
+        return count;
     }
 
     public List<Team> getTeamListById(List<Integer> teamIdList) {
