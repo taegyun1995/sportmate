@@ -16,7 +16,6 @@ public class PlanBO {
 
     @Autowired
     private PlanDAO planDAO;
-
     @Autowired
     private TeamBO teamBo;
 

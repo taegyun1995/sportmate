@@ -3,6 +3,7 @@ package com.project.sportmate.main.team.model;
 import com.project.sportmate.main.profile.comment.model.Comment;
 import com.project.sportmate.main.profile.comment.model.CommentDetail;
 import com.project.sportmate.main.profile.model.Story;
+import com.project.sportmate.main.team.member.model.Member;
 import com.project.sportmate.user.model.User;
 
 import java.util.List;

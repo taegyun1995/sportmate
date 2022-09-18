@@ -24,5 +24,20 @@
  			, now()
  		)
  	</insert>
- 
+
+	<select id="selectMemberByTeamId" resultType="com.project.sportmate.main.team.member.model.Member"
+			parameterType="com.project.sportmate.main.team.member.model.Member">
+		SELECT
+			`userId`
+			, `teamId`
+			, `rank`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`member`
+		WHERE
+			`teamId` = #{teamId}
+			AND `rank` = '대표'
+	</select>
+
  </mapper>

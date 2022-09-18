@@ -43,7 +43,7 @@
                         <c:forEach var="DetailTeam" items="${teamlist}" varStatus="status">
                             <div class="teambox border rounded m-2">
                                 <div class="p-2"> 팀명 <b> ${DetailTeam.team.teamname } </b> </div>
-                                <div class="pl-2 pt-1"> 대표  </div>
+                                <div class="pl-2 pt-1"> 대표 ${DetailTeam.user.name} </div>
                                 <div class="pl-2 pt-1"> 인원  </div>
                                 <div class="pl-2 pt-1"> ${DetailTeam.team.region }  </div>
                             </div>

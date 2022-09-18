@@ -7,6 +7,7 @@ import com.project.sportmate.main.team.member.model.Member;
 import com.project.sportmate.main.team.model.Team;
 import com.project.sportmate.main.team.model.TeamDetail;
 import com.project.sportmate.user.bo.UserBO;
+import com.project.sportmate.user.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -54,11 +55,17 @@ public class TeamBO {
         List<TeamDetail> teamDetailList = new ArrayList<>();
         List<Team> teamlist = teamDAO.selectTeamList(userId);
 
+
         for (Team team : teamlist) {
+            int teamId = team.getId();
+
+            Member member = memberBO.selectMemberByTeamId(teamId);
+            User user = userBO.getUserById(member.getUserId());
 
             TeamDetail teamDetail = new TeamDetail();
             teamDetail.setTeam(team);
-
+            teamDetail.setMember(member);
+            teamDetail.setUser(user);
             teamDetailList.add(teamDetail);
         }
 

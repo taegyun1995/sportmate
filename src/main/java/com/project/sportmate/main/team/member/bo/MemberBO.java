@@ -16,5 +16,10 @@ public class MemberBO {
 		
 		return memberDAO.insertMember(member);
 	}
+
+	public Member selectMemberByTeamId(int teamId) {
+
+		return memberDAO.selectMemberByTeamId(teamId);
+	}
 	
 }

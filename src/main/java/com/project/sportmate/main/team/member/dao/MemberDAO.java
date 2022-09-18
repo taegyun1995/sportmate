@@ -9,4 +9,6 @@ public interface MemberDAO {
 	
 	public int insertMember(Member member);
 
+	public Member selectMemberByTeamId(@Param("teamId") int teamId);
+
 }
