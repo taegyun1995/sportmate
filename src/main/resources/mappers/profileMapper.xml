@@ -52,7 +52,7 @@
 		FROM
 			`story`
 		ORDER BY
-			`createdAt` DESC
+			`id` DESC
 	</select>
 
 	<select id="selectStory" resultType="com.project.sportmate.main.profile.model.Story" parameterType="int">

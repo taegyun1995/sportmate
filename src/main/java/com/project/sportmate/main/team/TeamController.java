@@ -7,6 +7,8 @@ import java.util.function.Function;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.project.sportmate.main.profile.bo.ProfileBO;
+import com.project.sportmate.main.profile.model.StoryDetail;
 import com.project.sportmate.main.team.model.Team;
 import com.project.sportmate.main.team.plan.bo.PlanBO;
 import com.project.sportmate.main.team.plan.model.Plan;
@@ -24,9 +26,10 @@ public class TeamController {
 	
 	@Autowired
 	private TeamBO teamBO;
-
 	@Autowired
 	private PlanBO planBO;
+	@Autowired
+	private ProfileBO profileBO;
 	
 	@GetMapping("/sportmate/team/detail/view")
 	public String teamView(Model model
@@ -41,8 +44,9 @@ public class TeamController {
 		List<PlanDetail> planDetailList = planBO.getPlanDetailList(userId);
 		model.addAttribute("planDetailList", planDetailList);
 
+		List<StoryDetail> storyTeamList = profileBO.getTeamStoryList();
+		model.addAttribute("storyTeamList", storyTeamList);
 
-		
 		return "/team/detail";
 	}
 	

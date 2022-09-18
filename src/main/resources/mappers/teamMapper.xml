@@ -5,27 +5,27 @@
 
 <mapper namespace="com.project.sportmate.main.team.dao.TeamDAO">
 
-    <insert id="addTeam" parameterType="map">
+    <insert id="addTeam" parameterType="com.project.sportmate.main.team.model.Team" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
         INSERT INTO
-        `team`
+            `team`
         (
-        `userId`
-        , `teamname`
-        , `exercise`
-        , `region`
-        , `content`
-        , `createdAt`
-        , `updatedAt`
+            `userId`
+            , `teamname`
+            , `exercise`
+            , `region`
+            , `content`
+            , `createdAt`
+            , `updatedAt`
         )
         VALUES
         (
-        #{userId}
-        , #{teamname}
-        , #{exercise}
-        , #{region}
-        , #{content}
-        , now()
-        , now()
+            #{userId}
+            , #{teamname}
+            , #{exercise}
+            , #{region}
+            , #{content}
+            , now()
+            , now()
         )
     </insert>
 

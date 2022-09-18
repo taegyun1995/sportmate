@@ -77,5 +77,33 @@ public class ProfileBO {
 
 		return count;
 	}
+
+	public List<StoryDetail> getTeamStoryList() {
+
+		List<StoryDetail> storyDetailTeamList = new ArrayList<>();
+		List<Story> storyTeamList = profileDAO.selectStoryList();
+
+		for(Story story : storyTeamList) {
+
+			int user_id = story.getUserId();
+			int storyId = story.getId();
+
+			User user = userBO.getUserById(user_id);
+			int likecount = likeBO.countLike(storyId);
+			boolean islike = likeBO.isLike(storyId, user_id);
+			List<CommentDetail> commentList = commentBO.getCommentList(storyId);
+
+			StoryDetail storyTeamDetail = new StoryDetail();
+			storyTeamDetail.SetStory(story);
+			storyTeamDetail.setUser(user);
+			storyTeamDetail.setLikeCount(likecount);
+			storyTeamDetail.setlike(islike);
+			storyTeamDetail.setComment(commentList);
+
+			storyDetailTeamList.add(storyTeamDetail);
+		}
+
+		return storyDetailTeamList;
+	}
 	
 }

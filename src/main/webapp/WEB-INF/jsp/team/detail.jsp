@@ -64,14 +64,25 @@
                             <input id="planInput"  class="signupInput form-control ml-1 mt-2" type="text" placeholder="계획을 입력하세요."/>
                             <button id="planCreateBtn" class="col-2 ml-1 mt-2" type="button"> 작성 </button>
                         </div>
-                        <ul class="pl-4 pt-2">
-                            <c:forEach var="DetailPlan" items="${planDetailList}">
-                                <li>
-                                    <b> ${DetailPlan.team.teamname } </b> ${DetailPlan.plan.plan }
-                                    <fmt:formatDate value="${DetailPlan.plan.createdAt }" pattern="YYYY년 MM월 dd일 hh:mm" />
-                                </li>
-                            </c:forEach>
-                        </ul>
+
+                        <table class="table" height="20">
+                            <thead>
+                                <tr>
+                                    <th class="col-1"> <small> <b> 팀명 </b> </small> </th>
+                                    <th class="col-9"> <small> <b> 계획 </b> </small> </th>
+                                    <th> <small> <b> 작성날짜 </b> </small> </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <c:forEach var="DetailPlan" items="${planDetailList}">
+                                    <tr>
+                                        <td> <small> <b> ${DetailPlan.team.teamname } </b> </small> </td>
+                                        <td> <small> ${DetailPlan.plan.plan } </small> </td>
+                                        <td> <small> <fmt:formatDate value="${DetailPlan.plan.createdAt }" pattern="YY-MM-dd hh:mm" /> </small> </td>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                        </table>
                     </div>
 
                     <div class="d-flex justify-content-start">
@@ -80,10 +91,33 @@
                                 <h5 class="pt-3"> My Team Story </h5>
                             </div>
 
-                            <div class="my-2 border">
-                                <img class="p-2" src="${DetailStory.story.storyImage}" width="100%" height="400") />
-
-                            </div>
+                            <c:forEach var="DetailStory" items="${storyTeamList}">
+                                <div class="my-2 border">
+                                    <img class="p-2" src="${DetailStory.story.storyImage}" width="100%" height="400") />
+                                    <div class="d-flex justify-content-between border-top pb-1">
+                                    <div class="d-flex p-1">
+                                        <c:choose>
+                                            <c:when test="${DetailStory.like}" >
+                                                <a href="#" class="unlike-btn" data-story-id="${DetailStory.story.id}">
+                                                    <span class="heart-size text-dark"> <i class="bi bi-heart-fill"> </i> </span>
+                                                </a>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <a href="#" class="like-btn" data-story-id="${DetailStory.story.id}">
+                                                    <span class="heart-size"> <i class="bi bi-heart"> </i> </span>
+                                                </a>
+                                            </c:otherwise>
+                                        </c:choose>
+                                        <div class="ml-1"> 좋아요 ${DetailStory.likeCount } 개</div>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <a href="#"  data-toggle="modal" data-target="#moreModal" class="more-btn" data-story-id="${DetailStory.story.id}">
+                                            <i class="bi bi-three-dots-vertical text-dark"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                </div>
+                            </c:forEach>
                         </div>
                     </div>
 
