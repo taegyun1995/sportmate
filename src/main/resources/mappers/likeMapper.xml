@@ -38,7 +38,7 @@
 			`storyId` = #{storyId}
 	</select>
 	
-	 <select id="CountLikeById" resultType="int" parameterType="map">
+	 <select id="countLikeById" resultType="int" parameterType="map">
 		SELECT
 			count(1)
 		FROM

@@ -43,9 +43,9 @@
                         <c:forEach var="DetailTeam" items="${teamlist}" varStatus="status">
                             <div class="teambox border rounded m-2">
                                 <div class="p-2"> 팀명 <b> ${DetailTeam.team.teamname } </b> </div>
-                                <div class="pl-2 pt-1"> 대표 ${DetailTeam.user.name} </div>
+                                <div class="pl-2 pt-1"> 대표 <b> ${DetailTeam.user.name} </b> </div>
                                 <div class="pl-2 pt-1"> 인원  </div>
-                                <div class="pl-2 pt-1"> ${DetailTeam.team.region }  </div>
+                                <div class="pl-2 pt-1"> 지역 <b> ${DetailTeam.team.region } </b> </div>
                             </div>
                         </c:forEach>
                     </div>
@@ -115,6 +115,33 @@
                                             <i class="bi bi-three-dots-vertical text-dark"></i>
                                         </a>
                                     </div>
+                                </div>
+                                <div class="d-flex border-bottom pl-2 pb-1">
+                                    <div> ${DetailStory.story.content }</div>
+                                </div>
+                                <div>
+                                    <div> <small> 댓글 </small> </div>
+
+                                    <div class="ml-1">
+                                        <c:forEach var="CommentDetail" items="${DetailStory.comment }" varStatus="status">
+                                            <div class="d-flex justify-content-between">
+                                                <div> <small> <b> ${CommentDetail.user.name} </b> ${CommentDetail.comment.comment } </small> </div>
+                                                <a href="#"  data-toggle="modal" data-target="#moreModal2" class="more-btn2" data-comment-id="${CommentDetail.comment.id}">
+                                                    <i class="bi bi-three-dots-vertical text-dark"></i>
+                                                </a>
+                                            </div>
+                                        </c:forEach>
+                                    </div>
+
+                                    <div class="pt-1">
+                                        <div class="input-group input-group-sm border-top">
+                                            <input type="text" class="form-control" id="commentInput${DetailStory.story.id }">
+                                            <div class="input-group-prepend">
+                                                <button type="button" class="btn comment-btn" data-story-id="${DetailStory.story.id }" > 작성 </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                                 </div>
                             </c:forEach>

@@ -3,7 +3,6 @@ package com.project.sportmate.main.profile.bo;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.project.sportmate.main.team.model.TeamDetail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -78,19 +77,18 @@ public class ProfileBO {
 		return count;
 	}
 
-	public List<StoryDetail> getTeamStoryList() {
+	public List<StoryDetail> getTeamStoryList(int userId) {
 
 		List<StoryDetail> storyDetailTeamList = new ArrayList<>();
 		List<Story> storyTeamList = profileDAO.selectStoryList();
 
 		for(Story story : storyTeamList) {
-
 			int user_id = story.getUserId();
 			int storyId = story.getId();
 
 			User user = userBO.getUserById(user_id);
 			int likecount = likeBO.countLike(storyId);
-			boolean islike = likeBO.isLike(storyId, user_id);
+			boolean islike = likeBO.isLike(storyId, userId);
 			List<CommentDetail> commentList = commentBO.getCommentList(storyId);
 
 			StoryDetail storyTeamDetail = new StoryDetail();

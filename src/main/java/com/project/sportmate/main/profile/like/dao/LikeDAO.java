@@ -17,7 +17,7 @@ public interface LikeDAO {
 	
 	public int countLike(@Param("storyId") int storyId);
 	
-	public int CountLikeById(
+	public int countLikeById(
 			@Param("storyId") int storyId
 			, @Param("userId") int userId);
 
