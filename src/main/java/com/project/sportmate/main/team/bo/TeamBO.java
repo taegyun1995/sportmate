@@ -62,11 +62,13 @@ public class TeamBO {
 
             Member member = memberBO.selectMemberByTeamId(teamId);
             User user = userBO.getUserById(member.getUserId());
+            int memberCount = memberBO.getCountMemberByTeamId(member);
 
             TeamDetail teamDetail = new TeamDetail();
             teamDetail.setTeam(team);
             teamDetail.setMember(member);
             teamDetail.setUser(user);
+            teamDetail.setMemberCount(memberCount);
             teamDetailList.add(teamDetail);
         }
 

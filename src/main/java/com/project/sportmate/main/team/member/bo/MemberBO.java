@@ -21,5 +21,10 @@ public class MemberBO {
 
 		return memberDAO.selectMemberByTeamId(teamId);
 	}
+
+	public int getCountMemberByTeamId(Member member) {
+
+		return memberDAO.selectCountMemberByTeamId(member);
+	}
 	
 }

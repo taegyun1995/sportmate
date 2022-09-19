@@ -31,4 +31,10 @@
         )
     </insert>
 
+    <select id="selectHuntList" resultType="com.project.sportmate.main.hunt.model.Hunt" parameterType="com.project.sportmate.main.hunt.model.Hunt">
+
+
+
+    </select>
+
 </mapper>

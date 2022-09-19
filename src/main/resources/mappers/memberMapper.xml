@@ -39,5 +39,15 @@
 			`teamId` = #{teamId}
 			AND `rank` = '대표'
 	</select>
+	
+	<select id="selectCountMemberByTeamId" resultType="int"
+			parameterType="com.project.sportmate.main.team.member.model.Member">
+		SELECT
+			count(1)
+		FROM
+			`member`
+		WHERE
+			`teamId` = #{teamId}
+	</select>
 
  </mapper>

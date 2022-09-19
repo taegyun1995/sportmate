@@ -16,6 +16,17 @@ public class TeamDetail {
 	private User user;
 	private int likeCount;
 	private boolean islike;
+	public int memberCount;
+
+	public int getMemberCount() {
+		return memberCount;
+	}
+
+	public void setMemberCount(int memberCount) {
+		this.memberCount = memberCount;
+	}
+
+
 	private List<CommentDetail> comment ;
 	public List<CommentDetail> getComment() {
 		return comment;

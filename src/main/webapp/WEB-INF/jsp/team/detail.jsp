@@ -44,7 +44,7 @@
                             <div class="teambox border rounded m-2">
                                 <div class="p-2"> 팀명 <b> ${DetailTeam.team.teamname } </b> </div>
                                 <div class="pl-2 pt-1"> 대표 <b> ${DetailTeam.user.name} </b> </div>
-                                <div class="pl-2 pt-1"> 인원  </div>
+                                <div class="pl-2 pt-1"> 인원 <b> ${DetailTeam.memberCount}명 </b>  </div>
                                 <div class="pl-2 pt-1"> 지역 <b> ${DetailTeam.team.region } </b> </div>
                             </div>
                         </c:forEach>

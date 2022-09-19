@@ -46,15 +46,15 @@ public class ProfileBO {
 			int storyId = story.getId();
 
 			User user = userBO.getUserById(user_id);
-			int likecount = likeBO.countLike(storyId);
-			boolean islike = likeBO.isLike(storyId, userId);
+			int likeCount = likeBO.countLike(storyId);
+			boolean isLike = likeBO.isLike(storyId, userId);
 			List<CommentDetail> commentList = commentBO.getCommentList(storyId);
 			
 			StoryDetail storyDetail = new StoryDetail();
 			storyDetail.SetStory(story);
 			storyDetail.setUser(user);
-			storyDetail.setLikeCount(likecount);
-			storyDetail.setlike(islike);
+			storyDetail.setLikeCount(likeCount);
+			storyDetail.setlike(isLike);
 			storyDetail.setComment(commentList);
 			
 			storyDetailList.add(storyDetail);
@@ -87,15 +87,15 @@ public class ProfileBO {
 			int storyId = story.getId();
 
 			User user = userBO.getUserById(user_id);
-			int likecount = likeBO.countLike(storyId);
-			boolean islike = likeBO.isLike(storyId, userId);
+			int likeCount = likeBO.countLike(storyId);
+			boolean isLike = likeBO.isLike(storyId, userId);
 			List<CommentDetail> commentList = commentBO.getCommentList(storyId);
 
 			StoryDetail storyTeamDetail = new StoryDetail();
 			storyTeamDetail.SetStory(story);
 			storyTeamDetail.setUser(user);
-			storyTeamDetail.setLikeCount(likecount);
-			storyTeamDetail.setlike(islike);
+			storyTeamDetail.setLikeCount(likeCount);
+			storyTeamDetail.setlike(isLike);
 			storyTeamDetail.setComment(commentList);
 
 			storyDetailTeamList.add(storyTeamDetail);
