@@ -55,7 +55,7 @@
 				
 				<div class="d-flex justify-content-end pt-2">
 					<div class="d-flex justify-content-center">
-						<button id="makeBtn" class="" type="button"> 생성 </button>
+						<button id="makeBtn" type="button"> 생성 </button>
 						 <a href="/sportmate/team/detail/view"> <button id="cancelBtn" class="col-12 ml-1" type="button"> 취소 </button></a>
 					</div>
 				</div>

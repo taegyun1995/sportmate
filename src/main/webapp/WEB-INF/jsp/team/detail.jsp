@@ -116,9 +116,11 @@
                                         </a>
                                     </div>
                                 </div>
+
                                 <div class="d-flex border-bottom pl-2 pb-1">
                                     <div> ${DetailStory.story.content }</div>
                                 </div>
+
                                 <div>
                                     <div> <small> 댓글 </small> </div>
 
@@ -153,6 +155,40 @@
 		</section>
 
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
+
+        <!-- Modal -->
+        <div class="modal fade" id="moreModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+
+                     <div class="modal-body text-center">
+                         <button id="deleteBtn" class="btn btn-primary btn-sm" type="button">삭제하기</button>
+                     </div>
+
+                     <div class="modal-footer">
+                        <button id="modalcancelBtn" class="btn btn-primary btn-sm" type="button" data-dismiss="modal">취소</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Comment Modal -->
+        <div class="modal fade" id="moreModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+
+                     <div class="modal-body text-center">
+                         <button id="commentdeleteBtn" class="btn btn-primary btn-sm" type="button">삭제하기</button>
+                     </div>
+
+                     <div class="modal-footer">
+                        <button id="modalcancelBtn" class="btn btn-primary btn-sm" type="button" data-dismiss="modal">취소</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
 	</div>
 
 	<script>
@@ -184,10 +220,132 @@
                     error:function() {
                         alert("에러 발생");
                     }
-
                 });
-
             });
+
+            $(".like-btn").on("click", function(e) {
+                e.preventDefault();
+
+                let storyId = $(this).data("story-id");
+
+                $.ajax({
+                    type:"get",
+                    url:"/story/like/insert",
+                    data:{"storyId":storyId},
+                    success:function(data) {
+                        if(data.result == "success") {
+                            location.reload();
+                        } else {
+                            alert("좋아요 실패");
+                        }
+                    },
+                    error:function() {
+                        alert("좋아요 에러")
+                    }
+                });
+            });
+
+            $(".unlike-btn").on("click", function(e){
+                e.preventDefault();
+
+                let storyId = $(this).data("story-id");
+
+                $.ajax({
+                    type:"get",
+                    url:"/story/like/delete",
+                    data:{"storyId":storyId},
+                    success:function(data) {
+                        if(data.result == "success") {
+                            location.reload();
+                        } else {
+                            alert("좋아요 취소 실패..");
+                        }
+                    },
+                    error:function() {
+                        alert("좋아요 취소 에러!!");
+                    }
+                });
+            });
+
+            $(".comment-btn").on("click", function(){
+
+                let storyId = $(this).data("story-id");
+                let comment = $("#commentInput" + storyId).val();
+
+                $.ajax({
+                    type:"post",
+                    url:"/story/comment/create",
+                    data:{"storyId":storyId, "comment":comment},
+                    success:function(data) {
+                        if(data.result == "success"){
+                            location.reload();
+                        } else {
+                            alert("댓글 작성 실패");
+                        }
+                    },
+                    error:function() {
+                        alert("댓글 작성 에러");
+                    }
+                });
+            });
+
+            $(".more-btn").on("click", function(){
+                let storyId = $(this).data("story-id");
+
+                $("#deleteBtn").data("story-id", storyId);
+            });
+
+            $("#deleteBtn").on("click", function(e) {
+                e.preventDefault();
+
+                let storyId = $(this).data("story-id");
+
+                $.ajax({
+                    type:"get",
+                    url:"/story/delete",
+                    data:{"storyId":storyId},
+                    success:function(data) {
+                        if(data.result == "success") {
+                            location.reload();
+                        } else {
+                            alert("삭제 실패");
+                        }
+                    },
+                    error:function() {
+                        alert("삭제 에러");
+                    }
+                });
+            });
+
+            $(".more-btn2").on("click", function(){
+                let commentId = $(this).data("comment-id");
+
+                $("#commentdeleteBtn").data("comment-id", commentId);
+            });
+
+            $("#commentdeleteBtn").on("click", function(e) {
+                e.preventDefault();
+
+                let commentId = $(this).data("comment-id");
+
+                $.ajax({
+                    type:"get",
+                    url:"/story/comment/delete",
+                    data:{"commentId":commentId},
+
+                    success:function(data) {
+                        if(data.result == "success") {
+                            location.reload();
+                        } else {
+                            alert("삭제 실패");
+                        }
+                    },
+                    error:function() {
+                        alert("삭제 에러");
+                    }
+                });
+            });
+
 	    });
 
 	</script

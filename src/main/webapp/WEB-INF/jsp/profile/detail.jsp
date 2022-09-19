@@ -293,9 +293,7 @@
 					error:function() {
 						alert("삭제 에러");
 					}
-				
 				});
-				
 			});
 			
 

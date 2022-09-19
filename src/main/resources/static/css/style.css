@@ -398,7 +398,21 @@ input[type=text], input[type=password], input[type=email] {
 }
 
 .teamStory {
-    width : 700px;
+    width : 600px;
+}
+
+
+#huntMakeBtn {
+	width : 100px;
+	height : 30px;
+	color : #273c75;
+	background-color : white;
+	border: 1px solid #273c75;
+}
+
+#huntMakeBtn:hover {
+	color : white;
+	background-color : #273c75;
 }
 
 footer {

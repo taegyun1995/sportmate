@@ -17,7 +17,7 @@ public class PlanBO {
     @Autowired
     private PlanDAO planDAO;
     @Autowired
-    private TeamBO teamBo;
+    private TeamBO teamBO;
 
     public int createPlan(int userId, int teamId, String plan) {
         return planDAO.insertPlan(userId, teamId, plan);
@@ -30,7 +30,7 @@ public class PlanBO {
     public List<PlanDetail> getPlanDetailList(int userId) {
         List<Plan> planList = planDAO.selectPlanList(userId);
         List<Integer> teamIdList = planList.stream().map(p -> p.getTeamId()).toList();
-        List<Team> teamList = teamBo.getTeamListById(teamIdList);
+        List<Team> teamList = teamBO.getTeamListById(teamIdList);
         List<PlanDetail> planDetailList = new ArrayList<>();
 
         for (Plan plan : planList) {
