@@ -30,7 +30,7 @@ public class PermissionInterceptor implements HandlerInterceptor {
 				return false;
 			}
 		} else { 
-			if(uri.startsWith("/sportmate/main") || uri.startsWith("/sportmate/profile") || uri.startsWith("/sportmate/team")) {
+			if(uri.startsWith("/sportmate/main") || uri.startsWith("/sportmate/profile") || uri.startsWith("/sportmate/team") || uri.startsWith("/sportmate/hunt")) {
 				response.sendRedirect("/sportmate/user/signin/view");
 				return false;
 			}

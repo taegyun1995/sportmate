@@ -20,10 +20,12 @@ public class PlanBO {
     private TeamBO teamBO;
 
     public int createPlan(int userId, int teamId, String plan) {
+
         return planDAO.insertPlan(userId, teamId, plan);
     }
 
     public List<Plan> getPlanList(int userId) {
+
         return planDAO.selectPlanList(userId);
     }
 
