@@ -1,5 +1,7 @@
 package com.project.sportmate.main.hunt;
 
+import com.project.sportmate.main.hunt.bo.HuntBO;
+import com.project.sportmate.main.hunt.model.HuntDetail;
 import com.project.sportmate.main.team.bo.TeamBO;
 import com.project.sportmate.main.team.model.TeamDetail;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +17,15 @@ import java.util.List;
 public class HuntController {
 
     @Autowired
+    private HuntBO huntBO;
+    @Autowired
     private TeamBO teamBO;
 
     @GetMapping("/sportmate/hunt/detail/view")
-    public String huntDetailView() {
+    public String huntDetailView(Model model) {
+
+        List<HuntDetail> huntList = huntBO.huntList();
+        model.addAttribute("huntList", huntList);
 
         return "/hunt/detail";
     }

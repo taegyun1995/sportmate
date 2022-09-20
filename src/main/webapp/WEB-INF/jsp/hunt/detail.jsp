@@ -45,22 +45,16 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td> <small> 1 </small> </td>
-                                    <td> <small> 1 </small> </td>
-                                    <td> <small> 1 </small> </td>
-                                    <td> <small> 1 </small> </td>
-                                    <td> <small> 1 </small> </td>
-                                    <td> <small> 1 </small> </td>
-                                </tr>
-                                <tr>
-                                    <td> <small> 1 </small> </td>
-                                    <td> <small> 1 </small> </td>
-                                    <td> <small> 1 </small> </td>
-                                    <td> <small> 1 </small> </td>
-                                    <td> <small> 1 </small> </td>
-                                    <td> <small> 1 </small> </td>
-                                </tr>
+                                <c:forEach var="DetailHunt" items="${huntList}">
+                                    <tr>
+                                        <td> <small> ${DetailHunt.team.teamname} </small> </td>
+                                        <td> <small> ${DetailHunt.hunt.title} </small> </td>
+                                        <td> <small> ${DetailHunt.team.exercise} </small> </td>
+                                        <td> <small> ${DetailHunt.team.region} </small> </td>
+                                        <td> <small> ${DetailHunt.hunt.state} </small> </td>
+                                        <td> <small> ${DetailHunt.hunt.createdAt} </small> </td>
+                                    </tr>
+                                </c:forEach>
                             </tbody>
                         </table>
                     </div>

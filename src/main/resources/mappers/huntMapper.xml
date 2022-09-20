@@ -12,8 +12,6 @@
             `userId`
             , `teamId`
             , `title`
-            , `exercise`
-            , `region`
             , `state`
             , `createdAt`
             , `updatedAt`
@@ -23,18 +21,23 @@
             #{userId}
             , #{teamId}
             , #{title}
-            , #{exercise}
-            , #{region}
             , '대기'
             , now()
             , now()
         )
     </insert>
 
-    <select id="selectHuntList" resultType="com.project.sportmate.main.hunt.model.Hunt" parameterType="com.project.sportmate.main.hunt.model.Hunt">
-
-
-
+    <select id="selectHuntList" resultType="com.project.sportmate.main.hunt.model.Hunt">
+        SELECT
+            `id`
+            , `userId`
+            , `teamId`
+            , `title`
+            , `state`
+            , `createdAt`
+            , `updatedAt`
+        FROM
+            `hunt`
     </select>
 
 </mapper>

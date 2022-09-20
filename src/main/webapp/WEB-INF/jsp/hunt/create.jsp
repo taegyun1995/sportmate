@@ -43,22 +43,6 @@
 							<label class="signupLabel pt-3"> 제목 </label>
 							<input id="titleInput"  class="signupInput form-control" type="text" placeholder="제목을 입력하세요."/>
 
-							<label class="signupLabel pt-3"> 운동종목 </label>
-							<select id="exerciseSelect" class="signupInput form-control" name="exerciseSelect">
-								<option value="none"> 선택하시오. </option>
-								<option value="축구"> 축구 </option>
-								<option value="농구"> 농구 </option>
-								<option value="헬스"> 헬스 </option>
-							</select>
-
-							<label class="signupLabel pt-3"> 지역 </label>
-							<select id="regionSelect" class="signupInput form-control" name="regionSelect">
-								<option value="none"> 선택하시오. </option>
-								<option value="서울"> 서울 </option>
-								<option value="경기"> 경기 </option>
-								<option value="부산"> 부산 </option>
-							</select>
-
 						</div>
 
 					</div>
@@ -88,8 +72,6 @@
 
                 let teamName = $("#teamNameSelect").val();
                 let title = $("#titleInput").val();
-                let exercise = $("#exerciseSelect").val();
-                let region = $("#regionSelect").val();
 
                 if(teamNameSelect.value == "none") {
                     alert("팀을 선택해주세요.");
@@ -99,19 +81,11 @@
                     alert("제목을 입력해주세요.");
                     return;
                 }
-                if(exerciseSelect.value == "none") {
-                    alert("운동종목을 선택해주세요.");
-                    return;
-                }
-                if(regionSelect.value == "none") {
-                    alert("지역을 선택해주세요.");
-                    return;
-                }
 
                 $.ajax({
                     type:"get",
                     url:"/hunt/make",
-                    data:{"teamId":teamName, "title":title, "exercise":exercise, "region":region},
+                    data:{"teamId":teamName, "title":title},
 
                     success:function(data) {
                         if(data.result == "success") {
