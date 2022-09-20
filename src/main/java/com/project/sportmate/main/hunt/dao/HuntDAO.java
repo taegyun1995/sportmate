@@ -11,4 +11,6 @@ public interface HuntDAO {
     public int insertHunt(Hunt hunt);
 
     public List<Hunt> selectHuntList();
+
+    public int updateHunt(Hunt hunt);
 }

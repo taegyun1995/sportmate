@@ -39,6 +39,21 @@ public class HuntRestController {
         return map;
     }
 
+    @GetMapping("/hunt/update")
+    public Map<String, String> updateHunt(@ModelAttribute Hunt hunt) {
+
+        Map<String, String> map = new HashMap<>();
+        int count = huntBO.huntUpdate(hunt);
+
+        if(count == 1) {
+            map.put("result", "success");
+        }else {
+            map.put("result", "success");
+        }
+
+        return map;
+    }
+
 
 
 }

@@ -111,9 +111,11 @@
                                         <div class="ml-1"> 좋아요 ${DetailStory.likeCount } 개</div>
                                     </div>
                                     <div class="d-flex align-items-center">
-                                        <a href="#"  data-toggle="modal" data-target="#moreModal" class="more-btn" data-story-id="${DetailStory.story.id}">
-                                            <i class="bi bi-three-dots-vertical text-dark"></i>
-                                        </a>
+                                        <c:if test="${userId eq DetailStory.user.id}">
+                                            <a href="#"  data-toggle="modal" data-target="#moreModal" class="more-btn" data-story-id="${DetailStory.story.id}">
+                                                <i class="bi bi-three-dots-vertical text-dark"></i>
+                                            </a>
+                                        </c:if>
                                     </div>
                                 </div>
 
@@ -128,9 +130,11 @@
                                         <c:forEach var="CommentDetail" items="${DetailStory.comment }" varStatus="status">
                                             <div class="d-flex justify-content-between">
                                                 <div> <small> <b> ${CommentDetail.user.name} </b> ${CommentDetail.comment.comment } </small> </div>
-                                                <a href="#"  data-toggle="modal" data-target="#moreModal2" class="more-btn2" data-comment-id="${CommentDetail.comment.id}">
-                                                    <i class="bi bi-three-dots-vertical text-dark"></i>
-                                                </a>
+                                                <c:if test="${userId eq CommentDetail.user.id}">
+                                                    <a href="#"  data-toggle="modal" data-target="#moreModal2" class="more-btn2" data-comment-id="${CommentDetail.comment.id}">
+                                                        <i class="bi bi-three-dots-vertical text-dark"></i>
+                                                    </a>
+                                                </c:if>
                                             </div>
                                         </c:forEach>
                                     </div>

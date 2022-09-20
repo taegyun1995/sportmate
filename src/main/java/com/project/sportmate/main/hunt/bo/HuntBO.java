@@ -45,4 +45,9 @@ public class HuntBO {
         return huntDetailList;
     }
 
+    public int huntUpdate(Hunt hunt) {
+
+        return huntDAO.updateHunt(hunt);
+    }
+
 }

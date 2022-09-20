@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,7 +34,7 @@
                     </div>
 
                     <div>
-                        <table class="table">
+                        <table class="table text-center">
                             <thead>
                                 <tr>
                                     <th> 팀명 </th>
@@ -47,26 +48,85 @@
                             <tbody>
                                 <c:forEach var="DetailHunt" items="${huntList}">
                                     <tr>
-                                        <td> <small> ${DetailHunt.team.teamname} </small> </td>
-                                        <td> <small> ${DetailHunt.hunt.title} </small> </td>
-                                        <td> <small> ${DetailHunt.team.exercise} </small> </td>
-                                        <td> <small> ${DetailHunt.team.region} </small> </td>
-                                        <td> <small> ${DetailHunt.hunt.state} </small> </td>
-                                        <td> <small> ${DetailHunt.hunt.createdAt} </small> </td>
+                                        <td class="col-1"> <small> ${DetailHunt.team.teamname} </small> </td>
+                                        <td class=""> <small> ${DetailHunt.hunt.title} </small> </td>
+                                        <td class="col-1"> <small> ${DetailHunt.team.exercise} </small> </td>
+                                        <td class="col-1"> <small> ${DetailHunt.team.region} </small> </td>
+                                        <td class="col-1">
+                                            <button type="button" id="supportBtn" class="btn btn-sm" data-toggle="modal" data-target="#moreModal" data-hunt-id="${DetailHunt.hunt.id}">
+                                                ${DetailHunt.hunt.state}
+                                            </button>
+                                        </td>
+                                        <td class="col-2"> <small> <fmt:formatDate value="${DetailHunt.hunt.createdAt }" pattern="YY-MM-dd hh:mm" />  </small> </td>
                                     </tr>
                                 </c:forEach>
                             </tbody>
                         </table>
                     </div>
 
-
-
                 </div>
 		    </form>
 		</section>
 
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
+
+        <!-- Modal -->
+        <div class="modal fade" id="moreModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+
+                     <div class="modal-body text-center">
+                         <button id="applicantBtn" class="btn btn-primary btn-sm" type="button">지원하시겠습니까?</button>
+                     </div>
+
+                     <div class="modal-footer">
+                        <button id="modalcancelBtn" class="btn btn-primary btn-sm" type="button" data-dismiss="modal">취소</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
 	</div>
+
+	<script>
+
+	    $(document).ready(function(){
+
+            $(".more-btn").on("click", function(){
+                let huntId = $(this).data("hunt-id");
+
+                $("#applicantBtn").data("hunt-id", huntId);
+            });
+
+            $("#applicantBtn").on("click", function(e) {
+                e.preventDefault();
+
+                  let huntId = $(this).data("hunt-id");
+
+                  $.ajax({
+                      type:"get",
+                      url:"/hunt/update",
+                      data:{"huntId":huntId},
+                      success:function(data) {
+                          if(data.result == "success") {
+                              location.reload();
+                          } else {
+                              alert("지원 실패");
+                          }
+                      },
+                      error:function() {
+                          alert("에러 발생");
+                      }
+                  });
+
+
+
+            });
+
+	    });
+
+	</script>
 
 </body>
 </html>
