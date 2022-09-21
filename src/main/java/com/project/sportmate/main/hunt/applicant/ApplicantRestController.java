@@ -41,4 +41,24 @@ public class ApplicantRestController {
         return map;
     }
 
+    @GetMapping("/hunt/unSupport")
+    public Map<String, String> unSupport(
+            HttpServletRequest request
+            , @RequestParam("huntId") int huntId) {
+
+        HttpSession session = request.getSession();
+        int userId = (Integer)session.getAttribute("userId");
+
+        Map<String, String> map = new HashMap<>();
+        int count = applicantBO.deleteSupport(huntId, userId);
+
+        if(count == 1) {
+            map.put("result", "success");
+        } else {
+            map.put("result", "fail");
+        }
+
+        return map;
+    }
+
 }

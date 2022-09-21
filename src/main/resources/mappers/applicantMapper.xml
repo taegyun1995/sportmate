@@ -31,5 +31,13 @@
             AND `userId` = #{userId}
     </select>
 
+    <delete id="deleteSupport" parameterType="int">
+        DELETE FROM
+             `support`
+        WHERE
+            `huntId` = #{huntId}
+            AND `userId` = #{userId}
+    </delete>
+
 
 </mapper>

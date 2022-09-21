@@ -112,6 +112,29 @@
  				});
  			});
 
+            $(".supportCancleBtn").on("click", function(e){
+                e.preventDefault();
+
+                let huntId = $(this).data("hunt-id");
+
+                $.ajax({
+                    type:"get",
+                    url:"/hunt/unSupport",
+                    data:{"huntId":huntId},
+                    success:function(data) {
+                        if(data.result == "success") {
+                            location.reload();
+                        } else {
+                            alert("헌팅 취소 실패..");
+                        }
+                    },
+                    error:function() {
+                        alert("에러!!");
+                    }
+                });
+
+            });
+
 
 	    });
 

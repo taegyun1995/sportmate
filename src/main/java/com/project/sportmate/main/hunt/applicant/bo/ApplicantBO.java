@@ -28,6 +28,11 @@ public class ApplicantBO {
         }
     }
 
+    public int deleteSupport(int huntId, int userId) {
+
+        return applicantDAO.deleteSupport(huntId, userId);
+    }
+
 
 
 }

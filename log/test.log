@@ -14209,3 +14209,36 @@ javax.el.PropertyNotFoundException: Property [Support] not found on type [com.pr
 2022-09-21 21:35:46.610  INFO 5549 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
 2022-09-21 21:35:48.799  INFO 5549 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
 2022-09-21 21:35:49.104  INFO 5549 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-09-21 21:45:31.472  INFO 5549 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-09-21 21:45:31.490  INFO 5549 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-09-21 21:45:33.830  INFO 5811 --- [restartedMain] c.p.sportmate.SportMateApplication       : Starting SportMateApplication using Java 17.0.4.1 on itaegyun-ui-MacBookAir.local with PID 5811 (/Users/taegyun/main project/workspace/SportMate/build/classes/java/main started by taegyun in /Users/taegyun/main project/workspace/SportMate)
+2022-09-21 21:45:33.831  INFO 5811 --- [restartedMain] c.p.sportmate.SportMateApplication       : No active profile set, falling back to 1 default profile: "default"
+2022-09-21 21:45:33.893  INFO 5811 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-09-21 21:45:33.893  INFO 5811 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-09-21 21:45:35.127  INFO 5811 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-09-21 21:45:35.138  INFO 5811 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-21 21:45:35.138  INFO 5811 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-09-21 21:45:35.358  INFO 5811 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2022-09-21 21:45:35.372  INFO 5811 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-09-21 21:45:35.373  INFO 5811 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1480 ms
+2022-09-21 21:45:36.174  INFO 5811 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-09-21 21:45:36.214  INFO 5811 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-09-21 21:45:36.225  INFO 5811 --- [restartedMain] c.p.sportmate.SportMateApplication       : Started SportMateApplication in 2.83 seconds (JVM running for 3.281)
+2022-09-21 21:45:48.840  INFO 5824 --- [restartedMain] c.p.sportmate.SportMateApplication       : Starting SportMateApplication using Java 17.0.4.1 on itaegyun-ui-MacBookAir.local with PID 5824 (/Users/taegyun/main project/workspace/SportMate/build/classes/java/main started by taegyun in /Users/taegyun/main project/workspace/SportMate)
+2022-09-21 21:45:48.841  INFO 5824 --- [restartedMain] c.p.sportmate.SportMateApplication       : No active profile set, falling back to 1 default profile: "default"
+2022-09-21 21:45:48.901  INFO 5824 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-09-21 21:45:48.901  INFO 5824 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-09-21 21:45:50.106  INFO 5824 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-09-21 21:45:50.115  INFO 5824 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-21 21:45:50.115  INFO 5824 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-09-21 21:45:50.330  INFO 5824 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2022-09-21 21:45:50.341  INFO 5824 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-09-21 21:45:50.342  INFO 5824 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1441 ms
+2022-09-21 21:45:51.136  INFO 5824 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-09-21 21:45:51.167  INFO 5824 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-09-21 21:45:51.181  INFO 5824 --- [restartedMain] c.p.sportmate.SportMateApplication       : Started SportMateApplication in 2.755 seconds (JVM running for 3.191)
+2022-09-21 21:45:55.142  INFO 5824 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-09-21 21:45:55.143  INFO 5824 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-09-21 21:45:55.144  INFO 5824 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-09-21 21:45:56.288  INFO 5824 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-09-21 21:45:56.643  INFO 5824 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.

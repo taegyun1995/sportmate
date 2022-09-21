@@ -15,5 +15,9 @@ public interface ApplicantDAO {
             @Param("huntId") int huntId
             , @Param("userId") int userId);
 
+    public int deleteSupport(
+            @Param("huntId") int huntId
+            , @Param("userId") int userId);
+
 
 }
