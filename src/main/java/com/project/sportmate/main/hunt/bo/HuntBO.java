@@ -32,7 +32,7 @@ public class HuntBO {
         return huntDAO.insertHunt(hunt);
     }
 
-    public List<HuntDetail> huntList() {
+    public List<HuntDetail> huntList(int userId) {
         List<Hunt> huntList = huntDAO.selectHuntList();
         List<HuntDetail> huntDetailList = new ArrayList<>();
 
@@ -40,14 +40,14 @@ public class HuntBO {
         List<Team> teamList = teamBO.getTeamListById(teamIdList);
 
         for(Hunt hunt : huntList) {
+            int user_id = hunt.getUserId();
+            int huntId = hunt.getId();
+
             HuntDetail huntDetail = new HuntDetail();
             huntDetail.setHunt(hunt);
 
-            User user = userBO.getUserById(hunt.getUserId());
+            User user = userBO.getUserById(user_id);
             huntDetail.setUser(user);
-
-            Applicant applicant = applicantBO.getApplicantUserById(hunt.getUserId());
-            huntDetail.setApplicant(applicant);
 
             Team team = teamList.stream()
                     .filter(t -> t.getId() == hunt.getTeamId())
@@ -55,7 +55,7 @@ public class HuntBO {
 
             huntDetail.setTeam(team);
 
-            boolean isSupport = applicantBO.isSupport(hunt.getId(), hunt.getUserId());
+            boolean isSupport = applicantBO.isSupport(huntId, userId);
             huntDetail.setIsSupport(isSupport);
 
             huntDetailList.add(huntDetail);

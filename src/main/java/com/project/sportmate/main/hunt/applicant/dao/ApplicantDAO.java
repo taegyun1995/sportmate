@@ -15,6 +15,5 @@ public interface ApplicantDAO {
             @Param("huntId") int huntId
             , @Param("userId") int userId);
 
-    public Applicant selectApplicantUserById(@Param("id") int id);
 
 }

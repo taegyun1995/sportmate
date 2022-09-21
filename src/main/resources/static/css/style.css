@@ -429,6 +429,7 @@ input[type=text], input[type=password], input[type=email] {
 }
 
 .supportBtn {
+    width : 100px;
 	height : 30px;
 	color : white;
 	background-color : #273c75;
@@ -440,6 +441,7 @@ input[type=text], input[type=password], input[type=email] {
 }
 
 .supportCancleBtn {
+    width : 100px;
 	height : 30px;
 	color : white;
 	background-color : #db2e34;
@@ -459,6 +461,19 @@ input[type=text], input[type=password], input[type=email] {
 }
 
 #plandeleteBtn:hover {
+	color : white;
+	background-color : #273c75;
+}
+
+.confirmBtn {
+	width : 100px;
+	height : 30px;
+	color : #273c75;
+	background-color : white;
+	border: 1px solid #273c75;
+}
+
+.confirmBtn:hover {
 	color : white;
 	background-color : #273c75;
 }

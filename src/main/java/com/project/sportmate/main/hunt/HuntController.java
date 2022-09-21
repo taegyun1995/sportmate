@@ -22,9 +22,12 @@ public class HuntController {
     private TeamBO teamBO;
 
     @GetMapping("/sportmate/hunt/detail/view")
-    public String huntDetailView(Model model) {
+    public String huntDetailView(Model model
+                , HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        int userId = (Integer)session.getAttribute("userId");
 
-        List<HuntDetail> huntList = huntBO.huntList();
+        List<HuntDetail> huntList = huntBO.huntList(userId);
         model.addAttribute("huntList", huntList);
 
         return "/hunt/detail";

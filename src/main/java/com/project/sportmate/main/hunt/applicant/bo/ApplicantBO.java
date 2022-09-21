@@ -28,10 +28,6 @@ public class ApplicantBO {
         }
     }
 
-    public Applicant getApplicantUserById(int userId) {
-
-        return applicantDAO.selectApplicantUserById(userId);
-    }
 
 
 }

@@ -31,16 +31,5 @@
             AND `userId` = #{userId}
     </select>
 
-    <select id="selectApplicantUserById" parameterType="int" resultType="com.project.sportmate.main.hunt.applicant.model.Applicant">
-        SELECT
-            `id`
-            , `userId`
-            , `huntId`
-            , `createdAt`
-        FROM
-            `support`
-        WHERE
-            `id` = #{id}
-    </select>
 
 </mapper>

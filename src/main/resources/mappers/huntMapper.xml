@@ -12,7 +12,6 @@
             `userId`
             , `teamId`
             , `title`
-            , `state`
             , `createdAt`
             , `updatedAt`
         )
@@ -21,7 +20,6 @@
             #{userId}
             , #{teamId}
             , #{title}
-            , '지원'
             , now()
             , now()
         )
