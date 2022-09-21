@@ -16,5 +16,5 @@ public interface PlanDAO {
 
     public List<Plan> selectPlanList(@Param("userId") int userId);
 
-    public int deletePlan(Plan plan);
+    public int deletePlan(@Param("planId") int planId, @Param("userId") int userId);
 }

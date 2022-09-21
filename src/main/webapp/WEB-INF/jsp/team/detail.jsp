@@ -70,7 +70,8 @@
                                 <tr>
                                     <th class="col-1"> <small> <b> 팀명 </b> </small> </th>
                                     <th class="col-9"> <small> <b> 계획 </b> </small> </th>
-                                    <th> <small> <b> 작성날짜 </b> </small> </th>
+                                    <th class="col-1"> <small> <b> 작성자 </b> </small> </th>
+                                    <th class="col-2"> <small> <b> 작성날짜 </b> </small> </th>
                                     <th> </th>
                                 </tr>
                             </thead>
@@ -79,6 +80,7 @@
                                     <tr>
                                         <td> <small> <b> ${DetailPlan.team.teamname } </b> </small> </td>
                                         <td> <small> ${DetailPlan.plan.plan } </small> </td>
+                                        <td> <small> ${DetailPlan.user.name } </small> </td>
                                         <td> <small> <fmt:formatDate value="${DetailPlan.plan.createdAt }" pattern="YY-MM-dd hh:mm" /> </small> </td>
                                         <td>
                                             <c:if test="${userId eq DetailPlan.user.id}">
@@ -374,6 +376,37 @@
                     }
                 });
             });
+
+            $(".more-btn3").on("click", function(){
+                let planId = $(this).data("plan-id");
+
+                $("#plandeleteBtn").data("plan-id", planId);
+            });
+
+            $("#plandeleteBtn").on("click", function(e) {
+                e.preventDefault();
+
+                let planId = $(this).data("plan-id");
+
+                $.ajax({
+                    type:"post",
+                    url:"/team/plan/delete",
+                    data:{"planId":planId},
+
+                    success:function(data) {
+                        if(data.result == "success") {
+                            location.reload();
+                        } else {
+                            alert("삭제 실패");
+                        }
+                    },
+                    error:function() {
+                        alert("삭제 에러");
+                    }
+                });
+            });
+
+
 
 	    });
 

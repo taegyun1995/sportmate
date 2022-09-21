@@ -37,7 +37,7 @@
             `userId` = #{userId}
     </select>
 
-    <delete id="deletePlan" parameterType="com.project.sportmate.main.team.plan.model.Plan">
+    <delete id="deletePlan" parameterType="map">
         DELETE FROM
             `plan`
         WHERE

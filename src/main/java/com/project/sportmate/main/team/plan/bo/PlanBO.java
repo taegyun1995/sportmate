@@ -57,9 +57,9 @@ public class PlanBO {
         return planDetailList;
     }
 
-    public int deletePlan(Plan plan) {
+    public int deletePlan(int planId, int userId) {
 
-        return planDAO.deletePlan(plan);
+        return planDAO.deletePlan(planId, userId);
     }
 
 }

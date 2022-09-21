@@ -4,6 +4,7 @@ import com.project.sportmate.main.team.plan.bo.PlanBO;
 import com.project.sportmate.main.team.plan.model.Plan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,13 +41,14 @@ public class PlanRestController {
         return map;
     }
 
-    public Map<String, String> deletePlan(Plan plan, HttpServletRequest request) {
+    @PostMapping("/team/plan/delete")
+    public Map<String, String> deletePlan(
+            @RequestParam("planId") int planId
+            , HttpServletRequest request) {
+
         HttpSession session = request.getSession();
         int userId = (Integer) session.getAttribute("userId");
-
-        plan.setUserId(userId);
-
-        int count = planBO.deletePlan(plan);
+        int count = planBO.deletePlan(planId, userId);
 
         Map<String, String> map = new HashMap<>();
         if(count == 1) {
