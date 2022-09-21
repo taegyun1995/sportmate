@@ -8,6 +8,15 @@ public class PlanDetail {
 
     private Plan plan;
     private Team team;
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public Plan getPlan() {
         return plan;

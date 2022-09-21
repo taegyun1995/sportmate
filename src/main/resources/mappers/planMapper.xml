@@ -25,7 +25,8 @@
 
     <select id="selectPlanList" resultType="com.project.sportmate.main.team.plan.model.Plan" parameterType="map">
         SELECT
-            `userId`
+            `id`
+            , `userId`
             , `teamId`
             , `plan`
             , `createdAt`
@@ -35,5 +36,13 @@
         WHERE
             `userId` = #{userId}
     </select>
+
+    <delete id="deletePlan" parameterType="com.project.sportmate.main.team.plan.model.Plan">
+        DELETE FROM
+            `plan`
+        WHERE
+            `userId` = #{userId}
+            AND `id` = #{planId}
+    </delete>
 
 </mapper>

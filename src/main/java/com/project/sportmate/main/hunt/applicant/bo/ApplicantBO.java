@@ -3,6 +3,7 @@ package com.project.sportmate.main.hunt.applicant.bo;
 import com.project.sportmate.main.hunt.applicant.dao.ApplicantDAO;
 import com.project.sportmate.main.hunt.applicant.model.Applicant;
 import com.project.sportmate.main.hunt.model.Hunt;
+import com.project.sportmate.user.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +26,11 @@ public class ApplicantBO {
         } else {
             return false;
         }
+    }
+
+    public Applicant getApplicantUserById(int userId) {
+
+        return applicantDAO.selectApplicantUserById(userId);
     }
 
 

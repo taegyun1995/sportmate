@@ -32,8 +32,6 @@ public interface UserDAO {
 	
 	public User selectUserById(@Param("id") int id);
 	
-	public User selectUserByuserId(@Param("userId") int userId);
-	
 	public int updateProfile(
 			@Param("userId") int userId
 			, @Param("profileImage") String profileImage

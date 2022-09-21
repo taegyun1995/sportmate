@@ -15,4 +15,6 @@ public interface PlanDAO {
             @Param("plan") String plan);
 
     public List<Plan> selectPlanList(@Param("userId") int userId);
+
+    public int deletePlan(Plan plan);
 }

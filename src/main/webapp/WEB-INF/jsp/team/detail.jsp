@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>팀 화면</title>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>        
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
@@ -21,9 +21,9 @@
 			<c:import url="/WEB-INF/jsp/include/header.jsp" />
 			<c:import url="/WEB-INF/jsp/include/nav.jsp" />
 		</div>
-		
-		<h3 class="py-2"> Team </h3>	
-		
+
+		<h3 class="py-2"> Team </h3>
+
 		<section>
 		    <form>
                 <div class="px-5">
@@ -31,7 +31,7 @@
                     <div class="border-bottom">
                         <h5> My Team </h5>
 				    </div>
-				
+
                     <div class="d-flex">
                         <div class="teambox border rounded m-2">
                             <div class="pl-2 pt-1">
@@ -49,11 +49,11 @@
                             </div>
                         </c:forEach>
                     </div>
-				
+
                     <div class="border-bottom">
                         <h5 class="pt-3"> My Team Plan </h5>
                     </div>
-				
+
                     <div class="pt-2">
                         <div id="signupInput" class="d-flex">
                             <select id="teamnameSelect" class="form-control col-1">
@@ -71,6 +71,7 @@
                                     <th class="col-1"> <small> <b> 팀명 </b> </small> </th>
                                     <th class="col-9"> <small> <b> 계획 </b> </small> </th>
                                     <th> <small> <b> 작성날짜 </b> </small> </th>
+                                    <th> </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -79,6 +80,13 @@
                                         <td> <small> <b> ${DetailPlan.team.teamname } </b> </small> </td>
                                         <td> <small> ${DetailPlan.plan.plan } </small> </td>
                                         <td> <small> <fmt:formatDate value="${DetailPlan.plan.createdAt }" pattern="YY-MM-dd hh:mm" /> </small> </td>
+                                        <td>
+                                            <c:if test="${userId eq DetailPlan.user.id}">
+                                                <a href="#" data-toggle="modal" data-target="#moreModal3" class="more-btn3" data-plan-id="${DetailPlan.plan.id}">
+                                                    <i class="bi bi-three-dots-vertical text-dark"></i>
+                                                </a>
+                                            </c:if>
+                                        </td>
                                     </tr>
                                 </c:forEach>
                             </tbody>
@@ -184,6 +192,23 @@
 
                      <div class="modal-body text-center">
                          <button id="commentdeleteBtn" class="btn btn-primary btn-sm" type="button">삭제하기</button>
+                     </div>
+
+                     <div class="modal-footer">
+                        <button id="modalcancelBtn" class="btn btn-primary btn-sm" type="button" data-dismiss="modal">취소</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Plan Modal -->
+        <div class="modal fade" id="moreModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+
+                     <div class="modal-body text-center">
+                         <button id="plandeleteBtn" class="btn btn-primary btn-sm" type="button">삭제하기</button>
                      </div>
 
                      <div class="modal-footer">

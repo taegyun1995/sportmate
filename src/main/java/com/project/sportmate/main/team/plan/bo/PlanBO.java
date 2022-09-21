@@ -5,6 +5,8 @@ import com.project.sportmate.main.team.model.Team;
 import com.project.sportmate.main.team.plan.dao.PlanDAO;
 import com.project.sportmate.main.team.plan.model.Plan;
 import com.project.sportmate.main.team.plan.model.PlanDetail;
+import com.project.sportmate.user.bo.UserBO;
+import com.project.sportmate.user.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,8 @@ public class PlanBO {
     private PlanDAO planDAO;
     @Autowired
     private TeamBO teamBO;
+    @Autowired
+    private UserBO userBO;
 
     public int createPlan(int userId, int teamId, String plan) {
 
@@ -39,6 +43,9 @@ public class PlanBO {
             PlanDetail planDetail = new PlanDetail();
             planDetail.setPlan(plan);
 
+            User user = userBO.getUserById(userId);
+            planDetail.setUser(user);
+
             Team team = teamList.stream()
                     .filter(t -> t.getId() == plan.getTeamId())
                     .findFirst().get();
@@ -48,6 +55,11 @@ public class PlanBO {
         }
 
         return planDetailList;
+    }
+
+    public int deletePlan(Plan plan) {
+
+        return planDAO.deletePlan(plan);
     }
 
 }

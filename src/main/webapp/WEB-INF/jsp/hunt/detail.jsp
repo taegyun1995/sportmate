@@ -54,7 +54,7 @@
                                         <td class="col-1"> <small> ${DetailHunt.team.region} </small> </td>
                                         <td class="col-1">
                                             <c:choose>
-                                                <c:when test="${userId eq DetailHunt.hunt.userId && DetailHunt.isSupport}">
+                                                <c:when test="${userId eq DetailHunt.user.id && DetailHunt.isSupport}">
                                                     <button type="button" class="supportCancleBtn" class="btn btn-sm" data-hunt-id="${DetailHunt.hunt.id}">
                                                         대기
                                                     </button>

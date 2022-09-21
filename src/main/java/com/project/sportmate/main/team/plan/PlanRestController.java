@@ -1,6 +1,7 @@
 package com.project.sportmate.main.team.plan;
 
 import com.project.sportmate.main.team.plan.bo.PlanBO;
+import com.project.sportmate.main.team.plan.model.Plan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,6 +29,24 @@ public class PlanRestController {
 
         // teamId = get
         int count = planBO.createPlan(userId, teamId, plan);
+
+        Map<String, String> map = new HashMap<>();
+        if(count == 1) {
+            map.put("result", "success");
+        } else {
+            map.put("result", "fail");
+        }
+
+        return map;
+    }
+
+    public Map<String, String> deletePlan(Plan plan, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        int userId = (Integer) session.getAttribute("userId");
+
+        plan.setUserId(userId);
+
+        int count = planBO.deletePlan(plan);
 
         Map<String, String> map = new HashMap<>();
         if(count == 1) {
