@@ -427,10 +427,27 @@ input[type=text], input[type=password], input[type=email] {
 	color : white;
 	background-color : #273c75;
 }
-#supportBtn {
+
+.supportBtn {
 	height : 30px;
 	color : white;
 	background-color : #273c75;
+	border: 1px solid #273c75;
+}
+.supportBtn:hover {
+	color : #273c75;
+	background-color : white;
+}
+
+.supportCancleBtn {
+	height : 30px;
+	color : white;
+	background-color : #db2e34;
+	border: 1px solid #db2e34;
+}
+.supportCancleBtn:hover {
+	color : #db2e34;
+	background-color : white;
 }
 
 footer {

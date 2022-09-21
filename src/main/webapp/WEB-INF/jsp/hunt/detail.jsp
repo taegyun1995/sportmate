@@ -53,9 +53,18 @@
                                         <td class="col-1"> <small> ${DetailHunt.team.exercise} </small> </td>
                                         <td class="col-1"> <small> ${DetailHunt.team.region} </small> </td>
                                         <td class="col-1">
-                                            <button type="button" id="supportBtn" class="btn btn-sm" data-toggle="modal" data-target="#moreModal" data-hunt-id="${DetailHunt.hunt.id}">
-                                                ${DetailHunt.hunt.state}
-                                            </button>
+                                            <c:choose>
+                                                <c:when test="${userId eq DetailHunt.hunt.userId && DetailHunt.isSupport}">
+                                                    <button type="button" class="supportCancleBtn" class="btn btn-sm" data-hunt-id="${DetailHunt.hunt.id}">
+                                                        대기
+                                                    </button>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <button type="button" class="supportBtn" class="btn btn-sm" data-hunt-id="${DetailHunt.hunt.id}">
+                                                        지원
+                                                    </button>
+                                                </c:otherwise>
+                                            </c:choose>
                                         </td>
                                         <td class="col-2"> <small> <fmt:formatDate value="${DetailHunt.hunt.createdAt }" pattern="YY-MM-dd hh:mm" />  </small> </td>
                                     </tr>
@@ -70,59 +79,34 @@
 
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 
-        <!-- Modal -->
-        <div class="modal fade" id="moreModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-
-                     <div class="modal-body text-center">
-                         <button id="applicantBtn" class="btn btn-primary btn-sm" type="button">지원하시겠습니까?</button>
-                     </div>
-
-                     <div class="modal-footer">
-                        <button id="modalcancelBtn" class="btn btn-primary btn-sm" type="button" data-dismiss="modal">취소</button>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
 	</div>
 
 	<script>
 
 	    $(document).ready(function(){
 
-            $(".more-btn").on("click", function(){
-                let huntId = $(this).data("hunt-id");
+ 			$(".supportBtn").on("click", function(e) {
+ 				e.preventDefault();
 
-                $("#applicantBtn").data("hunt-id", huntId);
-            });
+ 				let huntId = $(this).data("hunt-id");
 
-            $("#applicantBtn").on("click", function(e) {
-                e.preventDefault();
+ 				$.ajax({
+ 					type:"get",
+ 					url:"/hunt/support",
+ 					data:{"huntId":huntId},
+ 					success:function(data) {
+ 						if(data.result == "success") {
+ 							location.reload();
+ 						} else {
+ 							alert("지원 실패");
+ 						}
+ 					},
+ 					error:function() {
+ 						alert("에러 발생!")
+ 					}
+ 				});
+ 			});
 
-                  let huntId = $(this).data("hunt-id");
-
-                  $.ajax({
-                      type:"get",
-                      url:"/hunt/update",
-                      data:{"huntId":huntId},
-                      success:function(data) {
-                          if(data.result == "success") {
-                              location.reload();
-                          } else {
-                              alert("지원 실패");
-                          }
-                      },
-                      error:function() {
-                          alert("에러 발생");
-                      }
-                  });
-
-
-
-            });
 
 	    });
 

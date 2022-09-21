@@ -55,7 +55,6 @@ public class TeamBO {
         List<TeamDetail> teamDetailList = new ArrayList<>();
         List<Team> teamlist = teamDAO.selectTeamList(userId);
 
-
         // FIXME: team - member - user join 해야함. N+1 problem
         for (Team team : teamlist) {
             int teamId = team.getId();

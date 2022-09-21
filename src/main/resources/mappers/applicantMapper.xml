@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.sportmate.main.hunt.applicant.dao.ApplicantDAO">
+
+    <insert id="insertSupport" parameterType="com.project.sportmate.main.hunt.applicant.model.Applicant">
+        INSERT INTO
+            `support`
+        (
+            `userId`
+            , `huntId`
+            , `createdAt`
+        )
+        VALUES
+        (
+            #{userId}
+            , #{huntId}
+            , now()
+        )
+    </insert>
+
+    <select id="countSupportById" resultType="int" parameterType="map">
+        SELECT
+            count(1)
+        FROM
+            `support`
+        WHERE
+            `huntId` = #{huntId}
+            AND `userId` = #{userId}
+    </select>
+
+</mapper>

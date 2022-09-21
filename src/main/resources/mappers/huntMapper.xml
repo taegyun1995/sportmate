@@ -33,21 +33,10 @@
             , `userId`
             , `teamId`
             , `title`
-            , `state`
             , `createdAt`
             , `updatedAt`
         FROM
             `hunt`
     </select>
-    
-    <update id="updateHunt" parameterType="com.project.sportmate.main.hunt.model.Hunt">
-        UPDATE
-            `hunt`
-        SET
-            `state` = '대기'
-            , `updatedAt` = now()
-        WHERE
-            `id` = #{huntId}
-    </update>
 
 </mapper>

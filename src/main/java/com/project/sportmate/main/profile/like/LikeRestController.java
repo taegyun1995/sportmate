@@ -29,7 +29,6 @@ public class LikeRestController {
 		int userId = (Integer)session.getAttribute("userId");
 		
 		Map<String, String> map = new HashMap<>();
-		
 		int count = likeBO.addLike(userId, storyId);
 		
 		if(count == 1) {

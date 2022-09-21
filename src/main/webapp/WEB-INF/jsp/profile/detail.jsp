@@ -90,7 +90,7 @@
 										<div class="ml-1"> 좋아요 ${DetailStory.likeCount } 개</div>
 									</div>
 									<div class="d-flex align-items-center">
-										<a href="#"  data-toggle="modal" data-target="#moreModal" class="more-btn" data-story-id="${DetailStory.story.id}">
+										<a href="#" data-toggle="modal" data-target="#moreModal" class="more-btn" data-story-id="${DetailStory.story.id}">
 											<i class="bi bi-three-dots-vertical text-dark"></i>
 										</a>
 									</div>

@@ -1,5 +1,6 @@
 package com.project.sportmate.main.hunt.bo;
 
+import com.project.sportmate.main.hunt.applicant.bo.ApplicantBO;
 import com.project.sportmate.main.hunt.dao.HuntDAO;
 import com.project.sportmate.main.hunt.model.Hunt;
 import com.project.sportmate.main.hunt.model.HuntDetail;
@@ -18,6 +19,8 @@ public class HuntBO {
     private HuntDAO huntDAO;
     @Autowired
     private TeamBO teamBO;
+    @Autowired
+    private ApplicantBO applicantBO;
 
     public int addHunt(Hunt hunt) {
 
@@ -27,6 +30,7 @@ public class HuntBO {
     public List<HuntDetail> huntList() {
         List<Hunt> huntList = huntDAO.selectHuntList();
         List<HuntDetail> huntDetailList = new ArrayList<>();
+
         List<Integer> teamIdList = huntList.stream().map(h -> h.getTeamId()).toList();
         List<Team> teamList = teamBO.getTeamListById(teamIdList);
 
@@ -39,15 +43,15 @@ public class HuntBO {
                     .findFirst().get();
 
             huntDetail.setTeam(team);
+
+            boolean isSupport = applicantBO.isSupport(hunt.getId(), hunt.getUserId());
+            huntDetail.setIsSupport(isSupport);
+
             huntDetailList.add(huntDetail);
         }
 
         return huntDetailList;
     }
 
-    public int huntUpdate(Hunt hunt) {
-
-        return huntDAO.updateHunt(hunt);
-    }
 
 }
