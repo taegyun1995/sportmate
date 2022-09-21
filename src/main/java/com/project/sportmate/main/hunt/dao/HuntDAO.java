@@ -12,4 +12,5 @@ public interface HuntDAO {
 
     public List<Hunt> selectHuntList();
 
+
 }

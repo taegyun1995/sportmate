@@ -1,6 +1,7 @@
 package com.project.sportmate.main.hunt;
 
 import com.project.sportmate.main.hunt.bo.HuntBO;
+import com.project.sportmate.main.hunt.model.Hunt;
 import com.project.sportmate.main.hunt.model.HuntDetail;
 import com.project.sportmate.main.team.bo.TeamBO;
 import com.project.sportmate.main.team.model.TeamDetail;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -43,6 +45,16 @@ public class HuntController {
         model.addAttribute("teamlist", teamList);
 
         return "/hunt/create";
+    }
+
+    @GetMapping("/sportmate/hunt/management/view")
+    public String huntManagementView(Model model
+                , @ModelAttribute Hunt hunt) {
+
+        
+
+
+        return "/hunt/management";
     }
 
 }

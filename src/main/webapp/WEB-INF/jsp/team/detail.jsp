@@ -65,11 +65,11 @@
                             <button id="planCreateBtn" class="col-2 ml-1 mt-2" type="button"> 작성 </button>
                         </div>
 
-                        <table class="table" height="20">
+                        <table class="table text-center" height="20">
                             <thead>
                                 <tr>
                                     <th class="col-1"> <small> <b> 팀명 </b> </small> </th>
-                                    <th class="col-9"> <small> <b> 계획 </b> </small> </th>
+                                    <th class="col-8"> <small> <b> 계획 </b> </small> </th>
                                     <th class="col-1"> <small> <b> 작성자 </b> </small> </th>
                                     <th class="col-2"> <small> <b> 작성날짜 </b> </small> </th>
                                     <th> </th>
