@@ -60,9 +60,11 @@
                                                     </button>
                                                 </c:when>
                                                 <c:when test="${DetailHunt.user.id eq userId}">
-                                                    <button type="button" class="confirmBtn" class="btn btn-sm" data-hunt-id="${DetailHunt.hunt.id}">
-                                                        확인
-                                                    </button>
+                                                    <a href="/sportmate/hunt/management/view?id=${DetailHunt.hunt.id}">
+                                                        <button type="button" class="confirmBtn" class="btn btn-sm" data-hunt-id="${DetailHunt.hunt.id}">
+                                                            확인
+                                                        </button>
+                                                    </a>
                                                 </c:when>
                                                 <c:otherwise>
                                                     <button type="button" class="supportBtn" class="btn btn-sm" data-hunt-id="${DetailHunt.hunt.id}">

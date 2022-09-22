@@ -6,9 +6,11 @@ import com.project.sportmate.user.model.User;
 
 public class HuntDetail {
 
+    private User user;
     private Hunt hunt;
     private Team team;
     private boolean isSupport;
+    private Applicant applicant;
 
     public boolean isSupport() {
         return isSupport;
@@ -19,23 +21,23 @@ public class HuntDetail {
     }
 
     public Applicant getApplicant() {
+
         return applicant;
     }
 
     public void setApplicant(Applicant applicant) {
+
         this.applicant = applicant;
     }
 
-    private Applicant applicant;
     public User getUser() {
+
         return user;
     }
 
     public void setUser(User user) {
         this.user = user;
     }
-
-    private User user;
 
     public boolean isIsSupport() {
         return isSupport;

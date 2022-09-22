@@ -64,5 +64,9 @@ public class HuntBO {
         return huntDetailList;
     }
 
+    public Hunt getHuntById(Hunt hunt) {
+
+        return huntDAO.selectHuntListById(hunt);
+    }
 
 }

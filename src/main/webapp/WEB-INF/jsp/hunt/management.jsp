@@ -23,22 +23,20 @@
        <h4 class="pt-5 pb-4"> Sportmate Hunting Member </h4>
 
     <section>
-        <c:forEach var="DetailHunt" items="${huntList}">
-            <div> ${DetailHunt.hunt.title} </div>
-            <div class="d-flex bg-success">
-                <div class="bg-warning col-3">
-                    <label class="signupLabel pt-2"> 팀명 </label>
-                    <input class="signupInput form-control" placeholder="팀명을 입력하세요." readonly/>
+        <div> ${huntList.title} </div>
+        <div class="d-flex bg-success">
+            <div class="bg-warning col-3">
+                <label class="signupLabel pt-2"> 팀명 </label>
+                <input class="signupInput form-control" placeholder="팀명을 입력하세요." readonly/>
 
-                    <label class="signupLabel pt-2"> 종목 </label>
-                    <input class="signupInput form-control" placeholder="팀명을 입력하세요." readonly/>
+                <label class="signupLabel pt-2"> 종목 </label>
+                <input class="signupInput form-control" placeholder="팀명을 입력하세요." readonly/>
 
-                    <label class="signupLabel pt-2"> 지역 </label>
-                    <input class="signupInput form-control" placeholder="제목을 입력하세요." readonly/>
-                </div>
-                <div clas="bg-danger col-9"> gg </div>
+                <label class="signupLabel pt-2"> 지역 </label>
+                <input class="signupInput form-control" placeholder="제목을 입력하세요." readonly/>
             </div>
-        </c:forEach>
+            <div clas="bg-danger col-9"> gg </div>
+        </div>
     </section>
 
     <c:import url="/WEB-INF/jsp/include/footer.jsp" />

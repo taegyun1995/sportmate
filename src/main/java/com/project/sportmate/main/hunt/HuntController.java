@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -49,10 +50,10 @@ public class HuntController {
 
     @GetMapping("/sportmate/hunt/management/view")
     public String huntManagementView(Model model
-                , @ModelAttribute Hunt hunt) {
+            , @ModelAttribute Hunt hunt) {
 
-        
-
+        Hunt getHunt = huntBO.getHuntById(hunt);
+        model.addAttribute("huntList", getHunt);
 
         return "/hunt/management";
     }

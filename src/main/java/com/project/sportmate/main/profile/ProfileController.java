@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.project.sportmate.main.hunt.model.Hunt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +15,7 @@ import com.project.sportmate.main.profile.bo.ProfileBO;
 import com.project.sportmate.main.profile.model.StoryDetail;
 import com.project.sportmate.user.bo.UserBO;
 import com.project.sportmate.user.model.User;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 @Controller
 public class ProfileController {
@@ -58,7 +60,10 @@ public class ProfileController {
 	
 	// 스토리 작성화면
 	@GetMapping("/sportmate/profile/story/create/view")
-	public String storycreateView() {
+	public String storycreateView(@ModelAttribute Hunt hunt
+			, HttpServletRequest request) {
+
+
 
 
 		return "/profile/storycreate";

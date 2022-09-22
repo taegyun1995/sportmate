@@ -37,5 +37,19 @@
             `hunt`
     </select>
 
+    <select id="selectHuntListById" resultType="com.project.sportmate.main.hunt.model.Hunt"
+        parameterType="com.project.sportmate.main.hunt.model.Hunt">
+        SELECT
+            `id`
+            , `userId`
+            , `teamId`
+            , `title`
+            , `createdAt`
+            , `updatedAt`
+        FROM
+            `hunt`
+        WHERE
+            `id` = #{id}
+    </select>
 
 </mapper>

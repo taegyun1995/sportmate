@@ -10,7 +10,6 @@ public class Hunt {
     private String title;
     private String exercise;
     private String region;
-    private String state;
     private Date createdAt;
     private Date updatedAt;
 
@@ -60,14 +59,6 @@ public class Hunt {
 
     public void setRegion(String region) {
         this.region = region;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
     }
 
     public Date getCreatedAt() {
