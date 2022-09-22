@@ -6,6 +6,8 @@ import org.springframework.stereotype.Repository;
 import com.project.sportmate.user.model.User;
 import com.project.sportmate.user.model.UserM;
 
+import java.util.List;
+
 @Repository
 public interface UserDAO {
 	
@@ -40,6 +42,4 @@ public interface UserDAO {
 			, @Param("region") String region
 			, @Param("content") String content);
 
-	
-	
 }

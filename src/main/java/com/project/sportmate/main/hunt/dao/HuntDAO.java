@@ -15,5 +15,4 @@ public interface HuntDAO {
 
     public Hunt selectHuntListById(Hunt hunt);
 
-
 }

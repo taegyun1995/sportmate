@@ -7,6 +7,8 @@ import com.project.sportmate.user.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ApplicantBO {
 
@@ -31,6 +33,11 @@ public class ApplicantBO {
     public int deleteSupport(int huntId, int userId) {
 
         return applicantDAO.deleteSupport(huntId, userId);
+    }
+
+    public List<Applicant> getSupportListByHuntId(int huntId) {
+
+        return applicantDAO.selectSupportByHuntId(huntId);
     }
 
 

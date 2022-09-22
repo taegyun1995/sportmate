@@ -157,7 +157,7 @@
 			`id` = #{id}
  	</select>
  	
- 	 <select id="selectUserByuserId" parameterType="int" resultType="com.project.sportmate.user.model.User">
+ 	 <select id="selectUserByUserId" parameterType="int" resultType="com.project.sportmate.user.model.User">
  		SELECT 
  			`id`
 			, `profileImage`

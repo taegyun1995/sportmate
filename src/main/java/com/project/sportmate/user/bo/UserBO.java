@@ -1,5 +1,6 @@
 package com.project.sportmate.user.bo;
 
+import com.project.sportmate.main.hunt.applicant.bo.ApplicantBO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -10,11 +11,15 @@ import com.project.sportmate.user.dao.UserDAO;
 import com.project.sportmate.user.model.User;
 import com.project.sportmate.user.model.UserM;
 
+import java.util.List;
+
 @Service
 public class UserBO {
 	
 	@Autowired
 	private UserDAO userDAO;
+	@Autowired
+	private ApplicantBO applicantBO;
 	
 	// 회원가입
 	public int signupUser(UserM userM) {
@@ -97,5 +102,6 @@ public class UserBO {
 		
 		return userDAO.updateProfile(userId, imagePath, nickName, exercise, region, content);
 	}
+
 	
 }

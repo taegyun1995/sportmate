@@ -52,8 +52,8 @@ public class HuntController {
     public String huntManagementView(Model model
             , @ModelAttribute Hunt hunt) {
 
-        Hunt getHunt = huntBO.getHuntById(hunt);
-        model.addAttribute("huntList", getHunt);
+        HuntDetail getHuntManagement = huntBO.getHuntById(hunt);
+        model.addAttribute("huntList", getHuntManagement);
 
         return "/hunt/management";
     }

@@ -63,4 +63,21 @@
         <foreach collection="teamIdList" item="teamId" index="index" separator="," open="(" close=")">#{teamId}
         </foreach>
     </select>
+
+    <select id="selectTeamById" resultType="com.project.sportmate.main.team.model.Team" parameterType="int">
+        SELECT
+            `id`
+            , `userId`
+            , `teamname`
+            , `exercise`
+            , `region`
+            , `content`
+            , `createdAt`
+            , `updatedAt`
+        FROM
+            `team`
+        WHERE
+            `id` = #{id}
+    </select>
+
 </mapper>

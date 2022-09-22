@@ -39,5 +39,17 @@
             AND `userId` = #{userId}
     </delete>
 
+    <select id="selectSupportByHuntId" resultType="com.project.sportmate.main.hunt.applicant.model.Applicant" parameterType="int">
+        SELECT
+            `id`
+            , `userId`
+            , `huntId`
+            , `createdAt`
+        FROM
+            `support`
+        WHERE
+            `huntId` = #{huntId}
+    </select>
+
 
 </mapper>

@@ -74,5 +74,10 @@ public class TeamBO {
         return teamDetailList;
     }
 
+    public Team getTeamById(int id) {
+
+        return teamDAO.selectTeamById(id);
+    }
+
 
 }

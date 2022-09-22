@@ -64,9 +64,22 @@ public class HuntBO {
         return huntDetailList;
     }
 
-    public Hunt getHuntById(Hunt hunt) {
+    public HuntDetail getHuntById(Hunt hunt) {
 
-        return huntDAO.selectHuntListById(hunt);
+        HuntDetail huntDetail = new HuntDetail();
+
+        Hunt getHunt =  huntDAO.selectHuntListById(hunt);
+        huntDetail.setHunt(getHunt);
+
+        Team team = teamBO.getTeamById(getHunt.getTeamId());
+        huntDetail.setTeam(team);
+
+        List<Applicant> applicant = applicantBO.getSupportListByHuntId(getHunt.getId());
+
+
+        return huntDetail;
     }
+
+
 
 }

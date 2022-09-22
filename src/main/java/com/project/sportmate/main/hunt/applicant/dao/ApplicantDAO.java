@@ -6,6 +6,8 @@ import com.project.sportmate.user.model.User;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface ApplicantDAO {
 
@@ -18,6 +20,8 @@ public interface ApplicantDAO {
     public int deleteSupport(
             @Param("huntId") int huntId
             , @Param("userId") int userId);
+
+    public List<Applicant> selectSupportByHuntId(@Param("huntId") int huntId);
 
 
 }

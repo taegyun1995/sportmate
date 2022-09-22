@@ -12,6 +12,8 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/static/css/style.css" type="text/css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 </head>
 <body>
 
@@ -23,19 +25,71 @@
        <h4 class="pt-5 pb-4"> Sportmate Hunting Member </h4>
 
     <section>
-        <div> ${huntList.title} </div>
-        <div class="d-flex bg-success">
-            <div class="bg-warning col-3">
-                <label class="signupLabel pt-2"> 팀명 </label>
-                <input class="signupInput form-control" placeholder="팀명을 입력하세요." readonly/>
+        <div class="pl-2"> <b> ${huntList.hunt.title} </b> </div>
+        <div class="d-flex">
+            <div class="col-3 ml-2 mr-4">
+                <label class="signupLabel pt-3"> 팀명 </label>
+                <input class="signupInput form-control" placeholder="${huntList.team.teamname}" readonly/>
 
                 <label class="signupLabel pt-2"> 종목 </label>
-                <input class="signupInput form-control" placeholder="팀명을 입력하세요." readonly/>
+                <input class="signupInput form-control" placeholder="${huntList.team.exercise}" readonly/>
 
                 <label class="signupLabel pt-2"> 지역 </label>
-                <input class="signupInput form-control" placeholder="제목을 입력하세요." readonly/>
+                <input class="signupInput form-control" placeholder="${huntList.team.region}" readonly/>
             </div>
-            <div clas="bg-danger col-9"> gg </div>
+            <div clas="col-9">
+                <div class="d-flex">
+                    <div class="border rounded ml-3 mb-3">
+                        <div class="d-flex">
+                            <div class="p-1"> <img src="/static/img/kick.png" width="100" height="100" class="p-2"/> </div>
+                            <div class="p-1">
+                                <a href="#">
+                                    <i class="bi bi-three-dots text-dark"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <div class="d-flex">
+                                <div class="pl-1">
+                                    <a href="#" class="like-btn" data-story-id="${DetailStory.story.id}">
+                                        <span class="heart-size"> <i class="bi bi-heart"> </i> </span>
+                                    </a>
+                                </div>
+                                <div> <small> 5 </small> </div>
+                            </div>
+                            <div class="d-flex">
+                                <div> <small> nickName </small> </div>
+                                <div class="px-1"> <small> 25 </small> </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border rounded ml-3 mb-3">
+                        <div class="d-flex">
+                            <div class="p-1"> <img src="/static/img/kick.png" width="100" height="100" class="p-2"/> </div>
+                            <div class="p-1">
+                                <a href="#">
+                                    <i class="bi bi-three-dots text-dark"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <div class="d-flex">
+                                <div class="pl-1">
+                                    <a href="#" class="like-btn" data-story-id="${DetailStory.story.id}">
+                                        <span class="heart-size"> <i class="bi bi-heart"> </i> </span>
+                                    </a>
+                                </div>
+                                <div> <small> 5 </small> </div>
+                            </div>
+                            <div class="d-flex">
+                                <div> <small> nickName </small> </div>
+                                <div class="px-1"> <small> 25 </small> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
