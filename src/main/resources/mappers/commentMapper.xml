@@ -25,7 +25,7 @@
  		)
  	</insert>
  	
- 	 <select id="selectComment" resultType="com.project.sportmate.main.profile.comment.model.Comment" parameterType="map">
+ 	 <select id="selectCommentByStoryId" resultType="com.project.sportmate.main.profile.comment.model.Comment" parameterType="map">
  		SELECT
  			`id`
  			, `userId`

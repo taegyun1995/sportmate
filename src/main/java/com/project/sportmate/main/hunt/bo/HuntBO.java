@@ -2,6 +2,7 @@ package com.project.sportmate.main.hunt.bo;
 
 import com.project.sportmate.main.hunt.applicant.bo.ApplicantBO;
 import com.project.sportmate.main.hunt.applicant.model.Applicant;
+import com.project.sportmate.main.hunt.applicant.model.ApplicantDetail;
 import com.project.sportmate.main.hunt.dao.HuntDAO;
 import com.project.sportmate.main.hunt.model.Hunt;
 import com.project.sportmate.main.hunt.model.HuntDetail;
@@ -69,16 +70,19 @@ public class HuntBO {
         HuntDetail huntDetail = new HuntDetail();
 
         Hunt getHunt =  huntDAO.selectHuntListById(hunt);
-        huntDetail.setHunt(getHunt);
-
         Team team = teamBO.getTeamById(getHunt.getTeamId());
+        List<ApplicantDetail> applicantList = applicantBO.getApplicantMembers(getHunt.getId());
+
+        huntDetail.setHunt(getHunt);
         huntDetail.setTeam(team);
-
-        List<Applicant> applicant = applicantBO.getSupportListByHuntId(getHunt.getId());
-
+        huntDetail.setApplicants(applicantList);
 
         return huntDetail;
     }
+
+
+
+
 
 
 

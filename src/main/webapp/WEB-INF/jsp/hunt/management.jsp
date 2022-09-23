@@ -39,55 +39,32 @@
             </div>
             <div clas="col-9">
                 <div class="d-flex">
-                    <div class="border rounded ml-3 mb-3">
-                        <div class="d-flex">
-                            <div class="p-1"> <img src="/static/img/kick.png" width="100" height="100" class="p-2"/> </div>
-                            <div class="p-1">
-                                <a href="#">
-                                    <i class="bi bi-three-dots text-dark"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between">
+                    <c:forEach var="applicantMember" items="${huntList.applicants}">
+                        <div class="border rounded ml-3 mb-3">
                             <div class="d-flex">
-                                <div class="pl-1">
-                                    <a href="#" class="like-btn" data-story-id="${DetailStory.story.id}">
-                                        <span class="heart-size"> <i class="bi bi-heart"> </i> </span>
+                                <div class="p-1"> <img src="${applicantMember.user.profileImage}" width="130" height="130" class="p-2"/> </div>
+                                <div class="p-1">
+                                    <a href="#">
+                                        <i class="bi bi-three-dots text-dark"></i>
                                     </a>
                                 </div>
-                                <div> <small> 5 </small> </div>
                             </div>
-                            <div class="d-flex">
-                                <div> <small> nickName </small> </div>
-                                <div class="px-1"> <small> 25 </small> </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="border rounded ml-3 mb-3">
-                        <div class="d-flex">
-                            <div class="p-1"> <img src="/static/img/kick.png" width="100" height="100" class="p-2"/> </div>
-                            <div class="p-1">
-                                <a href="#">
-                                    <i class="bi bi-three-dots text-dark"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <div class="d-flex">
-                                <div class="pl-1">
-                                    <a href="#" class="like-btn" data-story-id="${DetailStory.story.id}">
-                                        <span class="heart-size"> <i class="bi bi-heart"> </i> </span>
-                                    </a>
+                            <div class="d-flex justify-content-between">
+                                <div class="d-flex">
+                                    <div class="pl-1">
+                                        <a href="#" class="like-btn" data-story-id="${DetailStory.story.id}">
+                                            <span class="heart-size"> <i class="bi bi-heart"> </i> </span>
+                                        </a>
+                                    </div>
+                                    <div> <small> 5 </small> </div>
                                 </div>
-                                <div> <small> 5 </small> </div>
-                            </div>
-                            <div class="d-flex">
-                                <div> <small> nickName </small> </div>
-                                <div class="px-1"> <small> 25 </small> </div>
+                                <div class="d-flex">
+                                    <div> <small> ${applicantMember.user.name} </small> </div>
+                                    <div class="px-1"> <small> ${applicantMember.user.birth} </small> </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </c:forEach>
                 </div>
             </div>
         </div>

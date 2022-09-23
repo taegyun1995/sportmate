@@ -27,7 +27,7 @@ public class CommentBO {
 	
 	public List<CommentDetail> getCommentList(int storyId) {
 		
-		List<Comment> commentList = commentDAO.selectComment(storyId);
+		List<Comment> commentList = commentDAO.selectCommentByStoryId(storyId);
 		List<CommentDetail> commentDetailList = new ArrayList<>();
 		
 		for(Comment comment : commentList) {

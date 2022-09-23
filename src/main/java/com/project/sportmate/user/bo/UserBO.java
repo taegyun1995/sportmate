@@ -18,8 +18,6 @@ public class UserBO {
 	
 	@Autowired
 	private UserDAO userDAO;
-	@Autowired
-	private ApplicantBO applicantBO;
 	
 	// 회원가입
 	public int signupUser(UserM userM) {
