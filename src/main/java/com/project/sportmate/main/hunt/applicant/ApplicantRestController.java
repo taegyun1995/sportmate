@@ -61,4 +61,10 @@ public class ApplicantRestController {
         return map;
     }
 
+//    @GetMapping("/hunt/delete")
+//    public Map<String, String> supportDelete() {
+//
+//
+//    }
+
 }

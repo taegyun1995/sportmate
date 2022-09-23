@@ -42,26 +42,22 @@
                     <c:forEach var="applicantMember" items="${huntList.applicants}">
                         <div class="border rounded ml-3 mb-3">
                             <div class="d-flex">
-                                <div class="p-1"> <img src="${applicantMember.user.profileImage}" width="130" height="130" class="p-2"/> </div>
-                                <div class="p-1">
-                                    <a href="#">
+                                <div class=""> <img id="preview-image" src="${applicantMember.user.profileImage}" width="130" height="130" class="p-2"/> </div>
+                                <div class="pr-1">
+                                    <a href="#" data-toggle="modal" data-target="#moreModal" class="more-btn" >
                                         <i class="bi bi-three-dots text-dark"></i>
                                     </a>
                                 </div>
                             </div>
                             <div class="d-flex justify-content-between">
                                 <div class="d-flex">
-                                    <div class="pl-1">
-                                        <a href="#" class="like-btn" data-story-id="${DetailStory.story.id}">
-                                            <span class="heart-size"> <i class="bi bi-heart"> </i> </span>
-                                        </a>
-                                    </div>
-                                    <div> <small> 5 </small> </div>
+                                    <div class="pl-1"> <small> ${applicantMember.user.name} </small> </div>
+                                    <div class="px-1"> <small> ${applicantMember.user.birth}살 </small> </div>
                                 </div>
                                 <div class="d-flex">
-                                    <div> <small> ${applicantMember.user.name} </small> </div>
-                                    <div class="px-1"> <small> ${applicantMember.user.birth} </small> </div>
+                                    <div class="pr-1"> <small> ${applicantMember.user.region} </small> </div>
                                 </div>
+
                             </div>
                         </div>
                     </c:forEach>
@@ -72,7 +68,28 @@
 
     <c:import url="/WEB-INF/jsp/include/footer.jsp" />
 
+    <!-- Modal -->
+    <div class="modal fade" id="moreModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <button id="passBtn" class="btn btn-primary btn-sm" type="button">합격</button>
+                        <button id="nonPassBtn" class="btn btn-primary btn-sm" type="button">불합격</button>
+                    </div>
+                <div class="modal-footer">
+                    <button id="modalcancelBtn" class="btn btn-primary btn-sm" type="button" data-dismiss="modal">취소</button>
+                </div>
+            </div>
+        </div>
     </div>
+
+    </div>
+
+    <script>
+        $(document).ready(function() {
+
+        });
+    </script>
 
 </body>
 </html>

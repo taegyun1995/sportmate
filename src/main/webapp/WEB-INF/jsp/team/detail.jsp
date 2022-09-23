@@ -141,7 +141,7 @@
                                             <div class="d-flex justify-content-between">
                                                 <div> <small> <b> ${CommentDetail.user.name} </b> ${CommentDetail.comment.comment } </small> </div>
                                                 <c:if test="${userId eq CommentDetail.user.id}">
-                                                    <a href="#"  data-toggle="modal" data-target="#moreModal2" class="more-btn2" data-comment-id="${CommentDetail.comment.id}">
+                                                    <a href="#" data-toggle="modal" data-target="#moreModal2" class="more-btn2" data-comment-id="${CommentDetail.comment.id}">
                                                         <i class="bi bi-three-dots-vertical text-dark"></i>
                                                     </a>
                                                 </c:if>

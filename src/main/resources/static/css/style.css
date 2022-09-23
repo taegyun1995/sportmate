@@ -478,6 +478,32 @@ input[type=text], input[type=password], input[type=email] {
 	background-color : #273c75;
 }
 
+#passBtn {
+	width : 100px;
+	height : 30px;
+	color : #273c75;
+	background-color : white;
+	border: 1px solid #273c75;
+}
+
+#passBtn:hover {
+	color : white;
+	background-color : #273c75;
+}
+#nonPassBtn {
+	width : 100px;
+	height : 30px;
+	color : #db2e34;
+	background-color : white;
+	border: 1px solid #db2e34;
+}
+
+#nonPassBtn:hover {
+	color : white;
+	background-color : #db2e34;
+}
+
+
 footer {
 	height : 50px;
 }
