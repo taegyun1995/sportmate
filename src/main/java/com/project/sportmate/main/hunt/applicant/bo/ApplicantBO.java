@@ -59,5 +59,10 @@ public class ApplicantBO {
         return applicantDetailList;
     }
 
+    public int deleteSupportById(int id) {
+
+        return applicantDAO.deleteSupportById(id);
+    }
+
 
 }

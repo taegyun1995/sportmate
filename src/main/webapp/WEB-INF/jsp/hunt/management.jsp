@@ -44,7 +44,7 @@
                             <div class="d-flex">
                                 <div class=""> <img id="preview-image" src="${applicantMember.user.profileImage}" width="130" height="130" class="p-2"/> </div>
                                 <div class="pr-1">
-                                    <a href="#" data-toggle="modal" data-target="#moreModal" class="more-btn" >
+                                    <a href="#" data-toggle="modal" data-target="#moreModal" class="more-btn" data-applicant-id="${applicantMember.applicant.id}">
                                         <i class="bi bi-three-dots text-dark"></i>
                                     </a>
                                 </div>
@@ -87,6 +87,32 @@
 
     <script>
         $(document).ready(function() {
+            $(".more-btn").on("click", function(){
+                let applicantId = $(this).data("applicant-id");
+
+                $("#nonPassBtn").data("applicant-id", applicantId);
+            });
+
+            $("#nonPassBtn").on("click", function(e) {
+                e.preventDefault();
+                let applicantId = $(this).data("applicant-id");
+
+                $.ajax({
+                    type:"get",
+                    url:"/hunt/nonPass",
+                    data:{"id":applicantId},
+                    success:function(data) {
+                        if(data.result == "success") {
+                            location.reload();
+                        } else {
+                            alert("삭제 실패");
+                        }
+                    },
+                    error:function() {
+                        alert("삭제 에러");
+                    }
+                });
+            });
 
         });
     </script>

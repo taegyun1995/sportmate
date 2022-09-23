@@ -61,10 +61,19 @@ public class ApplicantRestController {
         return map;
     }
 
-//    @GetMapping("/hunt/delete")
-//    public Map<String, String> supportDelete() {
-//
-//
-//    }
+    @GetMapping("/hunt/nonPass")
+    public Map<String, String> supportDelete(@RequestParam("id") int id) {
+
+        Map<String, String> map = new HashMap<>();
+        int count = applicantBO.deleteSupportById(id);
+
+        if(count == 1) {
+            map.put("result", "success");
+        } else {
+            map.put("result", "fail");
+        }
+
+        return map;
+    }
 
 }

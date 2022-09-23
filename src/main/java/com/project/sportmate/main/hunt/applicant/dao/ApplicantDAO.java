@@ -23,5 +23,6 @@ public interface ApplicantDAO {
 
     public List<Applicant> selectSupportByHuntId(@Param("huntId") int huntId);
 
+    public int deleteSupportById(@Param("id") int id);
 
 }

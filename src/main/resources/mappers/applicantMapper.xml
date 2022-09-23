@@ -51,5 +51,11 @@
             `huntId` = #{huntId}
     </select>
 
+    <delete id="deleteSupportById" parameterType="int">
+        DELETE FROM
+            `support`
+        WHERE
+            `id` = #{id}
+    </delete>
 
 </mapper>
