@@ -64,6 +64,11 @@
                 </div>
             </div>
         </div>
+        <div class="d-flex justify-content-end pt-2">
+            <div class="d-flex justify-content-center">
+                 <a href="/sportmate/hunt/detail/view"> <button id="cancelBtn" class="col-12 ml-1" type="button"> 뒤로가기 </button></a>
+            </div>
+        </div>
     </section>
 
     <c:import url="/WEB-INF/jsp/include/footer.jsp" />
