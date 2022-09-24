@@ -48,8 +48,13 @@
                             <tbody>
                                 <c:forEach var="DetailHunt" items="${huntList}">
                                     <tr>
-                                        <td class="col-1"> <small> ${DetailHunt.team.teamname} </small> </td>
-                                        <td class=""> <small> ${DetailHunt.hunt.title} </small> </td>
+                                        <td class="col-1 d-none">
+                                            <input id="teamNameInput" class="signupInput form-control" value="${DetailHunt.team.id}" readOnly/>
+                                        </td>
+                                        <td class="col-1">
+                                            <input id="teamNameInput" class="signupInput form-control" value="${DetailHunt.team.teamname}" readOnly/>
+                                        </td>
+                                        <td> <small> ${DetailHunt.hunt.title} </small> </td>
                                         <td class="col-1"> <small> ${DetailHunt.team.exercise} </small> </td>
                                         <td class="col-1"> <small> ${DetailHunt.team.region} </small> </td>
                                         <td class="col-1">
@@ -96,11 +101,12 @@
  				e.preventDefault();
 
  				let huntId = $(this).data("hunt-id");
+                let teamName = $("#teamNameInput").val();
 
  				$.ajax({
  					type:"get",
  					url:"/hunt/support",
- 					data:{"huntId":huntId},
+ 					data:{"teamId":teamName, "huntId":huntId},
  					success:function(data) {
  						if(data.result == "success") {
  							location.reload();

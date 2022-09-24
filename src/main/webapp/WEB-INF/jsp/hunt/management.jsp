@@ -29,7 +29,7 @@
         <div class="d-flex">
             <div class="col-3 ml-2 mr-4">
                 <label class="signupLabel pt-3"> 팀명 </label>
-                <input class="signupInput form-control" placeholder="${huntList.team.teamname}" readonly/>
+                <input id="teamIdInput" class="signupInput form-control" placeholder="${huntList.team.teamname}" readonly/>
 
                 <label class="signupLabel pt-2"> 종목 </label>
                 <input class="signupInput form-control" placeholder="${huntList.team.exercise}" readonly/>

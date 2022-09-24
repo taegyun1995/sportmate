@@ -6,6 +6,16 @@ public class Applicant {
 
     private int id;
     private int userId;
+
+    public int getTeamId() {
+        return teamId;
+    }
+
+    public void setTeamId(int teamId) {
+        this.teamId = teamId;
+    }
+
+    private int teamId;
     private int huntId;
 
     public int getId() {
