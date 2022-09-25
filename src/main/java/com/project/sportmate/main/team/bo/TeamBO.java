@@ -68,8 +68,8 @@ public class TeamBO {
 
         // FIXME: team - member - user join 해야함. N+1 problem
         for (Team team : teamList) {
-            int user_id = team.getUserId();
-            Member member = memberBO.selectMemberByTeamId(user_id);
+            int team_id = team.getId();
+            Member member = memberBO.selectMemberByTeamId(team_id);
             User user = userBO.getUserById(member.getUserId());
             int memberCount = memberBO.getCountMemberByTeamId(member);
 
