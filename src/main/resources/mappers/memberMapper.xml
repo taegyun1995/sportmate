@@ -81,4 +81,17 @@
 			AND `rank` = '일반'
 	</select>
 
+	<select id="selectMemberListByTeamId" resultType="com.project.sportmate.main.team.member.model.Member" parameterType="int">
+		SELECT
+			`userId`
+			, `teamId`
+			, `rank`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`member`
+		WHERE
+			`userId` = #{userId}
+	</select>
+
  </mapper>

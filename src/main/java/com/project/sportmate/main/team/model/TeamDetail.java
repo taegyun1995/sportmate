@@ -4,6 +4,7 @@ import com.project.sportmate.main.profile.comment.model.Comment;
 import com.project.sportmate.main.profile.comment.model.CommentDetail;
 import com.project.sportmate.main.profile.model.Story;
 import com.project.sportmate.main.team.member.model.Member;
+import com.project.sportmate.main.team.plan.model.Plan;
 import com.project.sportmate.user.model.User;
 
 import java.util.List;
@@ -14,9 +15,20 @@ public class TeamDetail {
 	private Member member;
 	private Story story;
 	private User user;
+
+	public Plan getPlan() {
+		return plan;
+	}
+
+	public void setPlan(Plan plan) {
+		this.plan = plan;
+	}
+
+	private Plan plan;
 	private int likeCount;
 	private boolean islike;
 	public int memberCount;
+
 
 	public int getMemberCount() {
 		return memberCount;

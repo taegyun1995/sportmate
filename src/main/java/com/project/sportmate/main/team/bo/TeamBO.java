@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -30,7 +29,7 @@ public class TeamBO {
     public int createTeam(Team team) {
         int count = teamDAO.addTeam(team);
 
-        if(count == 1) {
+        if (count == 1) {
             Member member = new Member();
             member.setUserId(team.getUserId());
             member.setTeamId(team.getId());
@@ -43,23 +42,31 @@ public class TeamBO {
 
     public List<Team> getTeamListById(List<Integer> teamIdList) {
 
-        if(teamIdList.isEmpty()) {
+        if (teamIdList.isEmpty()) {
             return Collections.emptyList();
         }
 
         return teamDAO.selectTeamListById(teamIdList);
     }
 
-    public List<TeamDetail> getTeamList(int userId) {
+    public List<TeamDetail> getAwesomeTeamListByUserId(int userId) {
+        List<Member> memberListByUserId = memberBO.selectMemberListByUserId(userId);
+        List<Integer> teamIdList = new ArrayList();
+        for (Member member : memberListByUserId) {
+            teamIdList.add(member.getTeamId());
+        }
 
+        return this.getTeamListByIdList(teamIdList);
+    }
+
+    public List<TeamDetail> getTeamListByIdList(List<Integer> teamIdList) {
         List<TeamDetail> teamDetailList = new ArrayList<>();
-        List<Team> teamList = teamDAO.selectTeamList(userId);
+        List<Team> teamList = teamDAO.selectTeamListById(teamIdList);
 
         // FIXME: team - member - user join 해야함. N+1 problem
         for (Team team : teamList) {
-            int teamId = team.getId();
-
-            Member member = memberBO.selectMemberByTeamId(teamId);
+            int user_id = team.getUserId();
+            Member member = memberBO.selectMemberByTeamId(user_id);
             User user = userBO.getUserById(member.getUserId());
             int memberCount = memberBO.getCountMemberByTeamId(member);
 

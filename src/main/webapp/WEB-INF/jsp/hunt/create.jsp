@@ -35,7 +35,7 @@
 							<label class="signupLabel pt-2"> 팀명 </label>
                              <select id="teamNameSelect" class="signupInput form-control" name="teamNameSelect">
                                  <option value="none"> 선택하시오. </option>
-                                 <c:forEach var="DetailTeam" items="${teamlist}" varStatus="status">
+                                 <c:forEach var="DetailTeam" items="${teamList}" varStatus="status">
                                      <option value=${DetailTeam.team.id}> ${DetailTeam.team.teamname } </option>
                                  </c:forEach>
                              </select>

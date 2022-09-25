@@ -1,17 +1,13 @@
 package com.project.sportmate.main.team;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Function;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import com.project.sportmate.main.profile.bo.ProfileBO;
 import com.project.sportmate.main.profile.model.StoryDetail;
-import com.project.sportmate.main.team.model.Team;
 import com.project.sportmate.main.team.plan.bo.PlanBO;
-import com.project.sportmate.main.team.plan.model.Plan;
 import com.project.sportmate.main.team.plan.model.PlanDetail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,7 +34,7 @@ public class TeamController {
 		HttpSession session = request.getSession();
 		int userId = (Integer)session.getAttribute("userId");
 		
-		List<TeamDetail> teamList = teamBO.getTeamList(userId);
+		List<TeamDetail> teamList = teamBO.getAwesomeTeamListByUserId(userId);
 		model.addAttribute("teamList", teamList);
 
 		List<PlanDetail> planDetailList = planBO.getPlanDetailList(userId);
