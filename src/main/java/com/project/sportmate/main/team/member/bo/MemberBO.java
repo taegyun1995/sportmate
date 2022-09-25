@@ -26,5 +26,10 @@ public class MemberBO {
 
 		return memberDAO.selectCountMemberByTeamId(member);
 	}
+
+	public int addMemberBySupport(int userId, int teamId) {
+
+		return memberDAO.insertMemberBySupport(userId, teamId);
+	}
 	
 }

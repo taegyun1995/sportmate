@@ -1,6 +1,7 @@
 package com.project.sportmate.main.hunt;
 
 import com.project.sportmate.main.hunt.bo.HuntBO;
+import com.project.sportmate.main.hunt.bo.HuntDetailBO;
 import com.project.sportmate.main.hunt.model.Hunt;
 import com.project.sportmate.main.hunt.model.HuntDetail;
 import com.project.sportmate.main.team.bo.TeamBO;
@@ -22,6 +23,8 @@ public class HuntController {
     @Autowired
     private HuntBO huntBO;
     @Autowired
+    private HuntDetailBO huntDetailBO;
+    @Autowired
     private TeamBO teamBO;
 
     @GetMapping("/sportmate/hunt/detail/view")
@@ -30,7 +33,7 @@ public class HuntController {
         HttpSession session = request.getSession();
         int userId = (Integer)session.getAttribute("userId");
 
-        List<HuntDetail> huntList = huntBO.huntList(userId);
+        List<HuntDetail> huntList = huntDetailBO.huntList(userId);
         model.addAttribute("huntList", huntList);
 
         return "/hunt/detail";
@@ -52,7 +55,7 @@ public class HuntController {
     public String huntManagementView(Model model
             , @ModelAttribute Hunt hunt) {
 
-        HuntDetail getHuntManagement = huntBO.getHuntById(hunt);
+        HuntDetail getHuntManagement = huntDetailBO.getHuntById(hunt);
         model.addAttribute("huntList", getHuntManagement);
 
         return "/hunt/management";

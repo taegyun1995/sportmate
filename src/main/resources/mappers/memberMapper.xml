@@ -50,4 +50,23 @@
 			`teamId` = #{teamId}
 	</select>
 
+	<insert id="insertMemberBySupport" parameterType="map">
+		INSERT
+		(
+			`userId`
+			, `teamId`
+			, `rank`
+			, `createdAt`
+			, `updatedAt`
+		)
+		VALUES
+		(
+			#{userId}
+			, #{teamId}
+			, '일반'
+			, now()
+			, now()
+		)
+	</insert>
+
  </mapper>

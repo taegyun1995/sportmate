@@ -36,7 +36,7 @@
                              <select id="teamNameSelect" class="signupInput form-control" name="teamNameSelect">
                                  <option value="none"> 선택하시오. </option>
                                  <c:forEach var="DetailTeam" items="${teamlist}" varStatus="status">
-                                     <option value=${DetailTeam.team.id} id="teamIdInput"> ${DetailTeam.team.teamname } </option>
+                                     <option value=${DetailTeam.team.id}> ${DetailTeam.team.teamname } </option>
                                  </c:forEach>
                              </select>
 

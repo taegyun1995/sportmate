@@ -52,4 +52,18 @@
             `id` = #{id}
     </select>
 
+    <select id="selectHunt" resultType="com.project.sportmate.main.hunt.model.Hunt" parameterType="int">
+        SELECT
+        `id`
+        , `userId`
+        , `teamId`
+        , `title`
+        , `createdAt`
+        , `updatedAt`
+        FROM
+        `hunt`
+        WHERE
+        `id` = #{id}
+    </select>
+
 </mapper>

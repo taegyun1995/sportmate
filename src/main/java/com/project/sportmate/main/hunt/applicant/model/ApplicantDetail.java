@@ -7,7 +7,6 @@ public class ApplicantDetail {
     private User user;
     private Applicant applicant;
 
-
     public Applicant getApplicant() {
         return applicant;
     }

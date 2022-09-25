@@ -62,10 +62,25 @@ public class ApplicantRestController {
     }
 
     @GetMapping("/hunt/nonPass")
-    public Map<String, String> supportDelete(@RequestParam("id") int id) {
+    public Map<String, String> supportDelete(@ModelAttribute Applicant applicant) {
 
         Map<String, String> map = new HashMap<>();
-        int count = applicantBO.deleteSupportById(id);
+        int count = applicantBO.deleteSupportById(applicant);
+
+        if(count == 1) {
+            map.put("result", "success");
+        } else {
+            map.put("result", "fail");
+        }
+
+        return map;
+    }
+
+    @GetMapping("/hunt/pass")
+    public Map<String, String> addNormalMember(@ModelAttribute Applicant applicant) {
+
+        Map<String, String> map = new HashMap<>();
+        int count = applicantBO.deleteSupportAndInsertMember(applicant);
 
         if(count == 1) {
             map.put("result", "success");

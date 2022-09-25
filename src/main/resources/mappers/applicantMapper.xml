@@ -54,7 +54,7 @@
             `huntId` = #{huntId}
     </select>
 
-    <delete id="deleteSupportById" parameterType="int">
+    <delete id="deleteSupportById" parameterType="com.project.sportmate.main.hunt.applicant.model.Applicant">
         DELETE FROM
             `support`
         WHERE

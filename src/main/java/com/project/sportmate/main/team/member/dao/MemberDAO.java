@@ -13,4 +13,6 @@ public interface MemberDAO {
 
 	public int selectCountMemberByTeamId(Member member);
 
+	public int insertMemberBySupport(@Param("userId") int userId, @Param("teamId") int teamId);
+
 }

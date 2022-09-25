@@ -95,8 +95,31 @@
             $(".more-btn").on("click", function(){
                 let applicantId = $(this).data("applicant-id");
 
+                $("#passBtn").data("applicant-id", applicantId);
                 $("#nonPassBtn").data("applicant-id", applicantId);
             });
+
+             $("#passBtn").on("click", function(e) {
+                e.preventDefault();
+                let applicantId = $(this).data("applicant-id");
+
+                $.ajax({
+                    type:"get",
+                    url:"/hunt/pass",
+                    data:{"id":applicantId},
+                    success:function(data) {
+                        if(data.result == "success") {
+                            location.reload();
+                        } else {
+                            alert("삭제 실패");
+                        }
+                    },
+                    error:function() {
+                        alert("삭제 에러");
+                    }
+                });
+            });
+
 
             $("#nonPassBtn").on("click", function(e) {
                 e.preventDefault();

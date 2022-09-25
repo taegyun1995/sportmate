@@ -15,4 +15,6 @@ public interface HuntDAO {
 
     public Hunt selectHuntListById(Hunt hunt);
 
+    public Hunt selectHunt(@Param("id") int id);
+
 }
