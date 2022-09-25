@@ -78,17 +78,13 @@ public class ApplicantBO {
 
     public int deleteSupportAndInsertMember(int id) {
 
-        int count = applicantDAO.deleteSupportById(id);
         Applicant applicant = applicantDAO.selectSupport(id);
+        int userId = applicant.getUserId();
+        int teamId = applicant.getTeamId();
 
-        if(count == 1) {
-            int userId = applicant.getUserId();
-            int teamId = applicant.getTeamId();
+        memberBO.addMemberBySupport(userId, teamId);
 
-            memberBO.addMemberBySupport(userId, teamId);
-        }
-
-        return count;
+        return applicantDAO.deleteSupportById(id);
     }
 
 

@@ -70,4 +70,15 @@
 		)
 	</insert>
 
+	<select id="countMemberById" resultType="int" parameterType="map">
+		SELECT
+			count(1)
+		FROM
+			`member`
+		WHERE
+			`userId` = #{userId}
+			AND `teamId` = #{teamId}
+			AND `rank` = '일반'
+	</select>
+
  </mapper>

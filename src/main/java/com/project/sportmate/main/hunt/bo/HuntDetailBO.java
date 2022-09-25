@@ -6,6 +6,7 @@ import com.project.sportmate.main.hunt.dao.HuntDAO;
 import com.project.sportmate.main.hunt.model.Hunt;
 import com.project.sportmate.main.hunt.model.HuntDetail;
 import com.project.sportmate.main.team.bo.TeamBO;
+import com.project.sportmate.main.team.member.bo.MemberBO;
 import com.project.sportmate.main.team.model.Team;
 import com.project.sportmate.user.bo.UserBO;
 import com.project.sportmate.user.model.User;
@@ -26,6 +27,8 @@ public class HuntDetailBO {
     private UserBO userBO;
     @Autowired
     private ApplicantBO applicantBO;
+    @Autowired
+    private MemberBO memberBO;
 
 
     public List<HuntDetail> huntList(int userId) {
@@ -53,7 +56,8 @@ public class HuntDetailBO {
 
             boolean isSupport = applicantBO.isSupport(huntId, userId);
             huntDetail.setIsSupport(isSupport);
-
+            boolean isMember = memberBO.isMember(userId, hunt.getTeamId());
+            huntDetail.setIsMember(isMember);
             huntDetailList.add(huntDetail);
         }
 

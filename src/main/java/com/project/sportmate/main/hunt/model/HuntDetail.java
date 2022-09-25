@@ -13,7 +13,25 @@ public class HuntDetail {
     private Hunt hunt;
     private Team team;
     private boolean isSupport;
+    private boolean isMember;
     private Applicant applicant;
+
+    public boolean isIsMember() {
+        return isMember;
+    }
+
+    public void setIsMember(boolean isMember) {
+        this.isMember = isMember;
+    }
+
+    public boolean isIsSupport() {
+        return isSupport;
+    }
+
+    public void setIsSupport(boolean isSupport) {
+        this.isSupport = isSupport;
+    }
+
 
     public List<ApplicantDetail> getApplicants() {
         return applicants;
@@ -24,14 +42,6 @@ public class HuntDetail {
     }
 
     private List<ApplicantDetail> applicants;
-
-    public boolean isSupport() {
-        return isSupport;
-    }
-
-    public void setSupport(boolean support) {
-        isSupport = support;
-    }
 
     public Applicant getApplicant() {
 
@@ -52,13 +62,7 @@ public class HuntDetail {
         this.user = user;
     }
 
-    public boolean isIsSupport() {
-        return isSupport;
-    }
 
-    public void setIsSupport(boolean isSupport) {
-        this.isSupport = isSupport;
-    }
 
     public Hunt getHunt() {
         return hunt;

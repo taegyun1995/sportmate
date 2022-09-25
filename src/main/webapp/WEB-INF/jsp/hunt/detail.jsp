@@ -54,7 +54,7 @@
                                         <td class="col-1"> <small> ${DetailHunt.team.region} </small> </td>
                                         <td class="col-1">
                                             <c:choose>
-                                                <c:when test="${DetailHunt.support}">
+                                                <c:when test="${DetailHunt.isSupport}">
                                                     <button type="button" class="supportCancleBtn" class="btn btn-sm" data-hunt-id="${DetailHunt.hunt.id}">
                                                         대기
                                                     </button>
@@ -65,6 +65,11 @@
                                                             확인
                                                         </button>
                                                     </a>
+                                                </c:when>
+                                                <c:when test="${DetailHunt.isMember}">
+                                                    <button type="button" class="approveBtn" class="btn btn-sm" data-hunt-id="${DetailHunt.hunt.id}">
+                                                        승인
+                                                    </button>
                                                 </c:when>
                                                 <c:otherwise>
                                                     <button type="button" class="supportBtn" class="btn btn-sm" data-hunt-id="${DetailHunt.hunt.id}">

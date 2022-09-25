@@ -503,6 +503,13 @@ input[type=text], input[type=password], input[type=email] {
 	background-color : #db2e34;
 }
 
+.approveBtn {
+	width : 100px;
+	height : 30px;
+	color : white;
+	background-color : #33CE64;
+	border: 1px solid #33CE64;
+}
 
 footer {
 	height : 50px;

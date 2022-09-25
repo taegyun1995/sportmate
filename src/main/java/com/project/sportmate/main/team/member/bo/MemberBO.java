@@ -31,5 +31,16 @@ public class MemberBO {
 
 		return memberDAO.insertMemberBySupport(userId, teamId);
 	}
+
+	public boolean isMember(int userId, int teamId) {
+
+		int count = memberDAO.countMemberById(userId, teamId);
+
+		if(count > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 	
 }
