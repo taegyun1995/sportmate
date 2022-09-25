@@ -40,7 +40,7 @@
                                 </a>
                             </div>
                         </div>
-                        <c:forEach var="DetailTeam" items="${teamlist}" varStatus="status">
+                        <c:forEach var="DetailTeam" items="${teamList}" varStatus="status">
                             <div class="teambox border rounded m-2">
                                 <div class="p-2"> 팀명 <b> ${DetailTeam.team.teamname } </b> </div>
                                 <div class="pl-2 pt-1"> 대표 <b> ${DetailTeam.user.name} </b> </div>
@@ -57,7 +57,7 @@
                     <div class="pt-2">
                         <div id="signupInput" class="d-flex">
                             <select id="teamnameSelect" class="form-control col-1">
-                                <c:forEach var="DetailTeam" items="${teamlist}" varStatus="status">
+                                <c:forEach var="DetailTeam" items="${teamList}" varStatus="status">
                                     <option value=${DetailTeam.team.id} id="teamIdInput"> ${DetailTeam.team.teamname } </option>
                                 </c:forEach>
                             </select>

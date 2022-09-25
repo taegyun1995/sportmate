@@ -31,18 +31,18 @@
 
     <select id="selectTeamList" resultType="com.project.sportmate.main.team.model.Team" parameterType="map">
         SELECT
-        `id`
-        , `userId`
-        , `teamname`
-        , `exercise`
-        , `region`
-        , `content`
-        , `createdAt`
-        , `updatedAt`
+            `id`
+            , `userId`
+            , `teamname`
+            , `exercise`
+            , `region`
+            , `content`
+            , `createdAt`
+            , `updatedAt`
         FROM
-        `team`
+            `team`
         WHERE
-        `userId` = #{userId}
+            `userId` = #{userId}
     </select>
 
 

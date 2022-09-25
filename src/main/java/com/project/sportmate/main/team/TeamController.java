@@ -39,7 +39,7 @@ public class TeamController {
 		int userId = (Integer)session.getAttribute("userId");
 		
 		List<TeamDetail> teamList = teamBO.getTeamList(userId);
-		model.addAttribute("teamlist", teamList);
+		model.addAttribute("teamList", teamList);
 
 		List<PlanDetail> planDetailList = planBO.getPlanDetailList(userId);
 		model.addAttribute("planDetailList", planDetailList);
