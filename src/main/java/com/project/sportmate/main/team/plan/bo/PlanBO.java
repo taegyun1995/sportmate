@@ -28,29 +28,24 @@ public class PlanBO {
         return planDAO.insertPlan(userId, teamId, plan);
     }
 
-    public List<Plan> getPlanList(int userId) {
-
-        return planDAO.selectPlanList(userId);
-    }
-
     public List<PlanDetail> getPlanDetailList(int userId) {
+
+        List<PlanDetail> planDetailList = new ArrayList<>();
         List<Plan> planList = planDAO.selectPlanList(userId);
         List<Integer> teamIdList = planList.stream().map(p -> p.getTeamId()).toList();
         List<Team> teamList = teamBO.getTeamListById(teamIdList);
-        List<PlanDetail> planDetailList = new ArrayList<>();
 
         for (Plan plan : planList) {
             PlanDetail planDetail = new PlanDetail();
-            planDetail.setPlan(plan);
-
             User user = userBO.getUserById(userId);
-            planDetail.setUser(user);
-
             Team team = teamList.stream()
                     .filter(t -> t.getId() == plan.getTeamId())
                     .findFirst().get();
 
+            planDetail.setPlan(plan);
+            planDetail.setUser(user);
             planDetail.setTeam(team);
+
             planDetailList.add(planDetail);
         }
 
@@ -61,5 +56,6 @@ public class PlanBO {
 
         return planDAO.deletePlan(planId, userId);
     }
+
 
 }

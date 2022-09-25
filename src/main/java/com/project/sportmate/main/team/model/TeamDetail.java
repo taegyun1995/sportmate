@@ -15,6 +15,7 @@ public class TeamDetail {
 	private Member member;
 	private Story story;
 	private User user;
+	private Plan plan;
 
 	public Plan getPlan() {
 		return plan;
@@ -24,7 +25,7 @@ public class TeamDetail {
 		this.plan = plan;
 	}
 
-	private Plan plan;
+
 	private int likeCount;
 	private boolean islike;
 	public int memberCount;
