@@ -53,10 +53,10 @@ public class TeamBO {
     public List<TeamDetail> getTeamList(int userId) {
 
         List<TeamDetail> teamDetailList = new ArrayList<>();
-        List<Team> teamlist = teamDAO.selectTeamList(userId);
+        List<Team> teamList = teamDAO.selectTeamList(userId);
 
         // FIXME: team - member - user join 해야함. N+1 problem
-        for (Team team : teamlist) {
+        for (Team team : teamList) {
             int teamId = team.getId();
 
             Member member = memberBO.selectMemberByTeamId(teamId);

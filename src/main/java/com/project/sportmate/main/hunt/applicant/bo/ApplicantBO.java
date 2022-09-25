@@ -29,7 +29,6 @@ public class ApplicantBO {
     private HuntBO huntBO;
 
     public int insertSupport(Applicant applicant) {
-
         int huntId = applicant.getHuntId();
         Hunt hunt = huntBO.getHunt(huntId);
         applicant.setTeamId(hunt.getTeamId());
@@ -72,14 +71,15 @@ public class ApplicantBO {
         return applicantDetailList;
     }
 
-    public int deleteSupportById(Applicant applicant) {
+    public int deleteSupportById(int id) {
 
-        return applicantDAO.deleteSupportById(applicant);
+        return applicantDAO.deleteSupportById(id);
     }
 
-    public int deleteSupportAndInsertMember(Applicant applicant) {
+    public int deleteSupportAndInsertMember(int id) {
 
-        int count = applicantDAO.deleteSupportById(applicant);
+        int count = applicantDAO.deleteSupportById(id);
+        Applicant applicant = applicantDAO.selectSupport(id);
 
         if(count == 1) {
             int userId = applicant.getUserId();

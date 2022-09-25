@@ -61,4 +61,19 @@
             `id` = #{id}
     </delete>
 
+    <select id="selectSupport" resultType="com.project.sportmate.main.hunt.applicant.model.Applicant" parameterType="int">
+        SELECT
+            `id`
+            , `userId`
+            , `teamId`
+            , `huntId`
+            , `createdAt`
+        FROM
+            `support`
+        WHERE
+            `id` = #{id}
+
+
+    </select>
+
 </mapper>

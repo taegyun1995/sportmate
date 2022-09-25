@@ -51,7 +51,8 @@
 	</select>
 
 	<insert id="insertMemberBySupport" parameterType="map">
-		INSERT
+		INSERT INTO
+			`member`
 		(
 			`userId`
 			, `teamId`
