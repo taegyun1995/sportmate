@@ -19,9 +19,9 @@ public class MemberBO {
 		return memberDAO.insertMember(member);
 	}
 
-	public Member selectMemberByTeamId(int teamId) {
+	public Member getMemberByTeamIdAndRank(int teamId) {
 
-		return memberDAO.selectMemberByTeamId(teamId);
+		return memberDAO.selectMemberByTeamIdAndRank(teamId);
 	}
 
 	public int getCountMemberByTeamId(Member member) {

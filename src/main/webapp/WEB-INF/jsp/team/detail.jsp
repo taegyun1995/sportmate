@@ -76,7 +76,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <c:forEach var="DetailPlan" items="${planDetailList}">
+                                <c:forEach var="DetailPlan" items="${teamList}">
                                     <tr>
                                         <td> <small> <b> ${DetailPlan.team.teamname } </b> </small> </td>
                                         <td> <small> ${DetailPlan.plan.plan } </small> </td>

@@ -25,7 +25,7 @@
  		)
  	</insert>
 
-	<select id="selectMemberByTeamId" resultType="com.project.sportmate.main.team.member.model.Member"
+	<select id="selectMemberByTeamIdAndRank" resultType="com.project.sportmate.main.team.member.model.Member"
 			parameterType="com.project.sportmate.main.team.member.model.Member">
 		SELECT
 			`userId`

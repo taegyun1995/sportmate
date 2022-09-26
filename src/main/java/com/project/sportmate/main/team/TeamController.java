@@ -37,9 +37,6 @@ public class TeamController {
 		List<TeamDetail> teamList = teamBO.getAwesomeTeamListByUserId(userId);
 		model.addAttribute("teamList", teamList);
 
-		List<PlanDetail> planDetailList = planBO.getPlanDetailList(userId);
-		model.addAttribute("planDetailList", planDetailList);
-
 		List<StoryDetail> storyTeamList = profileBO.getTeamStoryList(userId);
 		model.addAttribute("storyTeamList", storyTeamList);
 

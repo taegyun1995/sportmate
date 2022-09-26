@@ -35,6 +35,7 @@
             `plan`
         WHERE
             `userId` = #{userId}
+            AND `teamID` = #{teamId}
     </select>
 
     <delete id="deletePlan" parameterType="map">
