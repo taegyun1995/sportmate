@@ -19,4 +19,5 @@ public interface TeamDAO {
     public List<Team> selectTeamListById(@Param("teamIdList") List<Integer> teamIdList);
 
     public Team selectTeamById(@Param("id") int id);
+
 }

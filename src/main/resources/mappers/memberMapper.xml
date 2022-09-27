@@ -94,5 +94,20 @@
 			`userId` = #{userId}
 	</select>
 
+	<select id="selectTeamMemberListById" resultType="com.project.sportmate.main.team.member.model.Member" parameterType="int">
+		SELECT
+		`userId`
+		, `teamId`
+		, `rank`
+		, `createdAt`
+		, `updatedAt`
+		FROM
+		`member`
+		WHERE
+		`teamId` in
+		<foreach collection="teamIdList" item="teamId" index="index" separator="," open="(" close=")">#{teamId}
+		</foreach>
+	</select>
+
 
  </mapper>

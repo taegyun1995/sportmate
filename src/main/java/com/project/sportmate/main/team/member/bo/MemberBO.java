@@ -52,7 +52,6 @@ public class MemberBO {
 	}
 
 
-
 	public List<Member> getMemberListByUserId(int userId) {
 
 		return memberDAO.selectMemberListByUserId(userId);
