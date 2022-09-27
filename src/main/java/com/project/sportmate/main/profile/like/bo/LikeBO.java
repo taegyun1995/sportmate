@@ -28,7 +28,7 @@ public class LikeBO {
 	public boolean isLike(int storyId, int userId) {
 		int count = likeDAO.countLikeById(storyId, userId);
 
-		if(count > 0) {
+		if(count == 1) {
 			return true;
 		} else {
 			return false;

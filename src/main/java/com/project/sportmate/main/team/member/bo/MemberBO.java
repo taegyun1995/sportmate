@@ -1,6 +1,11 @@
 package com.project.sportmate.main.team.member.bo;
 
+import com.project.sportmate.main.hunt.applicant.model.ApplicantDetail;
+import com.project.sportmate.main.hunt.model.Hunt;
+import com.project.sportmate.main.hunt.model.HuntDetail;
+import com.project.sportmate.main.profile.model.StoryDetail;
 import com.project.sportmate.main.team.member.model.Member;
+import com.project.sportmate.main.team.model.Team;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -46,10 +51,14 @@ public class MemberBO {
 		}
 	}
 
+
+
 	public List<Member> getMemberListByUserId(int userId) {
 
 		return memberDAO.selectMemberListByUserId(userId);
 	}
+
+
 
 
 }

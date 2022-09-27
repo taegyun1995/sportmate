@@ -90,10 +90,10 @@ public class ProfileBO {
 			storyIdList.add(member.getTeamId());
 		}
 
-		return this.getTeamStoryListByUserId(storyIdList);
+		return this.getTeamStoryListByUserId(storyIdList, userId);
 	}
 
-	public List<StoryDetail> getTeamStoryListByUserId(List<Integer> storyIdList) {
+	public List<StoryDetail> getTeamStoryListByUserId(List<Integer> storyIdList, int userId) {
 
 		List<StoryDetail> storyDetailTeamList = new ArrayList<>();
 		List<Story> storyList = profileDAO.selectStoryListById(storyIdList);
@@ -105,9 +105,8 @@ public class ProfileBO {
 
 			User user = userBO.getUserById(user_id);
 			int likeCount = likeBO.countLike(storyId);
-			boolean isLike = likeBO.isLike(storyId, user_id);
+			boolean isLike = likeBO.isLike(storyId, userId);
 			List<CommentDetail> commentList = commentBO.getCommentList(storyId);
-
 
 			storyTeamDetail.SetStory(story);
 			storyTeamDetail.setUser(user);
@@ -120,6 +119,8 @@ public class ProfileBO {
 
 		return storyDetailTeamList;
 	}
+
+
 
 	
 }

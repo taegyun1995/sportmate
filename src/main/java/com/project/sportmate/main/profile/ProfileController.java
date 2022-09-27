@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import com.project.sportmate.main.hunt.model.Hunt;
-import com.project.sportmate.main.team.bo.TeamBO;
 import com.project.sportmate.main.team.model.TeamDetail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,9 +25,7 @@ public class ProfileController {
 	private ProfileBO profileBO;
 	@Autowired
 	private UserBO userBO;
-	@Autowired
-	private TeamBO teamBO;
-	
+
 	// 프로필 화면
 	@GetMapping("/sportmate/profile/detail/view")
 	public String profileView(Model model
@@ -39,9 +36,6 @@ public class ProfileController {
 		
 		List<StoryDetail> storyDetailList = profileBO.getStoryList(userId);
 		model.addAttribute("storylist", storyDetailList);
-
-		List<TeamDetail> teamDetailList = teamBO.getAwesomeTeamListByUserId(userId);
-		model.addAttribute("memberlist", teamDetailList);
 
 		User user = userBO.getUserById(userId);
 		model.addAttribute("userlist", user);

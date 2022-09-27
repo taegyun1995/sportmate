@@ -33,7 +33,7 @@ public class TeamController {
 	@GetMapping("/sportmate/team/detail/view")
 	public String teamView(Model model
 			, HttpServletRequest request) {
-			
+
 		HttpSession session = request.getSession();
 		int userId = (Integer)session.getAttribute("userId");
 		
