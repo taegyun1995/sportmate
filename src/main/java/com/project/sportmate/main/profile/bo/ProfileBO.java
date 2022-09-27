@@ -3,6 +3,8 @@ package com.project.sportmate.main.profile.bo;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.project.sportmate.main.team.member.bo.MemberBO;
+import com.project.sportmate.main.team.member.model.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -28,6 +30,8 @@ public class ProfileBO {
 	private LikeBO likeBO;
 	@Autowired
 	private CommentBO commentBO;
+	@Autowired
+	private MemberBO memberBO;
 	
 	public int addStory(int userId, MultipartFile storyImage, String content) {
 		String imagePath = FileManagerService.saveStoryImgFile(userId, storyImage);
@@ -77,21 +81,34 @@ public class ProfileBO {
 		return count;
 	}
 
-	public List<StoryDetail> getTeamStoryList(int userId) {
+	public List<StoryDetail> getAwesomeTeamStoryListByUserId(int userId) {
+
+		List<Member> memberListByUserId = memberBO.getMemberListByUserId(userId);
+		List<Integer> storyIdList = new ArrayList();
+
+		for (Member member : memberListByUserId) {
+			storyIdList.add(member.getTeamId());
+		}
+
+		return this.getTeamStoryListByUserId(storyIdList);
+	}
+
+	public List<StoryDetail> getTeamStoryListByUserId(List<Integer> storyIdList) {
 
 		List<StoryDetail> storyDetailTeamList = new ArrayList<>();
-		List<Story> storyTeamList = profileDAO.selectStoryList();
+		List<Story> storyList = profileDAO.selectStoryListById(storyIdList);
 
-		for(Story story : storyTeamList) {
+		for(Story story : storyList) {
+			StoryDetail storyTeamDetail = new StoryDetail();
 			int user_id = story.getUserId();
 			int storyId = story.getId();
 
 			User user = userBO.getUserById(user_id);
 			int likeCount = likeBO.countLike(storyId);
-			boolean isLike = likeBO.isLike(storyId, userId);
+			boolean isLike = likeBO.isLike(storyId, user_id);
 			List<CommentDetail> commentList = commentBO.getCommentList(storyId);
 
-			StoryDetail storyTeamDetail = new StoryDetail();
+
 			storyTeamDetail.SetStory(story);
 			storyTeamDetail.setUser(user);
 			storyTeamDetail.setLikeCount(likeCount);
@@ -103,5 +120,6 @@ public class ProfileBO {
 
 		return storyDetailTeamList;
 	}
+
 	
 }

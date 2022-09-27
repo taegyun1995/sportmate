@@ -76,6 +76,22 @@
  			`id` = #{storyId}
  			AND `userId` = #{userId}
  	</delete>
+
+	<select id="selectStoryListById" resultType="com.project.sportmate.main.profile.model.Story" parameterType="int">
+		SELECT
+			`id`
+			, `userId`
+			, `storyImage`
+			, `content`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`story`
+		WHERE
+			`id` in
+		<foreach collection="storyIdList" item="storyId" index="index" separator="," open="(" close=")">#{storyId}
+		</foreach>
+	</select>
  	
  	
  </mapper>

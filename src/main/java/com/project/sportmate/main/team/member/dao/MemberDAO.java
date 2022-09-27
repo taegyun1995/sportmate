@@ -19,5 +19,5 @@ public interface MemberDAO {
 
 	public int countMemberById(@Param("userId") int userId, @Param("teamId") int teamId);
 
-	public List<Member> selectMemberListByTeamId(@Param("userId") int userId);
+	public List<Member> selectMemberListByUserId(@Param("userId") int userId);
 }

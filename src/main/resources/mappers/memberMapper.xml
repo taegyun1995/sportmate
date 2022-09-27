@@ -81,7 +81,7 @@
 			AND `rank` = '일반'
 	</select>
 
-	<select id="selectMemberListByTeamId" resultType="com.project.sportmate.main.team.member.model.Member" parameterType="int">
+	<select id="selectMemberListByUserId" resultType="com.project.sportmate.main.team.member.model.Member" parameterType="int">
 		SELECT
 			`userId`
 			, `teamId`

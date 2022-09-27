@@ -1,13 +1,10 @@
 package com.project.sportmate.main.team.bo;
 
-import com.project.sportmate.main.profile.dao.ProfileDAO;
 import com.project.sportmate.main.team.dao.TeamDAO;
 import com.project.sportmate.main.team.member.bo.MemberBO;
 import com.project.sportmate.main.team.member.model.Member;
 import com.project.sportmate.main.team.model.Team;
 import com.project.sportmate.main.team.model.TeamDetail;
-import com.project.sportmate.main.team.plan.bo.PlanBO;
-import com.project.sportmate.main.team.plan.model.Plan;
 import com.project.sportmate.user.bo.UserBO;
 import com.project.sportmate.user.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,7 +47,7 @@ public class TeamBO {
     }
 
     public List<TeamDetail> getAwesomeTeamListByUserId(int userId) {
-        List<Member> memberListByUserId = memberBO.selectMemberListByUserId(userId);
+        List<Member> memberListByUserId = memberBO.getMemberListByUserId(userId);
 
         List<Integer> teamIdList = new ArrayList();
 
@@ -87,6 +84,5 @@ public class TeamBO {
 
         return teamDAO.selectTeamById(id);
     }
-
 
 }

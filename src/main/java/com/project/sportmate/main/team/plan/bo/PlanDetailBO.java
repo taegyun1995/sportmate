@@ -1,11 +1,9 @@
 package com.project.sportmate.main.team.plan.bo;
 
 import com.project.sportmate.main.team.bo.TeamBO;
-import com.project.sportmate.main.team.dao.TeamDAO;
 import com.project.sportmate.main.team.member.bo.MemberBO;
 import com.project.sportmate.main.team.member.model.Member;
 import com.project.sportmate.main.team.model.Team;
-import com.project.sportmate.main.team.model.TeamDetail;
 import com.project.sportmate.main.team.plan.dao.PlanDAO;
 import com.project.sportmate.main.team.plan.model.Plan;
 import com.project.sportmate.main.team.plan.model.PlanDetail;
@@ -31,7 +29,7 @@ public class PlanDetailBO {
 
     public List<PlanDetail> getAwesomePlanListByUserId(int userId) {
 
-        List<Member> memberListByUserId = memberBO.selectMemberListByUserId(userId);
+        List<Member> memberListByUserId = memberBO.getMemberListByUserId(userId);
         List<Integer> planIdList = new ArrayList();
 
         for (Member member : memberListByUserId) {

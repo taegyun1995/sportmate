@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.project.sportmate.main.team.member.dao.MemberDAO;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -45,9 +46,10 @@ public class MemberBO {
 		}
 	}
 
-	public List<Member> selectMemberListByUserId(int userId) {
+	public List<Member> getMemberListByUserId(int userId) {
 
-		return memberDAO.selectMemberListByTeamId(userId);
+		return memberDAO.selectMemberListByUserId(userId);
 	}
-	
+
+
 }

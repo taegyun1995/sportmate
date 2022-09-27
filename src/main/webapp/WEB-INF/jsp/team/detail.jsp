@@ -101,7 +101,7 @@
                                 <h5 class="pt-3"> My Team Story </h5>
                             </div>
 
-                            <c:forEach var="DetailStory" items="${storyTeamList}">
+                            <c:forEach var="DetailStory" items="${storyList}">
                                 <div class="my-2 border">
                                     <img class="p-2" src="${DetailStory.story.storyImage}" width="100%" height="400") />
                                     <div class="d-flex justify-content-between border-top pb-1">

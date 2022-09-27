@@ -43,8 +43,8 @@ public class TeamController {
 		List<PlanDetail> planList = planDetailBO.getAwesomePlanListByUserId(userId);
 		model.addAttribute("planList", planList);
 
-		List<StoryDetail> storyTeamList = profileBO.getTeamStoryList(userId);
-		model.addAttribute("storyTeamList", storyTeamList);
+		List<StoryDetail> storyList = profileBO.getAwesomeTeamStoryListByUserId(userId);
+		model.addAttribute("storyList", storyList);
 
 		return "/team/detail";
 	}
