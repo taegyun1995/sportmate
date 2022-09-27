@@ -46,4 +46,20 @@
             AND `id` = #{planId}
     </delete>
 
+    <select id="selectPlanListById" resultType="com.project.sportmate.main.team.plan.model.Plan" parameterType="map">
+        SELECT
+        `id`
+        , `userId`
+        , `teamId`
+        , `plan`
+        , `createdAt`
+        , `updatedAt`
+        FROM
+        `plan`
+        WHERE
+        `teamId` in
+        <foreach collection="planIdList" item="planId" index="index" separator="," open="(" close=")">#{planId}
+        </foreach>
+    </select>
+
 </mapper>

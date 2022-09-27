@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import com.project.sportmate.main.profile.bo.ProfileBO;
 import com.project.sportmate.main.profile.model.StoryDetail;
 import com.project.sportmate.main.team.plan.bo.PlanBO;
+import com.project.sportmate.main.team.plan.bo.PlanDetailBO;
 import com.project.sportmate.main.team.plan.model.PlanDetail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,6 +27,8 @@ public class TeamController {
 	private PlanBO planBO;
 	@Autowired
 	private ProfileBO profileBO;
+	@Autowired
+	private PlanDetailBO planDetailBO;
 	
 	@GetMapping("/sportmate/team/detail/view")
 	public String teamView(Model model
@@ -36,6 +39,9 @@ public class TeamController {
 		
 		List<TeamDetail> teamList = teamBO.getAwesomeTeamListByUserId(userId);
 		model.addAttribute("teamList", teamList);
+
+		List<PlanDetail> planList = planDetailBO.getAwesomePlanListByUserId(userId);
+		model.addAttribute("planList", planList);
 
 		List<StoryDetail> storyTeamList = profileBO.getTeamStoryList(userId);
 		model.addAttribute("storyTeamList", storyTeamList);

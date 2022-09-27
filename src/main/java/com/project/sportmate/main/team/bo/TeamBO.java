@@ -25,8 +25,6 @@ public class TeamBO {
     private MemberBO memberBO;
     @Autowired
     private UserBO userBO;
-    @Autowired
-    private PlanBO planBO;
 
     public int createTeam(Team team) {
         int count = teamDAO.addTeam(team);
@@ -72,14 +70,12 @@ public class TeamBO {
             int team_id = team.getId();
             Member member = memberBO.getMemberByTeamIdAndRank(team_id);
             User user = userBO.getUserById(member.getUserId());
-            Plan plan = planBO.selectPlan(member.getUserId(), member.getTeamId());
             int memberCount = memberBO.getCountMemberByTeamId(member);
 
             TeamDetail teamDetail = new TeamDetail();
             teamDetail.setTeam(team);
             teamDetail.setMember(member);
             teamDetail.setUser(user);
-            teamDetail.setPlan(plan);
             teamDetail.setMemberCount(memberCount);
             teamDetailList.add(teamDetail);
         }
