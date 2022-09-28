@@ -61,7 +61,7 @@
                                     <div class="mx-2">
                                         <div class="profileImg2"> <img class="profileImg2" src="${memberLine.user.profileImage}" /> </div>
                                         <div class="d-flex justify-content-center"> <small> <b> ${memberLine.team.teamname} </b> </small> </div>
-                                        <div class="d-flex justify-content-center"> <small> ${memberLine.user.name} </small> </div>
+                                        <div class="d-flex justify-content-center"> <small> ${memberLine.user.nickName} </small> </div>
                                     </div>
                                 </c:forEach>
                             </div>

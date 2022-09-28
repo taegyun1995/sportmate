@@ -43,9 +43,10 @@
                         <c:forEach var="DetailTeam" items="${teamList}" varStatus="status">
                             <div class="teambox border rounded m-2">
                                 <div class="p-2"> 팀명 <b> ${DetailTeam.team.teamname } </b> </div>
-                                <div class="pl-2 pt-1"> 대표 <b> ${DetailTeam.user.name} </b> </div>
-                                <div class="pl-2 pt-1"> 인원 <b> ${DetailTeam.memberCount}명 </b>  </div>
-                                <div class="pl-2 pt-1"> 지역 <b> ${DetailTeam.team.region } </b> </div>
+                                <div class="pl-2"> <small> 대표 <b> ${DetailTeam.user.name} </b> </small> </div>
+                                <div class="pl-2"> <small> 인원 <b> ${DetailTeam.memberCount}명 </b> </small> </div>
+                                <div class="pl-2"> <small> 지역 <b> ${DetailTeam.team.region } </b></small> </div>
+                                <div class="pl-2"> <small> 종목 <b> ${DetailTeam.team.exercise } </b> </small></div>
                             </div>
                         </c:forEach>
                     </div>
@@ -56,7 +57,7 @@
 
                     <div class="pt-2">
                         <div id="signupInput" class="d-flex">
-                            <select id="teamnameSelect" class="form-control col-1">
+                            <select id="teamnameSelect" class="form-control col-2">
                                 <c:forEach var="DetailTeam" items="${teamList}" varStatus="status">
                                     <option value=${DetailTeam.team.id} id="teamIdInput"> ${DetailTeam.team.teamname } </option>
                                 </c:forEach>
