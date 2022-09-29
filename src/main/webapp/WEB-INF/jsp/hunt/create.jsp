@@ -104,7 +104,7 @@
 
         });
 
-	</script
+	</script>
 
 </body>
 </html>

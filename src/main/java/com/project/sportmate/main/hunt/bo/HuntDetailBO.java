@@ -36,6 +36,8 @@ public class HuntDetailBO {
         List<HuntDetail> huntDetailList = new ArrayList<>();
 
         List<Integer> teamIdList = huntList.stream().map(h -> h.getTeamId()).toList();
+
+
         List<Team> teamList = teamBO.getTeamListById(teamIdList);
 
         for(Hunt hunt : huntList) {
