@@ -15,43 +15,7 @@ public class HuntDetail {
     private boolean isSupport;
     private boolean isMember;
     private Applicant applicant;
-
-    public boolean isIsMember() {
-        return isMember;
-    }
-
-    public void setIsMember(boolean isMember) {
-        this.isMember = isMember;
-    }
-
-    public boolean isIsSupport() {
-        return isSupport;
-    }
-
-    public void setIsSupport(boolean isSupport) {
-        this.isSupport = isSupport;
-    }
-
-
-    public List<ApplicantDetail> getApplicants() {
-        return applicants;
-    }
-
-    public void setApplicants(List<ApplicantDetail> applicants) {
-        this.applicants = applicants;
-    }
-
     private List<ApplicantDetail> applicants;
-
-    public Applicant getApplicant() {
-
-        return applicant;
-    }
-
-    public void setApplicant(Applicant applicant) {
-
-        this.applicant = applicant;
-    }
 
     public User getUser() {
 
@@ -61,8 +25,6 @@ public class HuntDetail {
     public void setUser(User user) {
         this.user = user;
     }
-
-
 
     public Hunt getHunt() {
         return hunt;
@@ -79,6 +41,42 @@ public class HuntDetail {
     public void setTeam(Team team) {
         this.team = team;
     }
+    public boolean isIsSupport() {
+        return isSupport;
+    }
+
+    public void setIsSupport(boolean isSupport) {
+        this.isSupport = isSupport;
+    }
+    public boolean isIsMember() {
+        return isMember;
+    }
+
+    public void setIsMember(boolean isMember) {
+        this.isMember = isMember;
+    }
+
+    public Applicant getApplicant() {
+
+        return applicant;
+    }
+
+    public void setApplicant(Applicant applicant) {
+
+        this.applicant = applicant;
+    }
+
+
+    public List<ApplicantDetail> getApplicants() {
+        return applicants;
+    }
+
+    public void setApplicants(List<ApplicantDetail> applicants) {
+        this.applicants = applicants;
+    }
+
+
+
 
 
 }

@@ -20,7 +20,7 @@ public class CommentBO {
 	@Autowired
 	private UserBO userBO;
 	
-	public int createComment(int userId, int storyId, String comment) {
+	public int addComment(int userId, int storyId, String comment) {
 		
 		return commentDAO.insertComment(userId, storyId, comment);
 	}
@@ -45,12 +45,12 @@ public class CommentBO {
 		return commentDetailList;
 	}
 	
-	public int deleteComment(int userId, int commentId) {
+	public int removeComment(int userId, int commentId) {
 		
 		return commentDAO.deleteComment(userId, commentId);
 	}
 
-	public int deleteStoryComment(int storyId) {
+	public int removeStoryComment(int storyId) {
 
 		return commentDAO.deleteStoryComment(storyId);
 	}

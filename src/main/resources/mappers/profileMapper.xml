@@ -4,8 +4,8 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
  <mapper namespace="com.project.sportmate.main.profile.dao.ProfileDAO">
- 	
- 	<insert id="storyInsert" parameterType="map">
+
+ 	<insert id="insertStory" parameterType="map">
  		INSERT INTO
  			`story`
  		(
@@ -24,7 +24,7 @@
  			, now()
  		)
  	</insert>
- 	
+
  	<select id="selectUserStoryList" resultType="com.project.sportmate.main.profile.model.Story">
  		SELECT
  			`id`
@@ -68,7 +68,7 @@
 		WHERE
 			`id` = #{storyId}
 	</select>
- 
+
  	<delete id="deleteStory" parameterType="int">
  		DELETE FROM
  			`story`
@@ -92,6 +92,6 @@
 		<foreach collection="storyIdList" item="storyId" index="index" separator="," open="(" close=")">#{storyId}
 		</foreach>
 	</select>
- 	
- 	
+
+
  </mapper>

@@ -6,17 +6,9 @@ public class Applicant {
 
     private int id;
     private int userId;
-
-    public int getTeamId() {
-        return teamId;
-    }
-
-    public void setTeamId(int teamId) {
-        this.teamId = teamId;
-    }
-
     private int teamId;
     private int huntId;
+    private Date createdAt;
 
     public int getId() {
         return id;
@@ -32,6 +24,13 @@ public class Applicant {
 
     public void setUserId(int userId) {
         this.userId = userId;
+    }
+    public int getTeamId() {
+        return teamId;
+    }
+
+    public void setTeamId(int teamId) {
+        this.teamId = teamId;
     }
 
     public int getHuntId() {
@@ -50,6 +49,6 @@ public class Applicant {
         this.createdAt = createdAt;
     }
 
-    private Date createdAt;
+
 
 }

@@ -4,12 +4,10 @@ import com.project.sportmate.main.hunt.applicant.dao.ApplicantDAO;
 import com.project.sportmate.main.hunt.applicant.model.Applicant;
 import com.project.sportmate.main.hunt.applicant.model.ApplicantDetail;
 import com.project.sportmate.main.hunt.bo.HuntBO;
-import com.project.sportmate.main.hunt.dao.HuntDAO;
 import com.project.sportmate.main.hunt.model.Hunt;
 import com.project.sportmate.main.team.member.bo.MemberBO;
 import com.project.sportmate.user.bo.UserBO;
 import com.project.sportmate.user.model.User;
-import org.apache.ibatis.javassist.tools.rmi.AppletServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

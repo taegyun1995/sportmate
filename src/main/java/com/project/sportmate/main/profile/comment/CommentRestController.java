@@ -31,7 +31,7 @@ public class CommentRestController {
 		HttpSession session = request.getSession();
 		int userId = (Integer)session.getAttribute("userId");
 		
-		int count = commentBO.createComment(userId, storyId, comment);
+		int count = commentBO.addComment(userId, storyId, comment);
 		
 		if(count == 1) {
 			map.put("result", "success");
@@ -53,7 +53,7 @@ public class CommentRestController {
 		HttpSession session = request.getSession();
 		int userId = (Integer)session.getAttribute("userId");
 
-		int count = commentBO.deleteComment(userId, commentId);
+		int count = commentBO.removeComment(userId, commentId);
 		
 		if(count == 1) {
 			map.put("result", "success");

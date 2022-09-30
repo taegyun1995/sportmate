@@ -36,7 +36,7 @@ public class ProfileBO {
 	public int addStory(int userId, MultipartFile storyImage, String content) {
 		String imagePath = FileManagerService.saveStoryImgFile(userId, storyImage);
 		
-		return profileDAO.storyInsert(userId, imagePath, content);
+		return profileDAO.insertStory(userId, imagePath, content);
 	}
 	
 	public List<StoryDetail> getStoryList(int userId) {
@@ -74,7 +74,7 @@ public class ProfileBO {
 
 		if(count == 1) {
 			FileManagerService.removeFile(story.getStoryImage());
-			commentBO.deleteStoryComment(storyId);
+			commentBO.removeStoryComment(storyId);
 			likeBO.deleteStoryLike(storyId);
 		}
 

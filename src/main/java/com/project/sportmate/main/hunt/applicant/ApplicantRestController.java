@@ -2,7 +2,6 @@ package com.project.sportmate.main.hunt.applicant;
 
 import com.project.sportmate.main.hunt.applicant.bo.ApplicantBO;
 import com.project.sportmate.main.hunt.applicant.model.Applicant;
-import com.project.sportmate.main.hunt.model.Hunt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;

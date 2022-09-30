@@ -7,6 +7,14 @@ public class ApplicantDetail {
     private User user;
     private Applicant applicant;
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public Applicant getApplicant() {
         return applicant;
     }
@@ -15,13 +23,7 @@ public class ApplicantDetail {
         this.applicant = applicant;
     }
 
-    public User getUser() {
-        return user;
-    }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
 
 
 }
